@@ -9,6 +9,8 @@ import javax.swing.*;
 
 import javax.swing.JOptionPane;
 
+import database.db;
+
 /**
  *
  * @author khadk
