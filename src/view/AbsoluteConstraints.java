@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package org.netbeans.lib.awtextra;
+package view;
 
 import java.awt.Dimension;
 import java.awt.Point;
