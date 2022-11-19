@@ -147,7 +147,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Your message here");
         }else{
             try {
-                User s1 = new User(null, null, null, eText.getText(), null, pText.getText(), null, null, null);
+                User s1 = new User(null, null, null, eText.getText(), null, pText.getText(), null, null, null, null);
                 UserController sc= new UserController();
                 ResultSet isInserted = sc.selectLogin(s1);
                 
