@@ -13,15 +13,22 @@ public class view {
 
     public static void main(String[] args) {
         try {
-            User s1 = new User(null, null, null, "2", null, "1", null, null, null);
-
+            User s1 = new User(null, null, null, null, null, null, null, null, null, null);
             UserController sc= new UserController();
-            ResultSet isInserted = sc.selectLogin(s1);
+            ResultSet isInserted = sc.selectUser(s1);
             
             if(isInserted.next()){
-                JOptionPane.showMessageDialog(null,"Inserted Success");
-                sc.UpdateStatus(s1);
-                sc.changestatus(s1);
+                String fname = isInserted.getString(1);
+                String lname = isInserted.getString(2);
+                String username = isInserted.getString(3);
+                String email = isInserted.getString(4);
+                String contact = isInserted.getString(5);
+                String dob = isInserted.getString(7);
+                
+                // String fname = isInserted.getString(0);
+
+                System.out.println(fname + lname +username + email + contact +dob);
+                
             }
             else{
                 System.out.println("Failed to insert student");

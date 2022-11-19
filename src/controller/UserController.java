@@ -2,6 +2,8 @@ package controller;
 
 import java.sql.ResultSet;
 
+import javax.swing.JRadioButtonMenuItem;
+
 import database.DbConnection;
 import models.User;
 
@@ -34,5 +36,30 @@ public class UserController {
         dbConnection = new DbConnection();
         int result1 = dbConnection.manipulate(updateQuery);
         return result1 ;
+    }
+    
+    public ResultSet selectUser(User user){
+        String selectQuery = "select * from user_login where user_status=1";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
+
+    public int insertdetails(User user){
+        String username = user.getUserName();
+        String email = user.getUserEmail();
+        String pass = user.getUserPass();
+        String dob = user.getUserDob();
+        String gender=user.getUserGender();
+        String sq=user.getUserSq1();
+
+        String insertQuery = "insert into user_login(user_userName,user_email,user_pass,user_dob,gender,user_sq1)" +
+         "values('"+username+"','"+email+"','"+pass+"','"+dob+"','"+gender+"','"+sq+"')";
+         dbConnection = new DbConnection();
+         int result  =dbConnection.manipulate(insertQuery);
+         return result;
+
+
+        
     }
 }
