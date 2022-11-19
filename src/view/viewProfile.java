@@ -257,6 +257,8 @@ public class viewProfile extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
+
+    public 
     /**
      * @param args the command line arguments
      */

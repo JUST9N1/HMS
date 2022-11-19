@@ -9,11 +9,10 @@ import javax.swing.*;
 
 import javax.swing.JOptionPane;
 
-<<<<<<< HEAD
+import controller.UserController;
 import database.db;
+import models.User;
 
-=======
->>>>>>> 9f0e3c0e328ca12432ac5e8d7017e2d90b205d30
 /**
  *
  * @author khadk
@@ -147,22 +146,24 @@ public class Login extends javax.swing.JFrame {
         if(eText.getText().equals("") || pText.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Your message here");
         }else{
-            try{
-                conn= db.connectmysqldb();
-                // boolean test;
-                String sql = "Select * FROM user_login WHERE user_email='"+eText.getText()+"' and user_pass='"+pText.getText()+"'";
-                Statement smt = conn.createStatement();
-                ResultSet rs = smt.executeQuery(sql);
-                if(rs.next()){
-                    JOptionPane.showMessageDialog(null, "Login Sucess");
-                    
-                }else{
-                    JOptionPane.showMessageDialog(null, "Login Insucess");
-
-                }
+            try {
+                User s1 = new User(null, null, null, eText.getText(), null, pText.getText(), null, null, null);
+                UserController sc= new UserController();
+                ResultSet isInserted = sc.selectLogin(s1);
                 
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null,e);
+                if(isInserted.next()){
+                    JOptionPane.showMessageDialog(null,"Inserted Success");
+                    int result = sc.UpdateStatus(s1);
+                    int resul1 = sc.changestatus(s1);
+    
+                }
+                else{
+                    System.out.println("Failed to insert student");
+                    
+                }
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
     }//GEN-LAST:event_loginbtnActionPerformed

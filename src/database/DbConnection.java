@@ -65,7 +65,7 @@ public class DbConnection {
     public int manipulate(String query){
 
         try {
-
+            Statement statement = connection.createStatement();
             value = statement.executeUpdate(query);
 
             connection.close();
