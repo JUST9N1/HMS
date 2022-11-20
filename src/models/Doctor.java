@@ -1,17 +1,20 @@
 package models;
 
 public class Doctor {
+    private int doctor_id;
     private String doctor_fname;
     private String doctor_lname;
     private String doctor_age;
     private String doctor_department;
     private String doctor_special;
 
-    public Doctor(String doctor_fname,
+    public Doctor(int doctor_id,
+    String doctor_fname,
     String doctor_lname,
     String doctor_age,
     String doctor_department,
     String doctor_special){
+        this.doctor_id = doctor_id;
         this.doctor_fname = doctor_fname;
         this.doctor_lname = doctor_lname;
         this.doctor_age = doctor_age;
@@ -19,6 +22,13 @@ public class Doctor {
         this.doctor_special = doctor_special;
     }
 
+    public void setDoctorid(int newDoctorId){
+        this.doctor_id = newDoctorId;
+    }
+
+    public int getDoctorId(){
+        return this.doctor_id;
+    }
     public void setdoctorfName(String newdoctorfName){
         this.doctor_fname = newdoctorfName;
     }
