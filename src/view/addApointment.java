@@ -14,6 +14,10 @@ import java.text.SimpleDateFormat;
 
 import javax.swing.JOptionPane;
 
+import controller.AppointmentController;
+import database.db;
+import models.Appointment;
+
 /**
  *
  * @author khadk
@@ -332,11 +336,17 @@ public class addApointment extends javax.swing.JFrame {
                 }
             }
             conn=db.connectmysqldb();
-            String sql = "Insert into appointment(appoint_age,appoint_gender,appoint_fname,appoint_lname,appoint_address,appoint_date,appoint_special)"
-             + "VALUES('"+age+"','"+gender+"','"+fName+"','"+lName+"','"+location+"','"+appoint+"','"+specialist+"')";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.execute();
+            
+            int age_int   = Integer.parseInt(age);
+            Appointment s1 = new Appointment(fName,lName,age_int,location,appoint,gender,specialist);
+            AppointmentController sc= new AppointmentController();
+            int isInserted = sc.insertAppointment(s1);
+            if(isInserted>0){
+                System.out.println("Inserted");
+            }else{
+                System.out.println(" NOt Inserted");
 
+            }
             JOptionPane.showMessageDialog(null,"Inserted Successfully");
             
         // } catch (Exception e) {
