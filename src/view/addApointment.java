@@ -1,8 +1,10 @@
+package view;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,9 +16,13 @@ import java.text.SimpleDateFormat;
 
 import javax.swing.JOptionPane;
 
+// import org.netbeans.lib.awtextra.AbsoluteLayout;
+
 import controller.AppointmentController;
+import controller.UserController;
 import database.db;
 import models.Appointment;
+import models.User;
 
 /**
  *
@@ -31,6 +37,7 @@ public class addApointment extends javax.swing.JFrame {
      */
     public addApointment() {
         initComponents();
+        UpdateCombo();
     }
 
     /**
@@ -65,18 +72,18 @@ public class addApointment extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         phoneText = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        specialistText = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        SpecialText = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new AbsoluteLayout());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(java.awt.Color.lightGray);
-        jPanel4.setLayout(new AbsoluteLayout());
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(java.awt.Color.gray);
 
@@ -140,16 +147,16 @@ public class addApointment extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4.add(jPanel2, new AbsoluteConstraints(0, 0, 150, 460));
+        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 460));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Please fill up the given details");
-        jPanel4.add(jLabel3, new AbsoluteConstraints(260, 30, 390, -1));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 390, -1));
 
         jLabel4.setForeground(java.awt.Color.white);
         jLabel4.setText("Full Name");
-        jPanel4.add(jLabel4, new AbsoluteConstraints(170, 90, 100, 30));
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 100, 30));
 
         nameText.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         nameText.addActionListener(new java.awt.event.ActionListener() {
@@ -157,71 +164,64 @@ public class addApointment extends javax.swing.JFrame {
                 nameTextActionPerformed(evt);
             }
         });
-        jPanel4.add(nameText, new AbsoluteConstraints(300, 90, 230, 30));
+        jPanel4.add(nameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 230, 30));
 
         jLabel5.setForeground(java.awt.Color.white);
         jLabel5.setText("Age");
-        jPanel4.add(jLabel5, new AbsoluteConstraints(170, 130, 100, 30));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 100, 30));
 
         ageText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageTextActionPerformed(evt);
             }
         });
-        jPanel4.add(ageText, new AbsoluteConstraints(300, 130, 230, 30));
+        jPanel4.add(ageText, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 230, 30));
 
         jLabel6.setForeground(java.awt.Color.white);
         jLabel6.setText("Gender");
-        jPanel4.add(jLabel6, new AbsoluteConstraints(170, 170, 100, 30));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 100, 30));
 
         genderText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 genderTextActionPerformed(evt);
             }
         });
-        jPanel4.add(genderText, new AbsoluteConstraints(300, 170, 230, 30));
+        jPanel4.add(genderText, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 230, 30));
 
         jLabel7.setForeground(java.awt.Color.white);
         jLabel7.setText("Location");
-        jPanel4.add(jLabel7, new AbsoluteConstraints(170, 210, 100, 30));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 100, 30));
 
         locationText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 locationTextActionPerformed(evt);
             }
         });
-        jPanel4.add(locationText, new AbsoluteConstraints(300, 210, 230, 30));
+        jPanel4.add(locationText, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 230, 30));
 
         jLabel8.setForeground(java.awt.Color.white);
         jLabel8.setText("Appointment Time");
-        jPanel4.add(jLabel8, new AbsoluteConstraints(170, 250, 120, 30));
-        jPanel4.add(appointText, new AbsoluteConstraints(300, 250, 230, 30));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 120, 30));
+        jPanel4.add(appointText, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 230, 30));
 
         jLabel9.setForeground(java.awt.Color.white);
         jLabel9.setText("Phone no.");
-        jPanel4.add(jLabel9, new AbsoluteConstraints(170, 290, 100, 30));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 100, 30));
 
         phoneText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneTextActionPerformed(evt);
             }
         });
-        jPanel4.add(phoneText, new AbsoluteConstraints(300, 290, 230, 30));
+        jPanel4.add(phoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 230, 30));
 
         jLabel10.setForeground(java.awt.Color.white);
         jLabel10.setText("Specialist");
-        jPanel4.add(jLabel10, new AbsoluteConstraints(170, 330, 100, 30));
-
-        specialistText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                specialistTextActionPerformed(evt);
-            }
-        });
-        jPanel4.add(specialistText, new AbsoluteConstraints(300, 330, 230, 30));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 100, 30));
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setText("Update Appointment");
-        jPanel4.add(jButton1, new AbsoluteConstraints(540, 300, 170, 40));
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 170, 40));
 
         jButton2.setBackground(java.awt.Color.black);
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -238,17 +238,20 @@ public class addApointment extends javax.swing.JFrame {
                 }
             }
         });
-        jPanel4.add(jButton2, new AbsoluteConstraints(300, 380, 230, 40));
+        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, 230, 40));
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton3.setText("View Appointment");
-        jPanel4.add(jButton3, new AbsoluteConstraints(540, 120, 170, 40));
+        jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 170, 40));
+
+        SpecialText.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Specialist" }));
+        jPanel4.add(SpecialText, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 230, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Appointment_img.png"))); // NOI18N
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel4.add(jLabel2, new AbsoluteConstraints(0, 0, 730, 460));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 460));
 
-        jPanel1.add(jPanel4, new AbsoluteConstraints(0, 0, 720, 460));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -296,15 +299,16 @@ public class addApointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_phoneTextActionPerformed
 
-    private void specialistTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialistTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_specialistTextActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_jButton2ActionPerformed
         String name = nameText.getText();
         String age = ageText.getText();
         String phone = phoneText.getText();
-        String specialist = specialistText.getText();
+        String special = null;
+        Object selectedItem = SpecialText.getSelectedItem();
+        if (selectedItem != null) {
+            special = selectedItem.toString();
+            
+        }
         DateFormat fmt = new SimpleDateFormat("dd/MM/YY");
         String appoint = fmt.format(this.appointText.getDate());
         String gender = genderText.getText();
@@ -315,7 +319,7 @@ public class addApointment extends javax.swing.JFrame {
         
         // JOptionPane.showMessageDialog(null, appoint);
         
-        if(name.equals("")||age.equals("")||gender.equals("")||location.equals("")||appoint.equals("")||phone.equals("")||specialist.equals("")){
+        if(name.equals("")||age.equals("")||gender.equals("")||location.equals("")||appoint.equals("")||phone.equals("")||special.equals("Specialist")){
           JOptionPane.showMessageDialog(null, "Please Fill all the details");
         
     }else{
@@ -335,14 +339,29 @@ public class addApointment extends javax.swing.JFrame {
                     lName+=ary[i];
                 }
             }
-            conn=db.connectmysqldb();
-            
+            // conn=db.connectmysqldb();
+            String email = null;
+            User u1 = new User(null,null,null,null,null,null,null,null, null, null);
+            UserController usc = new UserController();
+            ResultSet email_result = usc.selectEmail(u1);
+            while(email_result.next()){
+                email = email_result.getString(1);
+            }
+
             int age_int   = Integer.parseInt(age);
-            Appointment s1 = new Appointment(fName,lName,age_int,location,appoint,gender,specialist);
+            Appointment s1 = new Appointment(0, 0, email,fName,lName, age_int,location,appoint,gender,special);
             AppointmentController sc= new AppointmentController();
+            int result = sc.changeStatus(s1);
             int isInserted = sc.insertAppointment(s1);
             if(isInserted>0){
                 System.out.println("Inserted");
+                nameText.setText("");
+                ageText.setText("");
+                phoneText.setText("");
+                genderText.setText("");
+                locationText.setText("");
+                SpecialText.setSelectedItem("Specialist");
+                appointText.setCalendar(null);
             }else{
                 System.out.println(" NOt Inserted");
 
@@ -356,6 +375,15 @@ public class addApointment extends javax.swing.JFrame {
         // }
     }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void UpdateCombo(){
+        String[] ary = {"Orthopedist","Neurologist","opthalmologist"};
+        // String item = null;
+        for(int i = 0;i < ary.length;i++){
+            SpecialText.addItem(ary[i]);
+        }
+        // Spec.ialText.addItem(ary);
+    }
 
     /**
      * @param args the command line arguments
@@ -393,6 +421,7 @@ public class addApointment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> SpecialText;
     private javax.swing.JTextField ageText;
     private com.toedter.calendar.JDateChooser appointText;
     private javax.swing.JTextField genderText;
@@ -420,6 +449,5 @@ public class addApointment extends javax.swing.JFrame {
     private javax.swing.JTextField locationText;
     private javax.swing.JTextField nameText;
     private javax.swing.JTextField phoneText;
-    private javax.swing.JTextField specialistText;
     // End of variables declaration//GEN-END:variables
 }

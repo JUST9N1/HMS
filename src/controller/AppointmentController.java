@@ -1,5 +1,7 @@
 package controller;
 
+import java.sql.ResultSet;
+
 import database.DbConnection;
 import models.Appointment;
 
@@ -14,9 +16,47 @@ public class AppointmentController {
         String dob =appoint.getAppointdob();
         String gender = appoint.getAppointGender();
         String special = appoint.getAppointSpecial();
-        String insertQuery ="insert into appointment(appoint_fname,appoint_lname,appoint_age,appoint_address,appoint_date,appoint_gender,appoint_special)"
-                + "values('"+fname+"','"+lname+"','"+age+"','"+address+"','"+dob+"','"+gender+"','"+special+"')";
+        String email = appoint.getUserEmail();
+        String insertQuery ="insert into appointment(appoint_fname,appoint_lname,appoint_age,appoint_address,appoint_date,appoint_gender,appoint_special,user_email)"
+                + "values('"+fname+"','"+lname+"','"+age+"','"+address+"','"+dob+"','"+gender+"','"+special+"','"+email+"')";
         dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(insertQuery);
+        return result;
+    }
+    
+    public ResultSet joinTable(Appointment appoint){
+        String joinQuery = "select appointment.appoint_id from appointment INNER JOIN user_login ON appointment.user_email=user_login.user_email where user_login.user_status=1";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(joinQuery);
+        return result;
+    }
+    
+    public int changeStatus(Appointment appoint){
+        String changeQuery="update appointment set appoint_status='"+"0"+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(changeQuery);
+        return result;
+    }
+    
+    public ResultSet getDetails(Appointment appoint){
+        String selectQuery = "select user_login.user_userName,user_login.user_email from appointment INNER JOIN user_login ON appointment.user_email=user_login.user_email where user_login.user_status=1 and appointment.appoint_status=1";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+
+    }
+
+    public ResultSet getSpecialist(Appointment appoint){
+        String selectQuery = "select appoint_special from appointment where appoint_status=1";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
+
+    public int insertDID(Appointment appoint){
+        int dId = appoint.getDoctorId();
+        String insertQuery = "update appointment set doctor_id='"+dId+"' where appoint_status=1 ";
+        dbConnection = new  DbConnection();
         int result = dbConnection.manipulate(insertQuery);
         return result;
     }

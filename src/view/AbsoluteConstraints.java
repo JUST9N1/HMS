@@ -1,3 +1,5 @@
+package view;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,7 +19,7 @@
  * under the License.
  */
 
-package view;
+// package view;
 
 import java.awt.Dimension;
 import java.awt.Point;
