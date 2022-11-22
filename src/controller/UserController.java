@@ -44,6 +44,12 @@ public class UserController {
         ResultSet result = dbConnection.retrieve(selectQuery);
         return result;
     }
+    public ResultSet selectEmail(User user){
+        String selectQuery = "select user_email from user_login where user_status=1";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
 
     public int insertdetails(User user){
         String username = user.getUserName();

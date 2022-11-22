@@ -52,4 +52,20 @@ public class DoctorController {
         ResultSet result = dbConnection.retrieve(viewQuery);
         return result;
     }
+
+    public ResultSet viewDoctorid(Doctor doctor){
+        String specialist = doctor.getdoctorSpecial();
+        String selectQuery = "select doctor_id from doctor where specialist='"+specialist+"'";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
+
+    public ResultSet viewDoctorName(Doctor doctor){
+        int id  = doctor.getDoctorId();
+        String selectQuery="select fname,lname from doctor where doctor_id = '"+id+"'";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
 }

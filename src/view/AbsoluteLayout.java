@@ -1,5 +1,7 @@
 package view;
 
+// package view;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -23,7 +25,7 @@ package view;
 
 import java.awt.*;
 
-import view.AbsoluteConstraints;
+// import view.AbsoluteConstraints;
 
 /** AbsoluteLayout is a LayoutManager that works as a replacement for "null" layout to
 * allow placement of components in absolute positions.
