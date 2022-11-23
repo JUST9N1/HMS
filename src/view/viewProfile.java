@@ -7,8 +7,8 @@ package view;
 import java.sql.ResultSet;
 
 import controller.UserController;
-import models.User;
 import database.DbConnection;
+import models.User;
 
 /**
  *
