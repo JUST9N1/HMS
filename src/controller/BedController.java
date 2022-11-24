@@ -1,5 +1,7 @@
 package controller;
 
+import java.sql.ResultSet;
+
 import database.DbConnection;
 import models.Bed;
 
@@ -16,6 +18,13 @@ public class BedController {
                 "values('" + ward_no + "','" + ward_type + "','" + bed_type + "','" + bed_size + "')";
         dbConnection = new DbConnection();
         int result = dbConnection.manipulate(insertQuery);
+        return result;
+    }
+
+    public ResultSet viewDetails(Bed bed){
+        String selectQuery = "select * from bed where status='"+"active"+"'";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
         return result;
     }
 }
