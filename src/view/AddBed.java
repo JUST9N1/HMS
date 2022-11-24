@@ -49,6 +49,11 @@ public class AddBed extends javax.swing.JFrame {
         jRadioButton5 = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -119,22 +124,22 @@ public class AddBed extends javax.swing.JFrame {
                                         .addGap(8, 8, 8)
                                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jLabel3)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(118, 118, 118)
+                .addGap(110, 110, 110)
                 .addComponent(jLabel3)
-                .addGap(84, 84, 84)
+                .addGap(92, 92, 92)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,17 +149,17 @@ public class AddBed extends javax.swing.JFrame {
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 250, 700));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 260, 710));
 
         jLabel4.setFont(new java.awt.Font("Stencil", 3, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 102, 0));
         jLabel4.setText("Add Bed ");
         jLabel4.setToolTipText("");
         jLabel4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, 230, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 230, -1));
 
         jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 0, 0));
@@ -212,7 +217,53 @@ public class AddBed extends javax.swing.JFrame {
         jComboBox1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(204, 0, 0));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "Emergency", "Semi Special", "ICU", "CCU", "SICU", "Special", "Deluxe", "Super Deluxe", "BurnWard", "NICU", "PICU" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 120, 20));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 120, 30));
+
+        jButton6.setBackground(new java.awt.Color(0, 255, 255));
+        jButton6.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(153, 0, 51));
+        jButton6.setText("Add Bed");
+        jButton6.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 0)), javax.swing.BorderFactory.createCompoundBorder()), null));
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 510, 160, 50));
+
+        jTable1.setBackground(new java.awt.Color(102, 102, 102));
+        jTable1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 0, 0), new java.awt.Color(255, 0, 51)));
+        jTable1.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Bed no.", "Ward no", "Bed Size", "Bed Type", "Ward Type"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 107, -1, 440));
+
+        jButton7.setBackground(new java.awt.Color(0, 255, 255));
+        jButton7.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
+        jButton7.setText("View Bed");
+        jButton7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0)));
+        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 590, 200, 50));
+
+        jButton8.setBackground(new java.awt.Color(0, 255, 255));
+        jButton8.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(51, 0, 102));
+        jButton8.setText("View Doctor");
+        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 590, 190, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/AddBed.png"))); // NOI18N
         jLabel2.setLabelFor(jLabel2);
@@ -295,6 +346,9 @@ public class AddBed extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -311,6 +365,8 @@ public class AddBed extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

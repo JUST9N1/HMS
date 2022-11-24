@@ -85,17 +85,17 @@ public class Register extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setLayout(new AbsoluteLayout());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Enter Your Email");
-        jPanel1.add(jLabel2, new AbsoluteConstraints(490, 160, 240, 28));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 240, 28));
 
         jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CREATE PASSWORD");
-        jPanel1.add(jLabel3, new AbsoluteConstraints(140, 320, 249, 28));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 249, 28));
 
         sqText.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
         sqText.setForeground(new java.awt.Color(102, 102, 102));
@@ -104,7 +104,7 @@ public class Register extends javax.swing.JFrame {
                 sqTextActionPerformed(evt);
             }
         });
-        jPanel1.add(sqText, new AbsoluteConstraints(250, 460, 303, 38));
+        jPanel1.add(sqText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 303, 38));
 
         userText.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
         userText.setForeground(new java.awt.Color(102, 102, 102));
@@ -113,13 +113,13 @@ public class Register extends javax.swing.JFrame {
                 userTextActionPerformed(evt);
             }
         });
-        jPanel1.add(userText, new AbsoluteConstraints(140, 190, 194, -1));
+        jPanel1.add(userText, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 194, -1));
 
         jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setLabelFor(userText);
         jLabel4.setText("Enter Your Username");
-        jPanel1.add(jLabel4, new AbsoluteConstraints(140, 160, 250, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 250, 30));
 
         dobText.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
         dobText.setForeground(new java.awt.Color(102, 102, 102));
@@ -128,23 +128,23 @@ public class Register extends javax.swing.JFrame {
                 dobTextActionPerformed(evt);
             }
         });
-        jPanel1.add(dobText, new AbsoluteConstraints(140, 270, 226, -1));
+        jPanel1.add(dobText, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 226, -1));
 
         jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Enter Your Date of BIrth");
-        jPanel1.add(jLabel5, new AbsoluteConstraints(140, 240, 250, 28));
-        jPanel1.add(passText, new AbsoluteConstraints(140, 350, 224, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 250, 28));
+        jPanel1.add(passText, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 224, -1));
 
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Security Question");
-        jPanel1.add(jLabel6, new AbsoluteConstraints(280, 400, 220, 30));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 220, 30));
 
         jLabel7.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("What is your favourite food ? (MAndatory)");
-        jPanel1.add(jLabel7, new AbsoluteConstraints(240, 430, 340, 35));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 340, 35));
 
         emailText.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
         emailText.setForeground(new java.awt.Color(102, 102, 102));
@@ -153,7 +153,7 @@ public class Register extends javax.swing.JFrame {
                 emailTextActionPerformed(evt);
             }
         });
-        jPanel1.add(emailText, new AbsoluteConstraints(460, 190, 228, -1));
+        jPanel1.add(emailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 228, -1));
 
         jButton1.setBackground(new java.awt.Color(51, 0, 51));
         jButton1.setFont(new java.awt.Font("Yu Gothic Medium", 3, 14)); // NOI18N
@@ -165,12 +165,12 @@ public class Register extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new AbsoluteConstraints(630, 450, 270, 60));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 270, 60));
 
         jLabel8.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("already have an account ?");
-        jPanel1.add(jLabel8, new AbsoluteConstraints(530, 590, 224, 35));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 590, 224, 35));
 
         jButton2.setFont(new java.awt.Font("Serif", 3, 18)); // NOI18N
         jButton2.setText("Sign in ");
@@ -180,7 +180,7 @@ public class Register extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new AbsoluteConstraints(550, 620, 154, 35));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 620, 154, 35));
 
         jLabel12.setFont(new java.awt.Font("Serif", 3, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 0, 0));
@@ -189,12 +189,12 @@ public class Register extends javax.swing.JFrame {
         jLabel12.setText("Sign up to HMS");
         jLabel12.setToolTipText("");
         jLabel12.setIconTextGap(5);
-        jPanel1.add(jLabel12, new AbsoluteConstraints(340, 50, 351, 90));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 351, 90));
 
         jLabel10.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Gender");
-        jPanel1.add(jLabel10, new AbsoluteConstraints(460, 240, 220, 20));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 220, 20));
 
         gendergroup.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Segoe UI Semilight", 3, 14)); // NOI18N
@@ -205,37 +205,37 @@ public class Register extends javax.swing.JFrame {
                 jRadioButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jRadioButton1, new AbsoluteConstraints(460, 270, -1, -1));
+        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, -1, -1));
 
         gendergroup.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI Semilight", 3, 14)); // NOI18N
         jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("Female");
-        jPanel1.add(jRadioButton2, new AbsoluteConstraints(530, 270, -1, -1));
+        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, -1, -1));
 
         gendergroup.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Segoe UI Semilight", 3, 14)); // NOI18N
         jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton3.setText("Others");
-        jPanel1.add(jRadioButton3, new AbsoluteConstraints(610, 270, -1, -1));
+        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Confirm password");
         jLabel11.setToolTipText("");
-        jPanel1.add(jLabel11, new AbsoluteConstraints(450, 320, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 140, 20));
 
         repassText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 repassTextActionPerformed(evt);
             }
         });
-        jPanel1.add(repassText, new AbsoluteConstraints(440, 350, 240, -1));
+        jPanel1.add(repassText, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 240, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 3, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Register.png"))); // NOI18N
-        jPanel1.add(jLabel9, new AbsoluteConstraints(0, 30, 1350, 860));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1350, 860));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
