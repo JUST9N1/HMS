@@ -1,6 +1,9 @@
 package view;
 
+import java.sql.ResultSet;
+
 import javax.swing.JOptionPane;
+import javax.swing.plaf.synth.SynthStyle;
 
 import controller.BedController;
 import models.Bed;
@@ -27,7 +30,17 @@ public class test {
         
         
         try {
-            
+            Bed b1 = new Bed(0, 0, null, null, null);
+            BedController bc = new BedController();
+            ResultSet rSet = bc.viewDetails(b1);
+            if(rSet.next()){
+                int bed_no = Integer.parseInt(rSet.getString(1));
+                int ward_no = Integer.parseInt(rSet.getString(4));
+                String bed_Type = rSet.getString(2);
+                String bed_size = rSet.getString(3);
+                String ward_type = rSet.getString(5);
+                System.out.println(bed_no + ward_no + bed_Type +bed_size +ward_type);
+            }
         } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "e");
             

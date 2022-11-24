@@ -4,6 +4,13 @@
  */
 package view;
 
+import java.sql.ResultSet;
+
+import javax.swing.JOptionPane;
+
+import controller.BedController;
+import models.Bed;
+
 /**
  *
  * @author khadk
@@ -15,6 +22,7 @@ public class viewBed extends javax.swing.JFrame {
      */
     public viewBed() {
         initComponents();
+        view();
     }
 
     /**
@@ -36,15 +44,15 @@ public class viewBed extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        BedNoText = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        WardNoText = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        WardTypeText = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        BedSizeText = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        BedTypeText = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -110,35 +118,35 @@ public class viewBed extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel4.setLabelFor(jTextField1);
+        jLabel4.setLabelFor(BedNoText);
         jLabel4.setText("Bed No.");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 140, 40));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 290, 40));
+        jPanel1.add(BedNoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 290, 40));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 51, 51));
         jLabel5.setText("Ward No.");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 140, 40));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 290, 40));
+        jPanel1.add(WardNoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 290, 40));
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 51, 51));
         jLabel6.setText("Ward Type");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 140, 40));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 290, 40));
+        jPanel1.add(WardTypeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 290, 40));
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 51, 51));
         jLabel7.setText("Bed Size");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 140, 40));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 290, 40));
+        jPanel1.add(BedSizeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 290, 40));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 51, 51));
         jLabel8.setText("Bed Type");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 140, 40));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 290, 40));
+        jPanel1.add(BedTypeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 290, 40));
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setText("Delete Bed");
@@ -185,6 +193,30 @@ public class viewBed extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public void view(){
+        try {
+            Bed b1 = new Bed(0, 0, null, null, null);
+            BedController bc = new BedController();
+            ResultSet rSet = bc.viewDetails(b1);
+            if(rSet.next()){
+                String bed_no = rSet.getString(1);
+                String  ward_no = rSet.getString(4);
+                String bed_Type = rSet.getString(2);
+                String bed_size = rSet.getString(3);
+                String ward_type = rSet.getString(5);
+                System.out.println(bed_no + ward_no + bed_Type +bed_size +ward_type);
+                BedNoText.setText(bed_no);
+                WardNoText.setText(ward_no);
+                BedTypeText.setText(bed_Type);
+                BedSizeText.setText(bed_size);
+                WardTypeText.setText(ward_type);
+            }
+        } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "e");
+            
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -221,6 +253,11 @@ public class viewBed extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField BedNoText;
+    private javax.swing.JTextField BedSizeText;
+    private javax.swing.JTextField BedTypeText;
+    private javax.swing.JTextField WardNoText;
+    private javax.swing.JTextField WardTypeText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
@@ -238,10 +275,5 @@ public class viewBed extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
