@@ -4,6 +4,11 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
+import controller.UserController;
+import models.User;
+
 /**
  *
  * @author khadk
@@ -54,7 +59,7 @@ public class UpdateProfile extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jTextField7 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        updatebtn = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -154,8 +159,8 @@ public class UpdateProfile extends javax.swing.JFrame {
         jLabel2.setText("Profile details");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 730, 40));
 
+        jLabel4.setBackground(new java.awt.Color(102, 102, 102));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("First Name");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 130, 20));
 
@@ -178,7 +183,6 @@ public class UpdateProfile extends javax.swing.JFrame {
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 220, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Username");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 130, 20));
 
@@ -192,7 +196,6 @@ public class UpdateProfile extends javax.swing.JFrame {
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, 220, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Last Name");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 130, 20));
 
@@ -206,7 +209,6 @@ public class UpdateProfile extends javax.swing.JFrame {
         jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 170, 220, 40));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Phone number");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 130, 20));
 
@@ -220,7 +222,6 @@ public class UpdateProfile extends javax.swing.JFrame {
         jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 240, 40));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Email");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 130, 20));
 
@@ -234,12 +235,10 @@ public class UpdateProfile extends javax.swing.JFrame {
         jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 220, 40));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Password");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 130, 20));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Gender");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, 330, -1));
@@ -277,18 +276,17 @@ public class UpdateProfile extends javax.swing.JFrame {
         jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 220, 40));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Date of birth");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 130, 20));
 
-        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton6.setText("Update Bed");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        updatebtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        updatebtn.setText("Update Bed");
+        updatebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                updatebtnActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 530, 230, 60));
+        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 530, 230, 60));
 
         jButton7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton7.setText("Delete Bed");
@@ -300,7 +298,6 @@ public class UpdateProfile extends javax.swing.JFrame {
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 530, 200, 60));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Update.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -354,9 +351,22 @@ public class UpdateProfile extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+        try {
+            //     
+                User u1 = new User("Crystal", "Khadka", "Crystal", "khadka@gmail.com", "9843041037", "1234", "24/05/2004", null, null, null);
+                UserController uc = new UserController();
+                int result = uc.updatedetails(u1);
+                if(result>0){
+                    JOptionPane.showMessageDialog(null, "Updated Success");
+                }
+            } catch (Exception e) {
+                // TODO: handle exception
+                JOptionPane.showMessageDialog(null, e);
+            }
+            
+    }//GEN-LAST:event_updatebtnActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
@@ -404,7 +414,6 @@ public class UpdateProfile extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -429,5 +438,6 @@ public class UpdateProfile extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JButton updatebtn;
     // End of variables declaration//GEN-END:variables
 }
