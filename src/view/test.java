@@ -6,25 +6,27 @@ import javax.swing.JOptionPane;
 import javax.swing.plaf.synth.SynthStyle;
 
 import controller.BedController;
-import controller.UserController;
 import models.Bed;
-import models.User;
 
 public class test {
     public static void main(String[] args) {
-        try {
-        //     
-            User u1 = new User("Crystal", "Khadka", "Crystal", "khadka@gmail.com", "9843041037", "1234", "24/05/2004", null, null, null);
-            UserController uc = new UserController();
-            int result = uc.updatedetails(u1);
-            if(result>0){
-                JOptionPane.showMessageDialog(null, "Updated Success");
-            }
-        } catch (Exception e) {
-            // TODO: handle exception
-            JOptionPane.showMessageDialog(null, e);
+        // try {
+        //     Bed b1 = new Bed(0, 1, "manual", "42 inch", "General");
+        //     BedController bc= new BedController();
+        //     int result = bc.insertdetails(b1);
+        //     if(result>0){
+        //         JOptionPane.showMessageDialog(null, "Bed Added Successfully");
+        //     }
+        //     else{
+        //         JOptionPane.showMessageDialog(null, "Bed can't be added");
+                
+        //     }
+            
+        // } catch (Exception e) {
+        //     // TODO: handle exception
+        //     JOptionPane.showMessageDialog(null, "e");
         
-        }
+        // }
         
         
         // try {
