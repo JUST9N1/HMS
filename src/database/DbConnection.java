@@ -38,7 +38,7 @@ public class DbConnection {
 
                     if(connection!=null){
 
-                        System.out.println("Connected to database");
+                        // System.out.println("Connected to database");
 
                     }else{
 
