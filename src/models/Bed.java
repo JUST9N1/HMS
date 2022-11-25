@@ -19,6 +19,9 @@ public class Bed {
         this.ward_type = ward_type;
     }
 
+    public Bed(int i, Object object, Object object2, Object object3, Object object4, Object object5) {
+    }
+
     public void setBedNo(int newBedNo){
         this.bed_no = newBedNo;
     }
