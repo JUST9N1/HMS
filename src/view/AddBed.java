@@ -4,6 +4,15 @@
  */
 package view;
 
+import java.sql.ResultSet;
+
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+import controller.BedController;
+import models.Bed;
+
 /**
  *
  * @author razee
@@ -15,6 +24,7 @@ public class AddBed extends javax.swing.JFrame {
      */
     public AddBed() {
         initComponents();
+        table();
     }
 
     /**
@@ -39,20 +49,20 @@ public class AddBed extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        wardField = new javax.swing.JTextField();
+        singleRadio = new javax.swing.JRadioButton();
+        MultipleRadio = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        ManualRadio = new javax.swing.JRadioButton();
+        SemiRadio = new javax.swing.JRadioButton();
+        ElectricButton = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton6 = new javax.swing.JButton();
+        WardCombo = new javax.swing.JComboBox<>();
+        AddBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton7 = new javax.swing.JButton();
+        bedTable = new javax.swing.JTable();
+        viewBed = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
@@ -166,22 +176,22 @@ public class AddBed extends javax.swing.JFrame {
         jLabel5.setText("Ward number");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 2, true));
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 170, 30));
+        wardField.setBackground(new java.awt.Color(0, 0, 0));
+        wardField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        wardField.setForeground(new java.awt.Color(255, 255, 255));
+        wardField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 2, true));
+        wardField.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(wardField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 170, 30));
 
-        BedSize.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jRadioButton1.setText("Single");
-        jPanel2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 100, -1));
+        BedSize.add(singleRadio);
+        singleRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        singleRadio.setText("Single");
+        jPanel2.add(singleRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 100, -1));
 
-        BedSize.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jRadioButton2.setText("Multiple");
-        jPanel2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
+        BedSize.add(MultipleRadio);
+        MultipleRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        MultipleRadio.setText("Multiple");
+        jPanel2.add(MultipleRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 0, 0));
@@ -193,49 +203,50 @@ public class AddBed extends javax.swing.JFrame {
         jLabel7.setText("Bed Type");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 130, 40));
 
-        BedType.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jRadioButton3.setText("Manual");
-        jPanel2.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, -1, -1));
+        BedType.add(ManualRadio);
+        ManualRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ManualRadio.setText("Manual");
+        jPanel2.add(ManualRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, -1, -1));
 
-        BedType.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jRadioButton4.setText("Semi Electric");
-        jPanel2.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
+        BedType.add(SemiRadio);
+        SemiRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        SemiRadio.setText("Semi Electric");
+        jPanel2.add(SemiRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
 
-        BedType.add(jRadioButton5);
-        jRadioButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jRadioButton5.setText("Electric");
-        jPanel2.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, -1, -1));
+        BedType.add(ElectricButton);
+        ElectricButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ElectricButton.setText("Electric");
+        jPanel2.add(ElectricButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 0, 0));
         jLabel8.setText("Ward Type");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 130, -1));
 
-        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(204, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "Emergency", "Semi Special", "ICU", "CCU", "SICU", "Special", "Deluxe", "Super Deluxe", "BurnWard", "NICU", "PICU" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 120, 30));
+        WardCombo.setBackground(new java.awt.Color(0, 0, 0));
+        WardCombo.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        WardCombo.setForeground(new java.awt.Color(204, 0, 0));
+        WardCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "Emergency", "Semi Special", "ICU", "CCU", "SICU", "Special", "Deluxe", "Super Deluxe", "BurnWard", "NICU", "PICU" }));
+        jPanel2.add(WardCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 120, 30));
 
-        jButton6.setBackground(new java.awt.Color(0, 255, 255));
-        jButton6.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(153, 0, 51));
-        jButton6.setText("Add Bed");
-        jButton6.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 0)), javax.swing.BorderFactory.createCompoundBorder()), null));
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 510, 160, 50));
+        AddBtn.setBackground(new java.awt.Color(0, 255, 255));
+        AddBtn.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
+        AddBtn.setForeground(new java.awt.Color(153, 0, 51));
+        AddBtn.setText("Add Bed");
+        AddBtn.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 0)), javax.swing.BorderFactory.createCompoundBorder()), null));
+        AddBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 510, 160, 50));
 
-        jTable1.setBackground(new java.awt.Color(102, 102, 102));
-        jTable1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 0, 0), new java.awt.Color(255, 0, 51)));
-        jTable1.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        bedTable.setBackground(new java.awt.Color(102, 102, 102));
+        bedTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 0, 0), new java.awt.Color(255, 0, 51)));
+        bedTable.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        bedTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Bed no.", "Ward no", "Bed Size", "Bed Type", "Ward Type"
@@ -249,20 +260,36 @@ public class AddBed extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        bedTable.setRowHeight(30);
+        jScrollPane1.setViewportView(bedTable);
+        if (bedTable.getColumnModel().getColumnCount() > 0) {
+            bedTable.getColumnModel().getColumn(0).setPreferredWidth(12);
+            bedTable.getColumnModel().getColumn(1).setPreferredWidth(12);
+            bedTable.getColumnModel().getColumn(4).setPreferredWidth(40);
+        }
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 107, -1, 440));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 480, 440));
 
-        jButton7.setBackground(new java.awt.Color(0, 255, 255));
-        jButton7.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
-        jButton7.setText("View Bed");
-        jButton7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0)));
-        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 590, 200, 50));
+        viewBed.setBackground(new java.awt.Color(0, 255, 255));
+        viewBed.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
+        viewBed.setText("View Bed");
+        viewBed.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0)));
+        viewBed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewBedActionPerformed(evt);
+            }
+        });
+        jPanel2.add(viewBed, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 590, 200, 50));
 
         jButton8.setBackground(new java.awt.Color(0, 255, 255));
         jButton8.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jButton8.setForeground(new java.awt.Color(51, 0, 102));
-        jButton8.setText("View Doctor");
+        jButton8.setText("Delete Bed");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 590, 190, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/AddBed.png"))); // NOI18N
@@ -292,7 +319,7 @@ public class AddBed extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -303,6 +330,141 @@ public class AddBed extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void AddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtnActionPerformed
+        // TODO add your handling code here:
+
+        int ward_no = Integer.parseInt(wardField.getText());
+        String size = null;;
+        if(singleRadio.isSelected()){
+            size = "single";
+        }else if(MultipleRadio.isSelected()){
+            size = "multiple";
+        }
+
+        String type = null;
+        if(ManualRadio.isSelected()){
+            type = "manual";
+        }else if(SemiRadio.isSelected()){
+            type="semi-electric";
+
+        }else if(ElectricButton.isSelected()){
+            type="electric";
+        }
+        String wardType = null;
+        Object selectedItem = WardCombo.getSelectedItem();
+        if (selectedItem != null) {
+            wardType = selectedItem.toString();
+            
+        }
+
+
+
+
+        try {
+
+            Bed b1 = new Bed(0, ward_no, type, size, wardType);
+            // Bed b1 = new Bed(0, Integer.parseInt(wardField.getText()), , "42 inch", "General");
+            BedController bc= new BedController();
+            int result = bc.insertdetails(b1);
+            if(result>0){
+                JOptionPane.showMessageDialog(null, "Bed Added Successfully");
+                tableadd();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Bed can't be added");
+                
+            }
+            
+        } catch (Exception e) {
+            // TODO: handle exception
+            JOptionPane.showMessageDialog(null, "e");
+        
+        }
+    }//GEN-LAST:event_AddBtnActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void viewBedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBedActionPerformed
+        // TODO add your handling code here:
+        view();
+        
+       
+        
+        
+    }//GEN-LAST:event_viewBedActionPerformed
+
+
+    public void table(){
+        try {
+            Bed d1 = new Bed(0,0,null,null,null);
+            BedController sc = new BedController();
+            ResultSet result = sc.selectdetails(d1);
+            while (result.next()) {
+                int id = Integer.parseInt(result.getString(1));
+                int ward_no = Integer.parseInt(result.getString(4));
+                String bedtype = result.getString(2);
+                String bedsize = result.getString(3);
+                String wardtype = result.getString(5);
+                Object[] row = { id,ward_no,bedsize,bedtype,wardtype };
+                DefaultTableModel model = (DefaultTableModel) bedTable.getModel();
+                model.addRow(row);
+            }
+
+        } catch (Exception e) {
+            // TODO: handle exception
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    public void tableadd(){
+        try {
+            
+            Bed d1 = new Bed(0,0,null,null,null);
+            BedController sc = new BedController();
+            ResultSet result = sc.selectdetails(d1);
+            DefaultTableModel model = (DefaultTableModel) bedTable.getModel();
+            model.setRowCount(0);
+            while (result.next()) {
+                int id = Integer.parseInt(result.getString(1));
+                int ward_no = Integer.parseInt(result.getString(4));
+                String bedtype = result.getString(2);
+                String bedsize = result.getString(3);
+                String wardtype = result.getString(5);
+                Object[] row = { id,ward_no,bedsize,bedtype,wardtype };
+                model.addRow(row);
+                
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    public void view(){
+        int i = bedTable.getSelectedRow();
+        if(i>0){
+
+            TableModel model = bedTable.getModel();
+            int id = Integer.parseInt(model.getValueAt(i, 0).toString());
+            try {
+                Bed b1 = new Bed(id, 0, null, null, null);
+    
+                BedController bc = new BedController();
+                int out = bc.updatestatus(b1);
+                int result = bc.changestatus(b1);
+                dispose();
+                viewBed v1 = new viewBed();
+                v1.setVisible(true);
+    
+            } catch (Exception e) {
+                // TODO: handle exception
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "No row selected");
+        }
+
+    }
     /**
      * @param args the command line arguments
      */
@@ -339,17 +501,21 @@ public class AddBed extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddBtn;
     private javax.swing.ButtonGroup BedSize;
     private javax.swing.ButtonGroup BedType;
+    private javax.swing.JRadioButton ElectricButton;
+    private javax.swing.JRadioButton ManualRadio;
+    private javax.swing.JRadioButton MultipleRadio;
+    private javax.swing.JRadioButton SemiRadio;
+    private javax.swing.JComboBox<String> WardCombo;
+    private javax.swing.JTable bedTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -360,15 +526,11 @@ public class AddBed extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JRadioButton singleRadio;
+    private javax.swing.JButton viewBed;
+    private javax.swing.JTextField wardField;
     // End of variables declaration//GEN-END:variables
 }
