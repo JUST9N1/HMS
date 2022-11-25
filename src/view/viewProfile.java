@@ -87,11 +87,9 @@ public class viewProfile extends javax.swing.JFrame {
         dText = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         gLabel = new javax.swing.JLabel();
         lText = new javax.swing.JTextField();
         eText = new javax.swing.JTextField();
-        aText = new javax.swing.JTextField();
         gText = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -166,6 +164,7 @@ public class viewProfile extends javax.swing.JFrame {
         jLabel1.setText("Account details");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 403, 33));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("First Name");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 97, -1));
 
@@ -176,32 +175,34 @@ public class viewProfile extends javax.swing.JFrame {
         });
         jPanel1.add(fText, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 117, 123, -1));
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("User Name");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 157, 105, -1));
         jPanel1.add(userText, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 157, 123, -1));
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Contact");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 194, 86, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 86, -1));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Date of Birth");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 234, 86, -1));
-        jPanel1.add(cText, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 191, 123, -1));
+        jPanel1.add(cText, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 123, -1));
         jPanel1.add(dText, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 231, 123, -1));
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Last Name");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 120, 77, -1));
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Email");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 160, 77, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 77, -1));
 
-        jLabel8.setText("Address");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 194, 77, -1));
-
+        gLabel.setForeground(new java.awt.Color(255, 255, 255));
         gLabel.setText("Gender");
         jPanel1.add(gLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 234, 77, -1));
         jPanel1.add(lText, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 117, 128, -1));
-        jPanel1.add(eText, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 157, 128, -1));
-        jPanel1.add(aText, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 191, 128, -1));
+        jPanel1.add(eText, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 300, 20));
         jPanel1.add(gText, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 231, 128, -1));
 
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -276,7 +277,7 @@ public class viewProfile extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 470));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/viewProfile.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 470));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -363,7 +364,6 @@ public class viewProfile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField aText;
     private javax.swing.JTextField cText;
     private javax.swing.JTextField dText;
     private javax.swing.JTextField eText;
@@ -389,7 +389,6 @@ public class viewProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

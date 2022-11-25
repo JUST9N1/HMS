@@ -6,18 +6,19 @@ import javax.swing.JOptionPane;
 import javax.swing.plaf.synth.SynthStyle;
 
 import controller.BedController;
+import controller.PatientController;
 import controller.UserController;
 import models.Bed;
+import models.Patient;
 import models.User;
 
 public class test {
     public static void main(String[] args) {
         try {
             //
-            User u1 = new User("Crystal", "Khadka", "Crystal", "khadka@gmail.com", "9843041037", "1234", "24/05/2004",
-                    null, null, "Male");
-            UserController uc = new UserController();
-            int result = uc.updatedetails(u1);
+            Patient p1 = new Patient(0, 0, 0, "khadkacrystal@gmail.com", "I have cancer", "A+");
+            PatientController pc = new PatientController();
+            int result = pc.insertDetails(p1);
             if (result > 0) {
                 JOptionPane.showMessageDialog(null, "Updated Success");
             }

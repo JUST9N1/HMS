@@ -322,7 +322,7 @@ public class addDoctorView extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int i = doctorTable.getSelectedRow();
-        if (i>0){
+        // if (i>0){
 
             TableModel model = doctorTable.getModel();
             int id = Integer.parseInt(model.getValueAt(i, 0).toString());
@@ -339,9 +339,12 @@ public class addDoctorView extends javax.swing.JFrame {
             } catch (Exception e) {
                 // TODO: handle exception
                 JOptionPane.showMessageDialog(null, e);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "Select only one row");
+            // }
+        // }else{
+            // JOptionPane.showMessageDialog(null, "Select only one row");
+
+
+
 
         }
 
