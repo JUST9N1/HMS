@@ -340,27 +340,18 @@ public class addDoctorView extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int i = doctorTable.getSelectedRow();
-        if (i>0){
+        TableModel model = doctorTable.getModel();
+        int id = Integer.parseInt(model.getValueAt(i, 0).toString());
+        try {
+            Doctor d1 = new Doctor(id, null, null, null, null, null);
 
-            TableModel model = doctorTable.getModel();
-            int id = Integer.parseInt(model.getValueAt(i, 0).toString());
-            try {
-                Doctor d1 = new Doctor(id, null, null, null, null, null);
-    
-                DoctorController sc = new DoctorController();
-                int out = sc.updatestatus(d1);
-                int result = sc.changestatus(d1);
-                dispose();
-                ViewDoctor vd = new ViewDoctor();
-                vd.setVisible(true);
-    
-            } catch (Exception e) {
-                // TODO: handle exception
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "Select only one row");
+            DoctorController sc = new DoctorController();
+            int out = sc.updatestatus(d1);
+            int result = sc.changestatus(d1);
 
+        } catch (Exception e) {
+            // TODO: handle exception
+            JOptionPane.showMessageDialog(null, e);
         }
 
     }// GEN-LAST:event_jButton2ActionPerformed

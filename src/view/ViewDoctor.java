@@ -4,13 +4,6 @@
  */
 package view;
 
-import java.sql.ResultSet;
-
-import javax.swing.JOptionPane;
-
-import controller.DoctorController;
-import models.Doctor;
-
 /**
  *
  * @author razee
@@ -22,7 +15,6 @@ public class ViewDoctor extends javax.swing.JFrame {
      */
     public ViewDoctor() {
         initComponents();
-        view();
     }
 
     /**
@@ -48,12 +40,12 @@ public class ViewDoctor extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        idText = new javax.swing.JTextField();
-        NameText = new javax.swing.JTextField();
-        ageText = new javax.swing.JTextField();
-        specialText = new javax.swing.JTextField();
-        departText = new javax.swing.JTextField();
-        UpdateBtn = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -170,46 +162,41 @@ public class ViewDoctor extends javax.swing.JFrame {
         jLabel8.setText("Department:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 110, 50));
 
-        idText.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        idText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
-        idText.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idTextActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
-        jPanel1.add(idText, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 230, 40));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 230, 40));
 
-        NameText.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        NameText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
-        jPanel1.add(NameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 230, 40));
+        jTextField2.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jTextField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 230, 40));
 
-        ageText.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        ageText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), null));
-        jPanel1.add(ageText, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 230, 40));
+        jTextField3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), null));
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 230, 40));
 
-        specialText.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        specialText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
-        specialText.addActionListener(new java.awt.event.ActionListener() {
+        jTextField4.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        jTextField4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                specialTextActionPerformed(evt);
+                jTextField4ActionPerformed(evt);
             }
         });
-        jPanel1.add(specialText, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 250, 40));
+        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 250, 40));
 
-        departText.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        departText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
-        jPanel1.add(departText, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 250, 40));
+        jTextField5.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        jTextField5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 250, 40));
 
-        UpdateBtn.setBackground(new java.awt.Color(255, 255, 0));
-        UpdateBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        UpdateBtn.setText("Update Doctor");
-        UpdateBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdateBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 210, 70));
+        jButton6.setBackground(new java.awt.Color(255, 255, 0));
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton6.setText("Update Doctor");
+        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 210, 70));
 
         jButton7.setBackground(new java.awt.Color(255, 255, 0));
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -237,40 +224,14 @@ public class ViewDoctor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void idTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idTextActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void specialTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialTextActionPerformed
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_specialTextActionPerformed
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
-    private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UpdateBtnActionPerformed
-    public void view(){
-        try {
-            Doctor d1 = new Doctor(0, null, null, null, null, null);
-            DoctorController sc = new DoctorController();
-            ResultSet result = sc.viewdetails(d1);
-            while (result.next()) {
-                String id = result.getString(1);
-                String name = result.getString(2) + " " + result.getString(3);
-                String age = result.getString(4);
-                String depart = result.getString(5);
-                String special = result.getString(6);
-                
-                idText.setText(id);
-                NameText.setText(name);
-                ageText.setText(age);
-                departText.setText(depart);
-                specialText.setText(special);
-            }
-
-        } catch (Exception e) {
-            // TODO: handle exception
-            JOptionPane.showMessageDialog(null, e);}
-        }
     /**
      * @param args the command line arguments
      */
@@ -296,8 +257,6 @@ public class ViewDoctor extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ViewDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    
-   
         //</editor-fold>
 
         /* Create and display the form */
@@ -309,16 +268,12 @@ public class ViewDoctor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField NameText;
-    private javax.swing.JButton UpdateBtn;
-    private javax.swing.JTextField ageText;
-    private javax.swing.JTextField departText;
-    private javax.swing.JTextField idText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -330,6 +285,10 @@ public class ViewDoctor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField specialText;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
