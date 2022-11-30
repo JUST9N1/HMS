@@ -2,7 +2,7 @@ package controller;
 
 import java.sql.ResultSet;
 
-import javax.swing.JRadioButtonMenuItem;
+// import javax.swing.JRadioButtonMenuItem;
 
 import database.DbConnection;
 import models.User;
@@ -84,4 +84,8 @@ public class UserController {
         int result = dbConnection.manipulate(insertQuery);
         return result;
     }
+
+    // public int resetPassword(User user){
+    //     // String email
+    // }
 }
