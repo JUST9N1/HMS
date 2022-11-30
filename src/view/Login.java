@@ -11,10 +11,12 @@ import javax.swing.*;
 
 import javax.swing.JOptionPane;
 
-import org.netbeans.lib.awtextra.AbsoluteLayout;
+// import org.netbeans.lib.awtextra.AbsoluteLayout;
+
+
 
 import controller.UserController;
-// import database.db;
+import database.db;
 import models.User;
 
 /**
@@ -57,28 +59,28 @@ public class Login extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(java.awt.Color.gray);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(new AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("SIGN IN");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 190, -1));
+        jPanel1.add(jLabel2, new AbsoluteConstraints(620, 40, 190, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("Access Your Account");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 260, -1));
+        jPanel1.add(jLabel3, new AbsoluteConstraints(620, 90, 260, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setText("Email");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 180, -1));
+        jPanel1.add(jLabel4, new AbsoluteConstraints(530, 150, 180, -1));
 
         eText.setBackground(java.awt.Color.black);
         eText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         eText.setForeground(java.awt.Color.white);
-        jPanel1.add(eText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 290, 40));
+        jPanel1.add(eText, new AbsoluteConstraints(530, 190, 290, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setText("Password");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 180, -1));
+        jPanel1.add(jLabel5, new AbsoluteConstraints(530, 250, 180, -1));
 
         pText.setBackground(java.awt.Color.black);
         pText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -88,7 +90,7 @@ public class Login extends javax.swing.JFrame {
                 pTextActionPerformed(evt);
             }
         });
-        jPanel1.add(pText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 300, 40));
+        jPanel1.add(pText, new AbsoluteConstraints(530, 290, 300, 40));
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setText("Forgot Password");
@@ -99,7 +101,7 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 350, 180, -1));
+        jPanel1.add(jButton1, new AbsoluteConstraints(580, 350, 180, -1));
 
         loginbtn.setBackground(new java.awt.Color(204, 204, 204));
         loginbtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -109,7 +111,7 @@ public class Login extends javax.swing.JFrame {
                 loginbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 440, 170, 40));
+        jPanel1.add(loginbtn, new AbsoluteConstraints(535, 440, 170, 40));
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 51, 51));
@@ -119,10 +121,10 @@ public class Login extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 520, 160, -1));
+        jPanel1.add(jButton3, new AbsoluteConstraints(405, 520, 160, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Login_pic.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 570));
+        jPanel1.add(jLabel1, new AbsoluteConstraints(0, 0, -1, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,13 +158,13 @@ public class Login extends javax.swing.JFrame {
                 ResultSet isInserted = sc.selectLogin(s1);
                 
                 if(isInserted.next()){
-                    JOptionPane.showMessageDialog(null,"Inserted Success");
+                    JOptionPane.showMessageDialog(null,"Login Successfully");
                     int result = sc.UpdateStatus(s1);
                     int resul1 = sc.changestatus(s1);
     
                 }
                 else{
-                    System.out.println("Failed to insert student");
+                    System.out.println("Failed to login ");
                     
                 }
             } catch (SQLException e) {

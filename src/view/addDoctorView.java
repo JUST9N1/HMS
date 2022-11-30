@@ -61,7 +61,6 @@ public class addDoctorView extends javax.swing.JFrame {
         DepartText = new javax.swing.JTextField();
         SpecialText = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -214,7 +213,6 @@ public class addDoctorView extends javax.swing.JFrame {
         DepartText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         DepartText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         DepartText.setText("Department");
-        DepartText.setText("Department");
         DepartText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 DepartTextFocusGained(evt);
@@ -226,10 +224,6 @@ public class addDoctorView extends javax.swing.JFrame {
         jPanel1.add(DepartText, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 220, 50));
 
         SpecialText.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Specialist" }));
-        SpecialText.setAutoscrolls(true);
-        SpecialText.setEditable(true);
-        SpecialText.setName(""); // NOI18N
-        SpecialText.setOpaque(true);
         SpecialText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 SpecialTextFocusGained(evt);
@@ -238,18 +232,10 @@ public class addDoctorView extends javax.swing.JFrame {
                 SpecialTextFocusLost(evt);
             }
         });
-        SpecialText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SpecialTextActionPerformed(evt);
-            }
-        });
         jPanel1.add(SpecialText, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 350, 220, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/doctor.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1027, 610));
-
-        jLabel4.setText("jLabel4");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 220, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -274,10 +260,6 @@ public class addDoctorView extends javax.swing.JFrame {
         // TODO add your handling code here:
         SpecialText.addItem("Specialist");
     }//GEN-LAST:event_SpecialTextFocusLost
-
-    private void SpecialTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpecialTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SpecialTextActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
@@ -340,6 +322,7 @@ public class addDoctorView extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int i = doctorTable.getSelectedRow();
+<<<<<<< HEAD
         TableModel model = doctorTable.getModel();
         int id = Integer.parseInt(model.getValueAt(i, 0).toString());
         try {
@@ -348,6 +331,31 @@ public class addDoctorView extends javax.swing.JFrame {
             DoctorController sc = new DoctorController();
             int out = sc.updatestatus(d1);
             int result = sc.changestatus(d1);
+=======
+        // if (i>0){
+
+            TableModel model = doctorTable.getModel();
+            int id = Integer.parseInt(model.getValueAt(i, 0).toString());
+            try {
+                Doctor d1 = new Doctor(id, null, null, null, null, null);
+    
+                DoctorController sc = new DoctorController();
+                int out = sc.updatestatus(d1);
+                int result = sc.changestatus(d1);
+                dispose();
+                ViewDoctor vd = new ViewDoctor();
+                vd.setVisible(true);
+    
+            } catch (Exception e) {
+                // TODO: handle exception
+                JOptionPane.showMessageDialog(null, e);
+            // }
+        // }else{
+            // JOptionPane.showMessageDialog(null, "Select only one row");
+
+
+
+>>>>>>> b607cda7c52b23ad92eb20574715641a0ee96b65
 
         } catch (Exception e) {
             // TODO: handle exception
@@ -515,7 +523,6 @@ public class addDoctorView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
