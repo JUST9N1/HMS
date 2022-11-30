@@ -322,16 +322,6 @@ public class addDoctorView extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int i = doctorTable.getSelectedRow();
-<<<<<<< HEAD
-        TableModel model = doctorTable.getModel();
-        int id = Integer.parseInt(model.getValueAt(i, 0).toString());
-        try {
-            Doctor d1 = new Doctor(id, null, null, null, null, null);
-
-            DoctorController sc = new DoctorController();
-            int out = sc.updatestatus(d1);
-            int result = sc.changestatus(d1);
-=======
         // if (i>0){
 
             TableModel model = doctorTable.getModel();
@@ -355,11 +345,7 @@ public class addDoctorView extends javax.swing.JFrame {
 
 
 
->>>>>>> b607cda7c52b23ad92eb20574715641a0ee96b65
 
-        } catch (Exception e) {
-            // TODO: handle exception
-            JOptionPane.showMessageDialog(null, e);
         }
 
     }// GEN-LAST:event_jButton2ActionPerformed

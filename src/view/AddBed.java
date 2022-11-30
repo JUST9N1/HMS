@@ -442,7 +442,7 @@ public class AddBed extends javax.swing.JFrame {
     }
     public void view(){
         int i = bedTable.getSelectedRow();
-        // if(i>0){
+        if(i>0){
 
             TableModel model = bedTable.getModel();
             int id = Integer.parseInt(model.getValueAt(i, 0).toString());
@@ -460,9 +460,9 @@ public class AddBed extends javax.swing.JFrame {
                 // TODO: handle exception
                 JOptionPane.showMessageDialog(null, e);
             }
-        // }else{
-            // JOptionPane.showMessageDialog(null, "No row selected");
-        // }
+        }else{
+            JOptionPane.showMessageDialog(null, "No row selected");
+        }
 
     }
     /**
