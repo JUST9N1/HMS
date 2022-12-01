@@ -6,20 +6,31 @@ public class Patient {
     private int doctor_id;
     private String user_email; 
     private String patient_history;
-   
+    private String blood_group;
+
+    
     
     public Patient(int patient_id,
     int appoint_id,
     int doctor_id,
     String user_email,
-    String patient_history){
+    String patient_history,
+    String blood_group){
         this.patient_id = patient_id;
         this.patient_history = patient_history;
         this.appoint_id = appoint_id;
         this.doctor_id = doctor_id;
         this.user_email = user_email;
+        this.blood_group = blood_group;
+    }
+    
+    public String getBlood_group() {
+        return this.blood_group;
     }
 
+    public void setBlood_group(String blood_group) {
+        this.blood_group = blood_group;
+    }
     public void setPatientId(int newPatientId) {
         this.patient_id = newPatientId;
     }

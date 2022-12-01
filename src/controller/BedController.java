@@ -27,4 +27,27 @@ public class BedController {
         ResultSet result = dbConnection.retrieve(selectQuery);
         return result;
     }
+
+    public ResultSet selectdetails(Bed bed){
+        String selectQuery = "select * from bed";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
+
+    public int changestatus(Bed bed){
+        int BedNo = bed.getBedNo();
+
+        String UpdateQuery = "update bed set status='"+"active"+"' where bed_no='"+BedNo+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(UpdateQuery);
+        return result;
+    }
+
+    public int updatestatus(Bed bed){
+        String updateQuery = "update bed set status='"+"inactive"+"' where status='"+"active"+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(updateQuery);
+        return result;
+    }
 }

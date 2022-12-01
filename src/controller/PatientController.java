@@ -7,11 +7,11 @@ public class PatientController {
     DbConnection dbConnection;
 
     public int insertDetails(Patient patient){
-        String history = patient.getPatientHistory();
         String email = patient.getUserEmail();
-
-        String insertQuery = "insert into patient(user_email,patient_history)";
-        dbConnection = new DbConnection();
+        String medical = patient.getPatientHistory();
+        String blood = patient.getBlood_group();
+        String insertQuery = "insert into patient(user_email,patient_history,blood_group)"+ "values('"+email+"','"+medical+"','"+blood+"')";
+        dbConnection  = new DbConnection();
         int result = dbConnection.manipulate(insertQuery);
         return result;
     }
