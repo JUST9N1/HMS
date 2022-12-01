@@ -292,9 +292,13 @@ public class addDoctorView extends javax.swing.JFrame {
                         age = test.getString(4);
                         String depart = test.getString(5);
                         special = test.getString(6);
-
+                        if(depart.equals("0")){
+                            continue;
+                        }
                         Object[] row = { id, name, age, depart, special };
                         model.addRow(row);
+                        
+
                     }
                     firstText.setText("Doctor First name");
                     LastText.setText("Doctor last name");
@@ -429,6 +433,10 @@ public class addDoctorView extends javax.swing.JFrame {
                 String depart = result.getString(5);
                 String special = result.getString(6);
                 Object[] row = { id, name, age, depart, special };
+                
+                if(depart.equals("0")){
+                    continue;
+                }
                 DefaultTableModel model = (DefaultTableModel) doctorTable.getModel();
                 model.addRow(row);
             }

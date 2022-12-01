@@ -84,4 +84,14 @@ public class UserController {
         int result = dbConnection.manipulate(insertQuery);
         return result;
     }
-}
+    public int reset(User user){
+        String email = user.getUserEmail();
+        String sq = user.getUserSq1();
+        String pass = user.getUserPass();
+
+        String updateQuery = "update user_login set user_pass='"+pass+"' where user_email='"+email+"' and user_sq1='"+sq+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(updateQuery);
+        return result;
+    }
+}   
