@@ -295,7 +295,11 @@
             </Constraint>
           </Constraints>
         </Component>
+<<<<<<< HEAD
+        <Component class="javax.swing.JTextField" name="jTextField1">
+=======
         <Component class="javax.swing.JTextField" name="appointId">
+>>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -306,6 +310,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="ff" red="ff" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+            <Property name="text" type="java.lang.String" value="jTextField1"/>
+=======
+>>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -321,6 +329,17 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="cc" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+            <Property name="text" type="java.lang.String" value="Enter your Name"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="200" y="300" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextField2">
+=======
             <Property name="text" type="java.lang.String" value="Full Name"/>
           </Properties>
           <Constraints>
@@ -330,6 +349,7 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="nameTxt">
+>>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -340,6 +360,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="ff" red="ff" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+            <Property name="text" type="java.lang.String" value="jTextField2"/>
+=======
+>>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -389,7 +413,11 @@
             </Constraint>
           </Constraints>
         </Component>
+<<<<<<< HEAD
+        <Component class="javax.swing.JTextField" name="jTextField3">
+=======
         <Component class="javax.swing.JTextField" name="specialTxt">
+>>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -400,9 +428,16 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="cc" red="ff" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+            <Property name="text" type="java.lang.String" value="jTextField3"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+=======
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="specialTxtActionPerformed"/>
+>>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -410,7 +445,30 @@
             </Constraint>
           </Constraints>
         </Component>
+<<<<<<< HEAD
+        <Component class="javax.swing.JTextField" name="jTextField4">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Perpetua Titling MT" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="99" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="jTextField4"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="430" y="410" width="280" height="50"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextField5">
+=======
         <Component class="javax.swing.JTextField" name="dNameTxt">
+>>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -421,6 +479,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="66" red="ff" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+            <Property name="text" type="java.lang.String" value="jTextField5"/>
+=======
+>>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -428,7 +490,11 @@
             </Constraint>
           </Constraints>
         </Component>
+<<<<<<< HEAD
+        <Component class="javax.swing.JButton" name="jButton7">
+=======
         <Component class="javax.swing.JButton" name="assignBtn">
+>>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="ff" red="ff" type="rgb"/>
@@ -438,15 +504,20 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ASSIGN"/>
           </Properties>
+<<<<<<< HEAD
+=======
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="assignBtnActionPerformed"/>
           </Events>
+>>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="420" y="550" width="230" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
+<<<<<<< HEAD
+=======
         <Component class="javax.swing.JComboBox" name="dIdCombo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -472,6 +543,7 @@
             </Constraint>
           </Constraints>
         </Component>
+>>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
