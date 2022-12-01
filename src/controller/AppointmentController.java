@@ -18,9 +18,9 @@ public class AppointmentController {
         String special = appoint.getAppointSpecial();
         String email = appoint.getUserEmail();
         int DID = appoint.getDoctorId();
-        String insertQuery = "insert into appointment(appoint_fname,appoint_lname,appoint_age,appoint_address,appoint_date,appoint_gender,appoint_special,user_email,doctor_id)"
+        String insertQuery = "insert into appointment(appoint_fname,appoint_lname,appoint_age,appoint_address,appoint_date,appoint_gender,appoint_special,user_email,doctor_id,appoint_status)"
                 + "values('" + fname + "','" + lname + "','" + age + "','" + address + "','" + dob + "','" + gender
-                + "','" + special + "','" + email + "','"+DID+"')";
+                + "','" + special + "','" + email + "','"+DID+"','"+"1"+"')";
         dbConnection = new DbConnection();
         int result = dbConnection.manipulate(insertQuery);
         return result;
