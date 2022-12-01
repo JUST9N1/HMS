@@ -50,4 +50,37 @@ public class BedController {
         int result = dbConnection.manipulate(updateQuery);
         return result;
     }
+
+    public ResultSet selectWardType(Bed bed){
+        String selectQuery = "select ward_type from bed";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+
+    }
+    public ResultSet selectWardNo(Bed bed){
+        String wardType = bed.getWardType();
+        String selectQuery = "select ward_no from bed where ward_type='"+wardType+"'";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
+
+    public ResultSet selectBedNo(Bed bed){
+        int wardno = bed.getWardNo();
+        String selectQuery = "select bed_no from bed where ward_no='"+wardno+"'";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
+    public ResultSet selectBedDetails(Bed bed){
+        int bedno = bed.getBedNo();
+        String selectQuery = "select bed_type,bed_size from bed where bed_no='"+bedno+"'";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
+
+
+
 }
