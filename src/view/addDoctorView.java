@@ -292,9 +292,13 @@ public class addDoctorView extends javax.swing.JFrame {
                         age = test.getString(4);
                         String depart = test.getString(5);
                         special = test.getString(6);
-
+                        if(depart.equals("0")){
+                            continue;
+                        }
                         Object[] row = { id, name, age, depart, special };
                         model.addRow(row);
+                        
+
                     }
                     firstText.setText("Doctor First name");
                     LastText.setText("Doctor last name");
@@ -322,18 +326,30 @@ public class addDoctorView extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int i = doctorTable.getSelectedRow();
-        TableModel model = doctorTable.getModel();
-        int id = Integer.parseInt(model.getValueAt(i, 0).toString());
-        try {
-            Doctor d1 = new Doctor(id, null, null, null, null, null);
+        // if (i>0){
 
-            DoctorController sc = new DoctorController();
-            int out = sc.updatestatus(d1);
-            int result = sc.changestatus(d1);
+            TableModel model = doctorTable.getModel();
+            int id = Integer.parseInt(model.getValueAt(i, 0).toString());
+            try {
+                Doctor d1 = new Doctor(id, null, null, null, null, null);
+    
+                DoctorController sc = new DoctorController();
+                int out = sc.updatestatus(d1);
+                int result = sc.changestatus(d1);
+                dispose();
+                ViewDoctor vd = new ViewDoctor();
+                vd.setVisible(true);
+    
+            } catch (Exception e) {
+                // TODO: handle exception
+                JOptionPane.showMessageDialog(null, e);
+            // }
+        // }else{
+            // JOptionPane.showMessageDialog(null, "Select only one row");
 
-        } catch (Exception e) {
-            // TODO: handle exception
-            JOptionPane.showMessageDialog(null, e);
+
+
+
         }
 
     }// GEN-LAST:event_jButton2ActionPerformed
@@ -417,6 +433,10 @@ public class addDoctorView extends javax.swing.JFrame {
                 String depart = result.getString(5);
                 String special = result.getString(6);
                 Object[] row = { id, name, age, depart, special };
+                
+                if(depart.equals("0")){
+                    continue;
+                }
                 DefaultTableModel model = (DefaultTableModel) doctorTable.getModel();
                 model.addRow(row);
             }
