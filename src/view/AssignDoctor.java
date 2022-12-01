@@ -4,8 +4,6 @@
  */
 package view;
 
-<<<<<<< HEAD
-=======
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -16,7 +14,6 @@ import controller.DoctorController;
 import models.Appointment;
 import models.Doctor;
 
->>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
 /**
  *
  * @author razee
@@ -28,10 +25,7 @@ public class AssignDoctor extends javax.swing.JFrame {
      */
     public AssignDoctor() {
         initComponents();
-<<<<<<< HEAD
-=======
         select();
->>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
     }
 
     /**
@@ -55,18 +49,6 @@ public class AssignDoctor extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-<<<<<<< HEAD
-        jTextField1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-=======
         appointId = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         nameTxt = new javax.swing.JTextField();
@@ -77,7 +59,6 @@ public class AssignDoctor extends javax.swing.JFrame {
         dNameTxt = new javax.swing.JTextField();
         assignBtn = new javax.swing.JButton();
         dIdCombo = new javax.swing.JComboBox<>();
->>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -199,24 +180,6 @@ public class AssignDoctor extends javax.swing.JFrame {
         jLabel5.setText("APPOINTMENT ID ");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
 
-<<<<<<< HEAD
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 0));
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 290, 50));
-
-        jLabel6.setFont(new java.awt.Font("Modern No. 20", 1, 30)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel6.setText("Enter your Name");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
-
-        jTextField2.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 0));
-        jTextField2.setText("jTextField2");
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 260, 50));
-=======
         appointId.setBackground(new java.awt.Color(0, 0, 0));
         appointId.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         appointId.setForeground(new java.awt.Color(255, 255, 0));
@@ -231,7 +194,6 @@ public class AssignDoctor extends javax.swing.JFrame {
         nameTxt.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         nameTxt.setForeground(new java.awt.Color(255, 255, 0));
         jPanel1.add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 260, 50));
->>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
 
         jLabel7.setFont(new java.awt.Font("Modern No. 20", 1, 30)); // NOI18N
         jLabel7.setText("SPECIALITY");
@@ -246,35 +208,6 @@ public class AssignDoctor extends javax.swing.JFrame {
         jLabel9.setText("DOCTOR'S NAME");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, -1, -1));
 
-<<<<<<< HEAD
-        jTextField3.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField3.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(255, 204, 0));
-        jTextField3.setText("jTextField3");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 300, 50));
-
-        jTextField4.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField4.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(255, 153, 0));
-        jTextField4.setText("jTextField4");
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 280, 50));
-
-        jTextField5.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField5.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(255, 102, 0));
-        jTextField5.setText("jTextField5");
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 480, 290, 40));
-
-        jButton7.setBackground(new java.awt.Color(255, 255, 0));
-        jButton7.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
-        jButton7.setText("ASSIGN");
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, 230, 60));
-=======
         specialTxt.setBackground(new java.awt.Color(0, 0, 0));
         specialTxt.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
         specialTxt.setForeground(new java.awt.Color(255, 204, 0));
@@ -313,7 +246,6 @@ public class AssignDoctor extends javax.swing.JFrame {
             }
         });
         jPanel1.add(dIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 422, 280, 50));
->>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Assign Doctor.png"))); // NOI18N
@@ -347,12 +279,6 @@ public class AssignDoctor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-<<<<<<< HEAD
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-=======
     private void specialTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_specialTxtActionPerformed
@@ -428,7 +354,6 @@ public class AssignDoctor extends javax.swing.JFrame {
         }
             
     }
->>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
     /**
      * @param args the command line arguments
      */
@@ -465,23 +390,16 @@ public class AssignDoctor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
-=======
     private javax.swing.JTextField appointId;
     private javax.swing.JButton assignBtn;
     private javax.swing.JComboBox<String> dIdCombo;
     private javax.swing.JTextField dNameTxt;
->>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-<<<<<<< HEAD
-    private javax.swing.JButton jButton7;
-=======
->>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -493,15 +411,7 @@ public class AssignDoctor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-<<<<<<< HEAD
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-=======
     private javax.swing.JTextField nameTxt;
     private javax.swing.JTextField specialTxt;
->>>>>>> 897d753fe2630ea84c6c98ea5cdb4bf7f1e15fff
     // End of variables declaration//GEN-END:variables
 }
