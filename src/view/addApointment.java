@@ -349,7 +349,7 @@ public class addApointment extends javax.swing.JFrame {
             }
 
             int age_int   = Integer.parseInt(age);
-            Appointment s1 = new Appointment(0, 0, email,fName,lName, age_int,location,appoint,gender,special);
+            Appointment s1 = new Appointment(0, 4, email,fName,lName, age_int,location,appoint,gender,special);
             AppointmentController sc= new AppointmentController();
             int result = sc.changeStatus(s1);
             int isInserted = sc.insertAppointment(s1);

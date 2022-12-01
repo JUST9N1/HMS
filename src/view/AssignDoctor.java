@@ -4,6 +4,16 @@
  */
 package view;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
+import controller.AppointmentController;
+import controller.DoctorController;
+import models.Appointment;
+import models.Doctor;
+
 /**
  *
  * @author razee
@@ -15,6 +25,7 @@ public class AssignDoctor extends javax.swing.JFrame {
      */
     public AssignDoctor() {
         initComponents();
+        select();
     }
 
     /**
@@ -38,16 +49,16 @@ public class AssignDoctor extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        appointId = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        nameTxt = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
+        specialTxt = new javax.swing.JTextField();
+        dNameTxt = new javax.swing.JTextField();
+        assignBtn = new javax.swing.JButton();
+        dIdCombo = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -169,22 +180,20 @@ public class AssignDoctor extends javax.swing.JFrame {
         jLabel5.setText("APPOINTMENT ID ");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 0));
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 290, 50));
+        appointId.setBackground(new java.awt.Color(0, 0, 0));
+        appointId.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        appointId.setForeground(new java.awt.Color(255, 255, 0));
+        jPanel1.add(appointId, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 290, 50));
 
         jLabel6.setFont(new java.awt.Font("Modern No. 20", 1, 30)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel6.setText("Enter your Name");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
+        jLabel6.setText("Full Name");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 200, -1));
 
-        jTextField2.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 0));
-        jTextField2.setText("jTextField2");
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 260, 50));
+        nameTxt.setBackground(new java.awt.Color(0, 0, 0));
+        nameTxt.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        nameTxt.setForeground(new java.awt.Color(255, 255, 0));
+        jPanel1.add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 260, 50));
 
         jLabel7.setFont(new java.awt.Font("Modern No. 20", 1, 30)); // NOI18N
         jLabel7.setText("SPECIALITY");
@@ -199,33 +208,44 @@ public class AssignDoctor extends javax.swing.JFrame {
         jLabel9.setText("DOCTOR'S NAME");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, -1, -1));
 
-        jTextField3.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField3.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(255, 204, 0));
-        jTextField3.setText("jTextField3");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        specialTxt.setBackground(new java.awt.Color(0, 0, 0));
+        specialTxt.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
+        specialTxt.setForeground(new java.awt.Color(255, 204, 0));
+        specialTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                specialTxtActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 300, 50));
+        jPanel1.add(specialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 300, 50));
 
-        jTextField4.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField4.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(255, 153, 0));
-        jTextField4.setText("jTextField4");
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 280, 50));
+        dNameTxt.setBackground(new java.awt.Color(0, 0, 0));
+        dNameTxt.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
+        dNameTxt.setForeground(new java.awt.Color(255, 102, 0));
+        jPanel1.add(dNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 480, 290, 40));
 
-        jTextField5.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField5.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(255, 102, 0));
-        jTextField5.setText("jTextField5");
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 480, 290, 40));
+        assignBtn.setBackground(new java.awt.Color(255, 255, 0));
+        assignBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        assignBtn.setText("ASSIGN");
+        assignBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(assignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, 230, 60));
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 0));
-        jButton7.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
-        jButton7.setText("ASSIGN");
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, 230, 60));
+        dIdCombo.setBackground(java.awt.Color.black);
+        dIdCombo.setForeground(new java.awt.Color(255, 255, 0));
+        dIdCombo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                dIdComboFocusLost(evt);
+            }
+        });
+        dIdCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dIdComboActionPerformed(evt);
+            }
+        });
+        jPanel1.add(dIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 422, 280, 50));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Assign Doctor.png"))); // NOI18N
@@ -259,10 +279,81 @@ public class AssignDoctor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void specialTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_specialTxtActionPerformed
 
+    private void dIdComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dIdComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dIdComboActionPerformed
+
+    private void dIdComboFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dIdComboFocusLost
+        String dId = null;
+        Object selectedItem = dIdCombo.getSelectedItem();
+        if(selectedItem!=null){
+            dId = selectedItem.toString();
+        }
+
+        try {
+            Doctor d1 = new Doctor(Integer.parseInt(dId),null,null,null,null,null);
+            DoctorController dc = new DoctorController();
+                ResultSet value = dc.viewDoctorName(d1);
+                String name= null;
+                while (value.next()){
+                    name = value.getString(1) + " " + value.getString(2);
+                    // System.out.println(name);
+                    dNameTxt.setText(name);
+                }
+        
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_dIdComboFocusLost
+
+    private void assignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignBtnActionPerformed
+        String dId = null;
+        Object selectedItem = dIdCombo.getSelectedItem();
+        if(selectedItem!=null){
+            dId = selectedItem.toString();
+        }
+        Appointment a1 = new Appointment(0,Integer.parseInt(dId),null,null,null,0, null,null,null,null);
+        AppointmentController ac = new AppointmentController();
+            int assign = ac.insertDID(a1);
+            if(assign>0){
+                JOptionPane.showMessageDialog(null, "Inserted Successfully");
+
+            }
+    }//GEN-LAST:event_assignBtnActionPerformed
+    public void select(){
+        try {
+            Appointment a1 = new Appointment(0, 0, null, null, null, 0, null, null, null, null);
+                AppointmentController sc = new AppointmentController();
+                ResultSet result = sc.getDetails(a1);
+                String special=null;
+                while(result.next()){
+                    nameTxt.setText(result.getString(2));
+                    appointId.setText(result.getString(1));
+                    specialTxt.setText(result.getString(3));
+                    special = result.getString(3);
+                }
+
+                Doctor d1 = new Doctor(0, null,null,null,null,special);
+                DoctorController dc = new DoctorController();
+                ResultSet rSet = dc.viewDoctorid(d1);
+             String dId  = null;
+                while(rSet.next()){
+                    dId = rSet.getString(1);
+                    dIdCombo.addItem(dId);
+                    
+                }
+                
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+            
+    }
     /**
      * @param args the command line arguments
      */
@@ -299,13 +390,16 @@ public class AssignDoctor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField appointId;
+    private javax.swing.JButton assignBtn;
+    private javax.swing.JComboBox<String> dIdCombo;
+    private javax.swing.JTextField dNameTxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -317,10 +411,7 @@ public class AssignDoctor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField nameTxt;
+    private javax.swing.JTextField specialTxt;
     // End of variables declaration//GEN-END:variables
 }
