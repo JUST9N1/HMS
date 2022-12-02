@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/razee/OneDrive/Desktop/Project/HMS/src/view/AssignBed.java</file>
-            <file>file:/C:/Users/razee/OneDrive/Desktop/Project/HMS/src/view/ViewDoctor.java</file>
-            <file>file:/C:/Users/razee/OneDrive/Desktop/Project/HMS/src/models/Admin.java</file>
-            <file>file:/C:/Users/razee/OneDrive/Desktop/Project/HMS/src/view/Register.java</file>
-            <file>file:/C:/Users/razee/OneDrive/Desktop/Project/HMS/src/view/AddBed.java</file>
-            <file>file:/C:/Users/razee/OneDrive/Desktop/Project/HMS/src/view/PatientDetails.java</file>
+            <file>file:/C:/Users/khadk/Desktop/HMS-main/src/view/AssignDoctor.java</file>
+            <file>file:/C:/Users/khadk/Desktop/HMS-main/src/view/UpdateAppointment.java</file>
+            <file>file:/C:/Users/khadk/Desktop/HMS-main/src/view/AssignBed.java</file>
         </group>
     </open-files>
 </project-private>
