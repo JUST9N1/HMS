@@ -72,4 +72,22 @@ public class AppointmentController {
         ResultSet result= dbConnection.retrieve(selectQuery);
         return result;
     }
+
+    public ResultSet selectAppoint(Appointment appointment){
+        String selectQuery = "select user_email,appoint_id,appoint_date,appoint_special from appointment where appoint_status='"+"1"+"'";
+        dbConnection = new DbConnection();
+        ResultSet result= dbConnection.retrieve(selectQuery);
+        return result;
+    }
+
+    public int UpdateAppoint(Appointment appointment){
+        String appointDate = appointment.getAppointdob();
+        String appointSPecial = appointment.getAppointSpecial();
+        int appointID = appointment.getAppointId();
+
+        String updateQuery = "update appointment set appoint_date = '"+appointDate+"',appoint_special='"+appointSPecial+"' where appoint_id='"+appointID+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(updateQuery);
+        return result;
+    }
 }
