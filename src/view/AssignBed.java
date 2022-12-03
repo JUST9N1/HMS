@@ -26,6 +26,7 @@ public class AssignBed extends javax.swing.JFrame {
     public AssignBed() {
         initComponents();
         func1();
+        id();
     }
 
     /**
@@ -383,7 +384,20 @@ public class AssignBed extends javax.swing.JFrame {
         }
 
     }
-
+    public void id(){
+        try {
+            // String id = null;
+            Patient p1  = new Patient(0,0,0,null,null,null,0);
+            PatientController pc = new PatientController();
+            ResultSet result = pc.selectPatientId(p1);
+            while(result.next()){
+                patinettxt.setText(result.getString(1));
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
     /**
      * @param args the command line arguments
      */
