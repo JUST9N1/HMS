@@ -186,9 +186,9 @@ public class viewProfile extends javax.swing.JFrame {
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Date of Birth");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 234, 86, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 110, 20));
         jPanel1.add(cText, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 123, -1));
-        jPanel1.add(dText, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 231, 123, -1));
+        jPanel1.add(dText, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 123, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Last Name");
@@ -196,14 +196,14 @@ public class viewProfile extends javax.swing.JFrame {
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Email");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 77, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 206, 110, 20));
 
         gLabel.setForeground(new java.awt.Color(255, 255, 255));
         gLabel.setText("Gender");
-        jPanel1.add(gLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 234, 77, -1));
+        jPanel1.add(gLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 260, 100, 20));
         jPanel1.add(lText, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 117, 128, -1));
-        jPanel1.add(eText, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 300, 20));
-        jPanel1.add(gText, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 231, 128, -1));
+        jPanel1.add(eText, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 300, 30));
+        jPanel1.add(gText, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, 128, -1));
 
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton6.setText("Update Account");
