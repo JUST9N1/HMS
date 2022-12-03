@@ -21,7 +21,7 @@ public class view {
 
     public static void main(String[] args) {
         try {
-            Patient p1 = new Patient(1, 0, 0, null, null, null, 0);
+            Patient p1 = new Patient(1, 0, 0, null, null, null, 0,0);
             PatientController pc = new PatientController();
             pc.resetStatus(p1);
             pc.updatestatus(p1);

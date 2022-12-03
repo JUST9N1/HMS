@@ -119,7 +119,7 @@ public class ViewPatientRecord extends javax.swing.JFrame {
         int i = patientTable.getSelectedRow();
         TableModel model = patientTable.getModel();
         int id = Integer.parseInt(model.getValueAt(i, 0).toString());
-        Patient p1 = new Patient(id, 0, 0, null, null, null, 0);
+        Patient p1 = new Patient(id, 0, 0, null, null, null, 0,0);
             PatientController pc = new PatientController();
             pc.resetStatus(p1);
             pc.updatestatus(p1);
@@ -131,7 +131,7 @@ public void table(){
         DefaultTableModel moddel  = (DefaultTableModel) patientTable.getModel();
         moddel.setRowCount(0);
         moddel.isCellEditable(0,0);
-        Patient p1 = new Patient(0, 0, 0, null, null, null, 0);
+        Patient p1 = new Patient(0, 0, 0, null, null, null,0, 0);
         PatientController pc = new PatientController();
         ResultSet rSet = pc.selectDetails(p1);
         while(rSet.next()){
