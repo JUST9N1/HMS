@@ -39,6 +39,14 @@ public class AppointmentController {
         int result = dbConnection.manipulate(changeQuery);
         return result;
     }
+
+    public int updateStatus(Appointment appointment){
+        int id = appointment.getAppointId();
+        String updateQuery = "update appointment set appoint_status='"+"1"+"' where appoint_id='"+id+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(updateQuery);
+        return result;
+    }
    
 
     public ResultSet getDetails(Appointment appoint) {
