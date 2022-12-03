@@ -7,9 +7,29 @@ public class Patient {
     private String user_email; 
     private String patient_history;
     private String blood_group;
+    private int age;
     
     private int bed_no;
+
     
+    public Patient(int patient_id, int appoint_id, int doctor_id, String user_email, String patient_history, String blood_group, int age, int bed_no) {
+        this.patient_id = patient_id;
+        this.appoint_id = appoint_id;
+        this.doctor_id = doctor_id;
+        this.user_email = user_email;
+        this.patient_history = patient_history;
+        this.blood_group = blood_group;
+        this.age = age;
+        this.bed_no = bed_no;
+    }
+    
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
     public String getBlood_group() {
         return blood_group;
     }
@@ -65,15 +85,7 @@ public class Patient {
         this.bed_no = bed_no;
     }
 
-    public Patient(int patient_id, int appoint_id, int doctor_id, String user_email, String patient_history, String blood_group, int bed_no) {
-        this.patient_id = patient_id;
-        this.appoint_id = appoint_id;
-        this.doctor_id = doctor_id;
-        this.user_email = user_email;
-        this.patient_history = patient_history;
-        this.blood_group = blood_group;
-        this.bed_no = bed_no;
-    }
+    
 
     
     

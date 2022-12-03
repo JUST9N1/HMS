@@ -235,7 +235,7 @@ public class PatientDetails extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Please enter all the details");
                 }else{
                     try {
-                        Patient p1 = new Patient(0, 0, 0, email, medical, blood,0);
+                        Patient p1 = new Patient(0, 0, 0, email, medical, blood,Integer.parseInt(age),0);
                         PatientController pc = new PatientController();
                         int result = pc.insertDetails(p1);
                         if(result>0){

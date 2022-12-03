@@ -339,7 +339,7 @@ public class AssignBed extends javax.swing.JFrame {
             }
 
         String patient_id = patinettxt.getText();
-        Patient p1 = new Patient(Integer.parseInt(patient_id),0,0,null,null,null,Integer.parseInt(bedno));
+        Patient p1 = new Patient(Integer.parseInt(patient_id),0,0,null,null,null,0,Integer.parseInt(bedno));
         PatientController pc = new PatientController();
         int result = pc.AssignBed(p1);
         if(result>0){
@@ -387,7 +387,7 @@ public class AssignBed extends javax.swing.JFrame {
     public void id(){
         try {
             // String id = null;
-            Patient p1  = new Patient(0,0,0,null,null,null,0);
+            Patient p1  = new Patient(0,0,0,null,null,null,0,0);
             PatientController pc = new PatientController();
             ResultSet result = pc.selectPatientId(p1);
             while(result.next()){

@@ -12,8 +12,9 @@ public class PatientController {
         String email = patient.getUser_email();
         String medical = patient.getPatient_history();
         String blood = patient.getBlood_group();
-        String insertQuery = "insert into patient(user_email,patient_history,blood_group)" + "values('" + email + "','"
-                + medical + "','" + blood + "')";
+        int age = patient.getAge();
+        String insertQuery = "insert into patient(user_email,patient_history,blood_group,age)" + "values('" + email + "','"
+                + medical + "','" + blood + "','"+age+"')";
         dbConnection = new DbConnection();
         int result = dbConnection.manipulate(insertQuery);
         return result;
