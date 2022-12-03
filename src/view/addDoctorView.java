@@ -329,6 +329,7 @@ public class addDoctorView extends javax.swing.JFrame {
         // if (i>0){
 
             TableModel model = doctorTable.getModel();
+            
             int id = Integer.parseInt(model.getValueAt(i, 0).toString());
             try {
                 Doctor d1 = new Doctor(id, null, null, null, null, null);
