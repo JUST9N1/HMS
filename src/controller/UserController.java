@@ -20,7 +20,7 @@ public class UserController {
     }
 
     public int UpdateStatus(User user) {
-        String status = user.getUserStatus();
+       
         String updatestatus = "update user_login set user_status=false where user_status=true";
         dbConnection = new DbConnection();
         int result = dbConnection.manipulate(updatestatus);

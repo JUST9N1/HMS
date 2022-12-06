@@ -6,7 +6,7 @@ package view;
 
 import javax.swing.JOptionPane;
 
-import org.netbeans.lib.awtextra.AbsoluteLayout;
+// import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 import controller.AdminController;
 import controller.UserController;
