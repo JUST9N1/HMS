@@ -1,7 +1,5 @@
 package org.netbeans.lib.awtextra;
 
-
-
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -24,8 +22,6 @@ package org.netbeans.lib.awtextra;
 // package org.netbeans.lib.awtextra;
 
 import java.awt.*;
-
-import view.AbsoluteConstraints;
 
 /** AbsoluteLayout is a LayoutManager that works as a replacement for "null" layout to
 * allow placement of components in absolute positions.

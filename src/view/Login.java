@@ -1,13 +1,19 @@
+package view;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view;
+// package view;
 
 import java.sql.*;
 import javax.swing.*;
 
 import javax.swing.JOptionPane;
+
+// import org.netbeans.lib.awtextra.AbsoluteLayout;
+
+
 
 import controller.UserController;
 import database.db;
@@ -152,13 +158,13 @@ public class Login extends javax.swing.JFrame {
                 ResultSet isInserted = sc.selectLogin(s1);
                 
                 if(isInserted.next()){
-                    JOptionPane.showMessageDialog(null,"Inserted Success");
+                    JOptionPane.showMessageDialog(null,"Login Successfully");
                     int result = sc.UpdateStatus(s1);
                     int resul1 = sc.changestatus(s1);
     
                 }
                 else{
-                    System.out.println("Failed to insert student");
+                    System.out.println("Failed to login ");
                     
                 }
             } catch (SQLException e) {

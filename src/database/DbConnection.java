@@ -24,21 +24,21 @@ public class DbConnection {
 
         try {
 
-            String username = "root";
+            String username = "crystal";
 
-            String password = "root";
+            String password = "khadka430";
 
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             connection = DriverManager.getConnection(
 
-                    "jdbc:mysql://localhost:3306/hms",username,password);
+                    "jdbc:mysql://sql6.db4free.net:3306/softwarica_hms",username,password);
 
 
 
                     if(connection!=null){
 
-                        System.out.println("Connected to database");
+                        // System.out.println("Connected to database");
 
                     }else{
 
