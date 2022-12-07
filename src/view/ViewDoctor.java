@@ -55,6 +55,7 @@ public class ViewDoctor extends javax.swing.JFrame {
         departText = new javax.swing.JTextField();
         UpdateBtn = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -217,6 +218,9 @@ public class ViewDoctor extends javax.swing.JFrame {
         jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 230, 70));
 
+        jButton6.setText("jButton6");
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/View Doctor.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1040, 640));
 
@@ -319,6 +323,7 @@ public class ViewDoctor extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

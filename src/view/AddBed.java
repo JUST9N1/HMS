@@ -72,11 +72,10 @@ public class AddBed extends javax.swing.JFrame {
         jLabel1.setText("Left panel");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1012, 640));
-        setSize(new java.awt.Dimension(1012, 640));
+        setSize(new java.awt.Dimension(1012, 606));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setMinimumSize(new java.awt.Dimension(1042, 640));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1042, 600));
         jPanel2.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Stencil", 3, 48)); // NOI18N
@@ -126,17 +125,17 @@ public class AddBed extends javax.swing.JFrame {
         ManualRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ManualRadio.setText("Manual");
         jPanel2.add(ManualRadio);
-        ManualRadio.setBounds(250, 290, 92, 27);
+        ManualRadio.setBounds(250, 290, 120, 27);
 
         SemiRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         SemiRadio.setText("Semi Electric");
         jPanel2.add(SemiRadio);
-        SemiRadio.setBounds(250, 320, 144, 27);
+        SemiRadio.setBounds(250, 320, 150, 27);
 
         ElectricButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ElectricButton.setText("Electric");
         jPanel2.add(ElectricButton);
-        ElectricButton.setBounds(250, 350, 92, 27);
+        ElectricButton.setBounds(250, 350, 120, 27);
 
         jLabel8.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 0, 0));
