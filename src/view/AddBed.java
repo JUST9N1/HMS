@@ -8,8 +8,9 @@ import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
-
+import java.awt.*;
 import models.*;
 import controller.*;
 
@@ -72,11 +73,11 @@ public class AddBed extends javax.swing.JFrame {
         jLabel1.setText("Left panel");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1012, 640));
-        setSize(new java.awt.Dimension(1012, 640));
+        setPreferredSize(new java.awt.Dimension(1012, 606));
+        setSize(new java.awt.Dimension(1012, 606));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setMinimumSize(new java.awt.Dimension(1042, 640));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1042, 600));
         jPanel2.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Stencil", 3, 48)); // NOI18N
@@ -91,7 +92,7 @@ public class AddBed extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(102, 0, 0));
         jLabel5.setText("Ward number");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(250, 100, 159, 23);
+        jLabel5.setBounds(220, 43, 190, 40);
 
         wardField.setBackground(new java.awt.Color(0, 0, 0));
         wardField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -99,57 +100,57 @@ public class AddBed extends javax.swing.JFrame {
         wardField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 2, true));
         wardField.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(wardField);
-        wardField.setBounds(250, 120, 170, 30);
+        wardField.setBounds(220, 80, 170, 30);
 
         singleRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         singleRadio.setText("Single");
         jPanel2.add(singleRadio);
-        singleRadio.setBounds(250, 200, 100, 27);
+        singleRadio.setBounds(220, 160, 100, 27);
 
         MultipleRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         MultipleRadio.setText("Multiple");
         jPanel2.add(MultipleRadio);
-        MultipleRadio.setBounds(250, 230, 99, 27);
+        MultipleRadio.setBounds(220, 190, 110, 27);
 
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 0, 0));
         jLabel6.setText("Bed Size");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(250, 170, 110, 30);
+        jLabel6.setBounds(220, 130, 110, 30);
 
         jLabel7.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 0, 0));
         jLabel7.setText("Bed Type");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(250, 260, 130, 40);
+        jLabel7.setBounds(220, 220, 130, 40);
 
         ManualRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ManualRadio.setText("Manual");
         jPanel2.add(ManualRadio);
-        ManualRadio.setBounds(250, 290, 92, 27);
+        ManualRadio.setBounds(220, 250, 90, 27);
 
         SemiRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         SemiRadio.setText("Semi Electric");
         jPanel2.add(SemiRadio);
-        SemiRadio.setBounds(250, 320, 144, 27);
+        SemiRadio.setBounds(220, 280, 139, 27);
 
         ElectricButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ElectricButton.setText("Electric");
         jPanel2.add(ElectricButton);
-        ElectricButton.setBounds(250, 350, 92, 27);
+        ElectricButton.setBounds(220, 310, 90, 27);
 
         jLabel8.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 0, 0));
         jLabel8.setText("Ward Type");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(250, 390, 130, 23);
+        jLabel8.setBounds(220, 350, 130, 23);
 
         WardCombo.setBackground(new java.awt.Color(0, 0, 0));
         WardCombo.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         WardCombo.setForeground(new java.awt.Color(204, 0, 0));
         WardCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "Emergency", "Semi Special", "ICU", "CCU", "SICU", "Special", "Deluxe", "Super Deluxe", "BurnWard", "NICU", "PICU" }));
         jPanel2.add(WardCombo);
-        WardCombo.setBounds(250, 420, 120, 30);
+        WardCombo.setBounds(220, 380, 120, 30);
 
         AddBtn.setBackground(new java.awt.Color(0, 255, 255));
         AddBtn.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
@@ -162,7 +163,7 @@ public class AddBed extends javax.swing.JFrame {
             }
         });
         jPanel2.add(AddBtn);
-        AddBtn.setBounds(250, 470, 160, 50);
+        AddBtn.setBounds(220, 430, 160, 50);
 
         bedTable.setBackground(new java.awt.Color(102, 102, 102));
         bedTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 0, 0), new java.awt.Color(255, 0, 51)));
@@ -187,7 +188,7 @@ public class AddBed extends javax.swing.JFrame {
         jScrollPane1.setViewportView(bedTable);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(460, 70, 530, 460);
+        jScrollPane1.setBounds(460, 50, 530, 430);
 
         viewBed.setBackground(new java.awt.Color(0, 255, 255));
         viewBed.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
@@ -199,7 +200,7 @@ public class AddBed extends javax.swing.JFrame {
             }
         });
         jPanel2.add(viewBed);
-        viewBed.setBounds(230, 540, 200, 50);
+        viewBed.setBounds(470, 510, 200, 50);
 
         jButton8.setBackground(new java.awt.Color(0, 255, 255));
         jButton8.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
@@ -211,7 +212,7 @@ public class AddBed extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton8);
-        jButton8.setBounds(470, 540, 190, 50);
+        jButton8.setBounds(760, 510, 190, 50);
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));

@@ -66,7 +66,7 @@ public class AppointmentController {
 
     public int insertDID(Appointment appoint) {
         int dId = appoint.getDoctorId();
-        String insertQuery = "update appointment set doctor_id='" + dId + "' where appoint_status=1 ";
+        String insertQuery = "update appointment set doctor_id='" + dId + "' , doctor_status='"+"active"+"' where appoint_status=1 ";
         dbConnection = new DbConnection();
         int result = dbConnection.manipulate(insertQuery);
         return result;
