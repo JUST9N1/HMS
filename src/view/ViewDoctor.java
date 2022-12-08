@@ -126,11 +126,7 @@ public class ViewDoctor extends javax.swing.JFrame {
 
         departText.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         departText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
-<<<<<<< HEAD
-        jPanel1.add(departText, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 250, 40));
-=======
         jPanel1.add(departText, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 250, 40));
->>>>>>> 120553a0d93a392076b88be91907ea132dcbfac1
 
         UpdateBtn.setBackground(new java.awt.Color(255, 255, 0));
         UpdateBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
