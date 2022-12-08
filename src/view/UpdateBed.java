@@ -203,13 +203,11 @@ public class UpdateBed extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(0, 0, 0));
         jTextField1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(0, 255, 255));
-        jTextField1.setText("jTextField1");
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 350, 50));
 
         jTextField2.setBackground(new java.awt.Color(0, 0, 0));
         jTextField2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(0, 255, 255));
-        jTextField2.setText("jTextField2");
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 320, 50));
 
         jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
