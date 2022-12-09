@@ -105,7 +105,7 @@ public class BillingSystem extends javax.swing.JFrame {
         jScrollPane2.setViewportView(MedicineDetails);
         JTableHeader tableheader1 = MedicineDetails.getTableHeader();
         // Font headerFont = new Font("Rockwell Extra Bold", Font.BOLD, 14);
-        tableheader1.setFont(headerFont);
+        tableheader1.setFont(headerFont); 
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
