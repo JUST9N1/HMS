@@ -4,6 +4,8 @@
  */
 package view;
 
+import java.sql.ResultSet;
+
 import javax.swing.JOptionPane;
 
 import controller.UserController;
@@ -20,6 +22,7 @@ public class UpdateProfile extends javax.swing.JFrame {
      */
     public UpdateProfile() {
         initComponents();
+        view();
     }
 
     /**
@@ -42,26 +45,26 @@ public class UpdateProfile extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        fText = new javax.swing.JTextField();
+        userText = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        lText = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        cText = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        eText = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        pText = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jTextField7 = new javax.swing.JTextField();
+        maleRadio = new javax.swing.JRadioButton();
+        femaleRadio = new javax.swing.JRadioButton();
+        otherRadio = new javax.swing.JRadioButton();
+        dText = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         updatebtn = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        label1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -149,10 +152,10 @@ public class UpdateProfile extends javax.swing.JFrame {
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 260, 710));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 260, 620));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -160,127 +163,117 @@ public class UpdateProfile extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 730, 40));
 
         jLabel4.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel4.setText("First Name");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 130, 20));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        fText.setBackground(new java.awt.Color(204, 204, 204));
+        fText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                fTextActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 220, 40));
+        jPanel1.add(fText, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 220, 40));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        userText.setBackground(new java.awt.Color(204, 204, 204));
+        userText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                userTextActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 220, 40));
+        jPanel1.add(userText, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 220, 40));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel5.setText("Username");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 130, 20));
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        lText.setBackground(new java.awt.Color(204, 204, 204));
+        lText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                lTextActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, 220, 40));
+        jPanel1.add(lText, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, 220, 40));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel6.setText("Last Name");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 130, 20));
 
-        jTextField4.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        cText.setBackground(new java.awt.Color(204, 204, 204));
+        cText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                cTextActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 170, 220, 40));
+        jPanel1.add(cText, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 170, 220, 40));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel7.setText("Phone number");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 130, 20));
 
-        jTextField5.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        eText.setBackground(new java.awt.Color(204, 204, 204));
+        eText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                eTextActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 240, 40));
+        jPanel1.add(eText, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 240, 40));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel8.setText("Email");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 130, 20));
 
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        pText.setBackground(new java.awt.Color(204, 204, 204));
+        pText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                pTextActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 220, 40));
+        jPanel1.add(pText, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 220, 40));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel9.setText("Password");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 130, 20));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Gender");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, 330, -1));
 
-        GenderGroup.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Male");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        GenderGroup.add(maleRadio);
+        maleRadio.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
+        maleRadio.setText("Male");
+        maleRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                maleRadioActionPerformed(evt);
             }
         });
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 300, -1, -1));
+        jPanel1.add(maleRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 300, -1, -1));
 
-        GenderGroup.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Female");
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 300, -1, -1));
+        GenderGroup.add(femaleRadio);
+        femaleRadio.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
+        femaleRadio.setText("Female");
+        jPanel1.add(femaleRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 300, -1, -1));
 
-        GenderGroup.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setText("Others");
-        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 300, -1, -1));
+        GenderGroup.add(otherRadio);
+        otherRadio.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
+        otherRadio.setText("Others");
+        jPanel1.add(otherRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 300, -1, -1));
 
-        jTextField7.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField7.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        dText.setBackground(new java.awt.Color(204, 204, 204));
+        dText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                dTextActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 220, 40));
+        jPanel1.add(dText, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 220, 40));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jLabel11.setText("Date of birth");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 130, 20));
 
         updatebtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        updatebtn.setText("Update Bed");
+        updatebtn.setText("Update Profile");
         updatebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updatebtnActionPerformed(evt);
@@ -289,7 +282,7 @@ public class UpdateProfile extends javax.swing.JFrame {
         jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 530, 230, 60));
 
         jButton7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton7.setText("Delete Bed");
+        jButton7.setText("Delete Profile");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -297,9 +290,9 @@ public class UpdateProfile extends javax.swing.JFrame {
         });
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 530, 200, 60));
 
-        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Update.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        label1.setBackground(new java.awt.Color(204, 204, 204));
+        label1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Update.png"))); // NOI18N
+        jPanel1.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -319,60 +312,116 @@ public class UpdateProfile extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void fTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_fTextActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void userTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_userTextActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void lTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_lTextActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void cTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_cTextActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void eTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_eTextActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void pTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_pTextActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void maleRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_maleRadioActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void dTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_dTextActionPerformed
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
         // TODO add your handling code here:
-        try {
-            //     
-                User u1 = new User("Crystal", "Khadka", "Crystal", "khadka@gmail.com", "9843041037", "1234", "24/05/2004", null, null, null);
-                UserController uc = new UserController();
-                int result = uc.updatedetails(u1);
-                if(result>0){
-                    JOptionPane.showMessageDialog(null, "Updated Success");
-                }
-            } catch (Exception e) {
-                // TODO: handle exception
-                JOptionPane.showMessageDialog(null, e);
-            }
+        update();
+        
             
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+    public void view(){
+        try {
+            User s1 = new User(null, null, null, null, null, null, null, null, null, null);
+            UserController sc= new UserController();
+            ResultSet isInserted = sc.selectUser(s1);
+            
+            if(isInserted.next()){
+                String fname = isInserted.getString(1);
+                String lname = isInserted.getString(2);
+                String username = isInserted.getString(3);
+                String email = isInserted.getString(4);
+                String contact = isInserted.getString(5);
+                String pass = isInserted.getString(6);
+                String dob = isInserted.getString(7);
+                String gender = isInserted.getString(10);
+                // String fname = isInserted.getString(0);
+                // fText.getText
+                
+                fText.setText(fname);
+                lText.setText(lname);
+                userText.setText(username);
+                eText.setText(email);
+                cText.setText(contact);
+                pText.setText(pass);
+                dText.setText(dob);
+                if(gender.equals("Male")){
+                    maleRadio.setSelected(true);
+                }
 
-    /**
+                System.out.println(fname + lname +username + email + contact +dob);
+                
+            }
+            else{
+                System.out.println("Failed to insert student");
+                
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+    }
+    public void update(){
+        try {
+            String gender = null;
+            //
+            if(maleRadio.isSelected()){
+                gender = "Male";
+            }else if(femaleRadio.isSelected()){
+                gender = "Female";
+            }else if(otherRadio.isSelected()){
+                gender = "Others";
+            }else{
+                JOptionPane.showMessageDialog(null, "No gender selected");
+            }
+            User u1 = new User(fText.getText(),lText.getText(),userText.getText(),eText.getText(),cText.getText(),pText.getText(),dText.getText(),null,null,gender);
+            UserController uc = new UserController();
+            int result = uc.updatedetails(u1);
+            if (result > 0) {
+                JOptionPane.showMessageDialog(null, "Updated Success");
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+    }
+        /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -409,13 +458,17 @@ public class UpdateProfile extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup GenderGroup;
+    private javax.swing.JTextField cText;
+    private javax.swing.JTextField dText;
+    private javax.swing.JTextField eText;
+    private javax.swing.JTextField fText;
+    private javax.swing.JRadioButton femaleRadio;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -428,16 +481,12 @@ public class UpdateProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField lText;
+    private javax.swing.JLabel label1;
+    private javax.swing.JRadioButton maleRadio;
+    private javax.swing.JRadioButton otherRadio;
+    private javax.swing.JTextField pText;
     private javax.swing.JButton updatebtn;
+    private javax.swing.JTextField userText;
     // End of variables declaration//GEN-END:variables
 }
