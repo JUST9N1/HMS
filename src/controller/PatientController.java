@@ -45,6 +45,13 @@ public class PatientController {
         return result;
     }
 
+    public ResultSet fetch(){
+        String query = "select user_email,patient_id,age,blood_group,patinet_hstory from patient where status='"+"active"+"'";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(query);
+        return result;
+    }
+
     public int updatestatus(Patient patient){
         int id = patient.getPatient_id();
         String updateQuery = "update patient set status='"+"active"+"' where patient_id='"+id+"'";
