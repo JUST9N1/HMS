@@ -84,7 +84,7 @@ public class BedController {
     }
 
     public ResultSet fetchBed() {
-        String selectQuery = "select ward_type,bed_type,bed_size from bed where status='" + "active" + "'";
+        String selectQuery = "select bed_no,ward_no,ward_type,bed_type,bed_size from bed where status='" + "active" + "'";
         dbConnection = new DbConnection();
         ResultSet result = dbConnection.retrieve(selectQuery);
         return result;
@@ -96,7 +96,7 @@ public class BedController {
         String bed_size = bed.getBedSize();
 
         String updateQuery = "update bed set ward_type='" + ward_type + "',bed_type='" + bed_type + "',bed_size='"
-                + bed_size + "'";
+                + bed_size + "' where status='"+"active"+"'";
         dbConnection = new DbConnection();
         int result = dbConnection.manipulate(updateQuery);
         return result;
