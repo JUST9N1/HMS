@@ -58,7 +58,7 @@ public class updateDoctor extends javax.swing.JFrame {
         logoutBtn = new javax.swing.JButton();
         specialText = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-
+//adding labels
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
