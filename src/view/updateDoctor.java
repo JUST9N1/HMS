@@ -3,25 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+//importing required libraries 
 import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
 
 import controller.DoctorController;
 import models.Doctor;
-
+// Comment
 /**
  *
- * @author razee
+ * @author khadk
  */
-public class ViewDoctor extends javax.swing.JFrame {
+public class updateDoctor extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewDoctor
+     * Creates new form updateDoctor
      */
-    public ViewDoctor() {
+    public updateDoctor() {
         initComponents();
+        UpdateCombo();
         view();
     }
 
@@ -33,7 +34,7 @@ public class ViewDoctor extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+        //creting required panels and buttons 
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -44,27 +45,27 @@ public class ViewDoctor extends javax.swing.JFrame {
         idText = new javax.swing.JTextField();
         NameText = new javax.swing.JTextField();
         ageText = new javax.swing.JTextField();
-        specialText = new javax.swing.JTextField();
         departText = new javax.swing.JTextField();
         UpdateBtn = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        homeBtn = new javax.swing.JButton();
+        homeBtn = new javax.swing.JButton();// adding extra buttons
         aboutBtn = new javax.swing.JButton();
         contactBtn = new javax.swing.JButton();
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
+        specialText = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-
+//adding labels
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Engravers MT", 3, 24)); // NOI18N
-        jLabel3.setText("View Doctor");
+        jLabel3.setText("Update Doctor");
         jLabel3.setToolTipText("");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 310, 80));
 
@@ -101,6 +102,7 @@ public class ViewDoctor extends javax.swing.JFrame {
             }
         });
         jPanel1.add(idText, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 250, 40));
+        idText.setEditable(false);
 
         NameText.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         NameText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
@@ -115,18 +117,9 @@ public class ViewDoctor extends javax.swing.JFrame {
         ageText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), null));
         jPanel1.add(ageText, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 250, 40));
 
-        specialText.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        specialText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
-        specialText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                specialTextActionPerformed(evt);
-            }
-        });
-        jPanel1.add(specialText, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 250, 40));
-
         departText.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         departText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
-        jPanel1.add(departText, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 250, 40));
+        jPanel1.add(departText, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 250, 40));
 
         UpdateBtn.setBackground(new java.awt.Color(255, 255, 0));
         UpdateBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -137,13 +130,13 @@ public class ViewDoctor extends javax.swing.JFrame {
                 UpdateBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 210, 70));
+        jPanel1.add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 210, 70));
 
         jButton7.setBackground(new java.awt.Color(255, 255, 0));
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton7.setText("DELETE DOCTOR");
         jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 230, 70));
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 230, 70));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
@@ -255,6 +248,10 @@ public class ViewDoctor extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        specialText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(51, 51, 51), null, null));
+        specialText.setEditable(true);
+        jPanel1.add(specialText, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 250, 40));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/View Doctor.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1040, 630));
 
@@ -281,17 +278,35 @@ public class ViewDoctor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_idTextActionPerformed
 
-    private void specialTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_specialTextActionPerformed
-
-    private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UpdateBtnActionPerformed
-
     private void NameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NameTextActionPerformed
+
+    private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
+        try {
+            String id  = idText.getText();
+            String fname = null;
+            String lname = null;
+            String age = ageText.getText();
+            String depart = departText.getText();
+            String special = null;
+            Object selectedItem = specialText.getSelectedItem();
+            if (selectedItem != null) {
+                special = selectedItem.toString();
+            }
+            
+            Doctor d1 = new Doctor(Integer.parseInt(id), fname, lname, age, depart, special);
+            DoctorController dc= new DoctorController();
+            int result  = dc.updateDoctor(d1);
+            if(result>0){
+                JOptionPane.showMessageDialog(this, "Updated Successfully");
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+
+    }//GEN-LAST:event_UpdateBtnActionPerformed
 
     private void aboutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBtnActionPerformed
         // TODO add your handling code here:
@@ -321,13 +336,21 @@ public class ViewDoctor extends javax.swing.JFrame {
                 NameText.setText(name);
                 ageText.setText(age);
                 departText.setText(depart);
-                specialText.setText(special);
+                specialText.setSelectedItem(special);
             }
 
         } catch (Exception e) {
             // TODO: handle exception
             JOptionPane.showMessageDialog(null, e);}
         }
+    public void UpdateCombo(){
+        String[] ary = {"Orthopedist","Neurologist","opthalmologist"};
+        // String item = null;
+        for(int i = 0;i < ary.length;i++){
+            specialText.addItem(ary[i]);
+        }
+        // Spec.ialText.addItem(ary);
+    }
     /**
      * @param args the command line arguments
      */
@@ -345,22 +368,20 @@ public class ViewDoctor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(updateDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(updateDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(updateDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(updateDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    
-   
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewDoctor().setVisible(true);
+                new updateDoctor().setVisible(true);
             }
         });
     }
@@ -388,6 +409,6 @@ public class ViewDoctor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JButton profileBtn;
-    private javax.swing.JTextField specialText;
+    private javax.swing.JComboBox<String> specialText;
     // End of variables declaration//GEN-END:variables
 }
