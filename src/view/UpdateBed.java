@@ -4,6 +4,13 @@
  */
 package view;
 
+import java.sql.ResultSet;
+
+import javax.swing.JOptionPane;
+
+import controller.BedController;
+import models.Bed;
+
 /**
  *
  * @author razee
@@ -15,6 +22,7 @@ public class UpdateBed extends javax.swing.JFrame {
      */
     public UpdateBed() {
         initComponents();
+        display();
     }
 
     /**
@@ -43,15 +51,15 @@ public class UpdateBed extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jButton6 = new javax.swing.JButton();
+        idText = new javax.swing.JTextField();
+        wrdText = new javax.swing.JTextField();
+        wardTypeCombo = new javax.swing.JComboBox<>();
+        multipleBtn = new javax.swing.JRadioButton();
+        singleBtn = new javax.swing.JRadioButton();
+        manualBtn = new javax.swing.JRadioButton();
+        electricBtn = new javax.swing.JRadioButton();
+        semiElectricBtn = new javax.swing.JRadioButton();
+        updateBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -200,53 +208,58 @@ public class UpdateBed extends javax.swing.JFrame {
         jLabel9.setText("BED TYPE:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, -1, 40));
 
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 255, 255));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 350, 50));
+        idText.setBackground(new java.awt.Color(0, 0, 0));
+        idText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        idText.setForeground(new java.awt.Color(0, 255, 255));
+        jPanel1.add(idText, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 350, 50));
 
-        jTextField2.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 255, 255));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 320, 50));
+        wrdText.setBackground(new java.awt.Color(0, 0, 0));
+        wrdText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        wrdText.setForeground(new java.awt.Color(0, 255, 255));
+        jPanel1.add(wrdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 320, 50));
 
-        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(153, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GENERAL", "EMERGENCY", "SEMI SPECIAL", "ICU", "CCU", "SPECIAL", "DELUXE", "SUPER DELUXE", "BURNWARD", "NICU", "PICU", " ", " ", " " }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 160, 40));
+        wardTypeCombo.setBackground(new java.awt.Color(0, 0, 0));
+        wardTypeCombo.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
+        wardTypeCombo.setForeground(new java.awt.Color(153, 0, 0));
+        wardTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GENERAL", "EMERGENCY", "SEMI SPECIAL", "ICU", "CCU", "SPECIAL", "DELUXE", "SUPER DELUXE", "BURNWARD", "NICU", "PICU", " ", " ", " " }));
+        jPanel1.add(wardTypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 160, 40));
 
-        BedSize.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
-        jRadioButton1.setText("MULTIPLE");
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 190, 40));
+        BedSize.add(multipleBtn);
+        multipleBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        multipleBtn.setText("MULTIPLE");
+        jPanel1.add(multipleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 190, 40));
 
-        BedSize.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
-        jRadioButton2.setText("SINGLE");
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 150, 40));
+        BedSize.add(singleBtn);
+        singleBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        singleBtn.setText("SINGLE");
+        jPanel1.add(singleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 150, 40));
 
-        BedType.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jRadioButton3.setText("MANUAL");
-        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 447, 210, 40));
+        BedType.add(manualBtn);
+        manualBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        manualBtn.setText("MANUAL");
+        jPanel1.add(manualBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 447, 210, 40));
 
-        BedType.add(jRadioButton5);
-        jRadioButton5.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jRadioButton5.setText("ELECTRIC");
-        jPanel1.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 530, 210, 40));
+        BedType.add(electricBtn);
+        electricBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        electricBtn.setText("ELECTRIC");
+        jPanel1.add(electricBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 530, 210, 40));
 
-        BedType.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jRadioButton4.setText("SEMI-ELECTRIC");
-        jPanel1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 210, 30));
+        BedType.add(semiElectricBtn);
+        semiElectricBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        semiElectricBtn.setText("SEMI-ELECTRIC");
+        jPanel1.add(semiElectricBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 210, 30));
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
-        jButton6.setFont(new java.awt.Font("Perpetua Titling MT", 1, 36)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(0, 255, 255));
-        jButton6.setText("UPDATE");
-        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 51), 4, true));
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 310, 260, 60));
+        updateBtn.setBackground(new java.awt.Color(0, 0, 0));
+        updateBtn.setFont(new java.awt.Font("Perpetua Titling MT", 1, 36)); // NOI18N
+        updateBtn.setForeground(new java.awt.Color(0, 255, 255));
+        updateBtn.setText("UPDATE");
+        updateBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 51), 4, true));
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 310, 260, 60));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
@@ -284,6 +297,80 @@ public class UpdateBed extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        try {
+            String wardType = null;
+            String bedSize=null;
+            String bedType = null;
+
+            Object item = wardTypeCombo.getSelectedItem();
+            if(item!=null){
+                wardType = item.toString();
+            }
+            if(singleBtn.isSelected()){
+                bedSize= "single";
+            }else if(multipleBtn.isSelected()){
+                bedSize="multiple";
+            }
+
+            if(manualBtn.isSelected()){
+                bedType = "manual";
+            }else if(semiElectricBtn.isSelected()){
+                bedType = "semi-electric";
+
+            }else if(electricBtn.isSelected()){
+                bedType ="electric";
+
+
+            }
+
+            if(wardType.equals(null) || bedSize.equals(null)|| bedType.equals(null)){
+                JOptionPane.showMessageDialog(this, "Please fill all the fields");
+            }else{
+                Bed b1 = new Bed(0,0,bedType,bedSize,wardType);
+                BedController bc= new BedController();
+                int result= bc.updateBed(b1);
+                if(result>0){
+                    JOptionPane.showMessageDialog(this,"Updated Success");
+                }
+            }
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }//GEN-LAST:event_updateBtnActionPerformed
+    public void display(){
+        try {
+            ResultSet rs = new BedController().fetchBed();
+            while(rs.next()){
+                String id = rs.getString(1);
+                String wardNo = rs.getString(2);
+                String wardType = rs.getString(3);
+                String size  = rs.getString(5);
+                String type = rs.getString(4);
+
+                idText.setText(id);
+                wrdText.setText(wardNo);
+                wardTypeCombo.setSelectedItem(wardType);
+                if(size.equals("single")){
+                    singleBtn.setSelected(true);
+                }else if(size.equals("multiple")){ 
+                    multipleBtn.setSelected(true);
+                }
+
+                if(type.equals("manual")){
+                    manualBtn.setSelected(true);
+                }
+                else if(type.equals("electric")){
+                    electricBtn.setSelected(true);
+                }else if(type.equals("semi-electric")){
+                    semiElectricBtn.setSelected(true);
+                }
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -322,13 +409,13 @@ public class UpdateBed extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BedSize;
     private javax.swing.ButtonGroup BedType;
+    private javax.swing.JRadioButton electricBtn;
+    private javax.swing.JTextField idText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -340,12 +427,12 @@ public class UpdateBed extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JRadioButton manualBtn;
+    private javax.swing.JRadioButton multipleBtn;
+    private javax.swing.JRadioButton semiElectricBtn;
+    private javax.swing.JRadioButton singleBtn;
+    private javax.swing.JButton updateBtn;
+    private javax.swing.JComboBox<String> wardTypeCombo;
+    private javax.swing.JTextField wrdText;
     // End of variables declaration//GEN-END:variables
 }
