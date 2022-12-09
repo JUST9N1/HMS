@@ -79,7 +79,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 aboutBtnActionPerformed(evt);
             }
         });
-
+// CONTACT BUTTON
         contactBtn.setBackground(new java.awt.Color(0, 0, 0));
         contactBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         contactBtn.setForeground(new java.awt.Color(255, 153, 0));
