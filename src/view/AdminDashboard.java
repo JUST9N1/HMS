@@ -345,6 +345,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+   //class
     private javax.swing.JButton aboutBtn;
     private javax.swing.JButton accountBtn;
     private javax.swing.JButton appointBtn;
