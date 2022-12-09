@@ -73,14 +73,7 @@ public class AddBed extends javax.swing.JFrame {
         jLabel1.setText("Left panel");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-<<<<<<< HEAD
-// <<<<<<< HEAD
-// =======
         setPreferredSize(new java.awt.Dimension(1012, 606));
-// >>>>>>> main
-=======
-        setPreferredSize(new java.awt.Dimension(1012, 606));
->>>>>>> ab52f90e3205103ab61982d9ca4227f3131f1669
         setSize(new java.awt.Dimension(1012, 606));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -134,41 +127,17 @@ public class AddBed extends javax.swing.JFrame {
         ManualRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ManualRadio.setText("Manual");
         jPanel2.add(ManualRadio);
-<<<<<<< HEAD
-
-        ManualRadio.setBounds(250, 290, 120, 27);
-// =======
         ManualRadio.setBounds(220, 250, 90, 27);
-// >>>>>>> main
-=======
-        ManualRadio.setBounds(220, 250, 90, 27);
->>>>>>> ab52f90e3205103ab61982d9ca4227f3131f1669
 
         SemiRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         SemiRadio.setText("Semi Electric");
         jPanel2.add(SemiRadio);
-<<<<<<< HEAD
-// <<<<<<< HEAD
-        SemiRadio.setBounds(250, 320, 150, 27);
-// =======
         SemiRadio.setBounds(220, 280, 139, 27);
-// >>>>>>> main
-=======
-        SemiRadio.setBounds(220, 280, 139, 27);
->>>>>>> ab52f90e3205103ab61982d9ca4227f3131f1669
 
         ElectricButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ElectricButton.setText("Electric");
         jPanel2.add(ElectricButton);
-<<<<<<< HEAD
-// <<<<<<< HEAD
-        ElectricButton.setBounds(250, 350, 120, 27);
-// =======
         ElectricButton.setBounds(220, 310, 90, 27);
-// >>>>>>> main
-=======
-        ElectricButton.setBounds(220, 310, 90, 27);
->>>>>>> ab52f90e3205103ab61982d9ca4227f3131f1669
 
         jLabel8.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 0, 0));
