@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+//importing required libraries
 import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;

@@ -3,13 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+//importing required libraries
 import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author razee
  */
+//creating class
 public class AdminDashboard extends javax.swing.JFrame {
 
     /**
@@ -27,7 +29,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+//creating extra labels and button 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -48,7 +50,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+// panels
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 600));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -61,13 +63,13 @@ public class AdminDashboard extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Script MT Bold", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setText("HMS");
-
+// home button
         homeBtn.setBackground(new java.awt.Color(0, 0, 0));
         homeBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         homeBtn.setForeground(new java.awt.Color(255, 153, 0));
         homeBtn.setText("HOME");
         homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 3, true));
-
+// about button
         aboutBtn.setBackground(new java.awt.Color(0, 0, 0));
         aboutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         aboutBtn.setForeground(new java.awt.Color(255, 153, 0));
@@ -78,7 +80,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 aboutBtnActionPerformed(evt);
             }
         });
-
+// CONTACT BUTTON
         contactBtn.setBackground(new java.awt.Color(0, 0, 0));
         contactBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         contactBtn.setForeground(new java.awt.Color(255, 153, 0));
@@ -178,7 +180,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, 160, 60));
-
+// patient button
         patientBtn.setBackground(new java.awt.Color(0, 0, 0));
         patientBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         patientBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -343,6 +345,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+   //class
     private javax.swing.JButton aboutBtn;
     private javax.swing.JButton accountBtn;
     private javax.swing.JButton appointBtn;

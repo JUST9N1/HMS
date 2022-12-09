@@ -3,14 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+//importing required libraries 
 import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
 
 import controller.DoctorController;
 import models.Doctor;
-
+// Comment
 /**
  *
  * @author khadk
@@ -34,7 +34,7 @@ public class updateDoctor extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+        //creting required panels and buttons 
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -51,14 +51,14 @@ public class updateDoctor extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        homeBtn = new javax.swing.JButton();
+        homeBtn = new javax.swing.JButton();// adding extra buttons
         aboutBtn = new javax.swing.JButton();
         contactBtn = new javax.swing.JButton();
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         specialText = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-
+//adding labels
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
