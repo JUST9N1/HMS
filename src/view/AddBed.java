@@ -73,10 +73,7 @@ public class AddBed extends javax.swing.JFrame {
         jLabel1.setText("Left panel");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-<<<<<<< HEAD
-=======
         setPreferredSize(new java.awt.Dimension(1012, 606));
->>>>>>> main
         setSize(new java.awt.Dimension(1012, 606));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
