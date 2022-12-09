@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author razee
  */
+//creating class
 public class AdminDashboard extends javax.swing.JFrame {
 
     /**
