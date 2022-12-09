@@ -180,7 +180,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, 160, 60));
-
+// patient button
         patientBtn.setBackground(new java.awt.Color(0, 0, 0));
         patientBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         patientBtn.setForeground(new java.awt.Color(255, 255, 255));
