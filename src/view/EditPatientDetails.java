@@ -6,7 +6,10 @@ package view;
 
 import java.sql.ResultSet;
 
+import javax.swing.JOptionPane;
+
 import controller.PatientController;
+import models.Patient;
 
 // Writing a comment
 /**
@@ -51,7 +54,7 @@ public class EditPatientDetails extends javax.swing.JFrame {
         emailText = new javax.swing.JTextField();
         idText = new javax.swing.JTextField();
         ageText = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
+        updateBtn = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         bgCombo = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -244,12 +247,17 @@ public class EditPatientDetails extends javax.swing.JFrame {
         });
         jPanel1.add(ageText, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 310, 40));
 
-        jButton7.setBackground(new java.awt.Color(0, 0, 0));
-        jButton7.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("UPDATE YOUR PROFILE");
-        jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 530, -1, 50));
+        updateBtn.setBackground(new java.awt.Color(0, 0, 0));
+        updateBtn.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
+        updateBtn.setForeground(new java.awt.Color(255, 255, 255));
+        updateBtn.setText("UPDATE YOUR PROFILE");
+        updateBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, -1, 50));
 
         jButton8.setBackground(new java.awt.Color(0, 0, 0));
         jButton8.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
@@ -322,6 +330,29 @@ public class EditPatientDetails extends javax.swing.JFrame {
     private void ageTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ageTextActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        try {
+            // String email = emailText.getText();
+            String age = ageText.getText();
+            String medical = historyTxt.getText();
+            String bg = null;
+
+            Object item = bgCombo.getSelectedItem();
+            if(item!=null){
+                bg = item.toString();
+            }
+            Patient p1 = new Patient(0,0,0,null,medical,bg,Integer.parseInt(age),0);
+            PatientController pc = new PatientController();
+            int resutl = pc.updatePatient(p1);
+            if(resutl>0){
+                JOptionPane.showMessageDialog(this, "Updated Successfully");
+            }
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }//GEN-LAST:event_updateBtnActionPerformed
     public void display(){
         try {
             ResultSet rs = new PatientController().fetch();
@@ -389,7 +420,6 @@ public class EditPatientDetails extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -404,5 +434,6 @@ public class EditPatientDetails extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }
