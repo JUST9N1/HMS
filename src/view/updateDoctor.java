@@ -51,7 +51,7 @@ public class updateDoctor extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        homeBtn = new javax.swing.JButton();
+        homeBtn = new javax.swing.JButton();// adding extra buttons
         aboutBtn = new javax.swing.JButton();
         contactBtn = new javax.swing.JButton();
         profileBtn = new javax.swing.JButton();
