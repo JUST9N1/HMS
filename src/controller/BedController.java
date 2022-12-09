@@ -21,66 +21,86 @@ public class BedController {
         return result;
     }
 
-    public ResultSet viewDetails(Bed bed){
-        String selectQuery = "select * from bed where status='"+"active"+"'";
+    public ResultSet viewDetails(Bed bed) {
+        String selectQuery = "select * from bed where status='" + "active" + "'";
         dbConnection = new DbConnection();
         ResultSet result = dbConnection.retrieve(selectQuery);
         return result;
     }
 
-    public ResultSet selectdetails(Bed bed){
+    public ResultSet selectdetails(Bed bed) {
         String selectQuery = "select * from bed";
         dbConnection = new DbConnection();
         ResultSet result = dbConnection.retrieve(selectQuery);
         return result;
     }
 
-    public int changestatus(Bed bed){
+    public int changestatus(Bed bed) {
         int BedNo = bed.getBedNo();
 
-        String UpdateQuery = "update bed set status='"+"active"+"' where bed_no='"+BedNo+"'";
+        String UpdateQuery = "update bed set status='" + "active" + "' where bed_no='" + BedNo + "'";
         dbConnection = new DbConnection();
         int result = dbConnection.manipulate(UpdateQuery);
         return result;
     }
 
-    public int updatestatus(Bed bed){
-        String updateQuery = "update bed set status='"+"inactive"+"' where status='"+"active"+"'";
+    public int updatestatus(Bed bed) {
+        String updateQuery = "update bed set status='" + "inactive" + "' where status='" + "active" + "'";
         dbConnection = new DbConnection();
         int result = dbConnection.manipulate(updateQuery);
         return result;
     }
 
-    public ResultSet selectWardType(Bed bed){
+    public ResultSet selectWardType(Bed bed) {
         String selectQuery = "select ward_type from bed";
         dbConnection = new DbConnection();
         ResultSet result = dbConnection.retrieve(selectQuery);
         return result;
 
     }
-    public ResultSet selectWardNo(Bed bed){
+
+    public ResultSet selectWardNo(Bed bed) {
         String wardType = bed.getWardType();
-        String selectQuery = "select ward_no from bed where ward_type='"+wardType+"'";
+        String selectQuery = "select ward_no from bed where ward_type='" + wardType + "'";
         dbConnection = new DbConnection();
         ResultSet result = dbConnection.retrieve(selectQuery);
         return result;
     }
 
-    public ResultSet selectBedNo(Bed bed){
+    public ResultSet selectBedNo(Bed bed) {
         int wardno = bed.getWardNo();
-        String selectQuery = "select bed_no from bed where ward_no='"+wardno+"'";
+        String selectQuery = "select bed_no from bed where ward_no='" + wardno + "'";
         dbConnection = new DbConnection();
         ResultSet result = dbConnection.retrieve(selectQuery);
         return result;
     }
-    public ResultSet selectBedDetails(Bed bed){
+
+    public ResultSet selectBedDetails(Bed bed) {
         int bedno = bed.getBedNo();
-        String selectQuery = "select bed_type,bed_size from bed where bed_no='"+bedno+"'";
+        String selectQuery = "select bed_type,bed_size from bed where bed_no='" + bedno + "'";
         dbConnection = new DbConnection();
         ResultSet result = dbConnection.retrieve(selectQuery);
         return result;
     }
 
+    public ResultSet fetchBed() {
+        String selectQuery = "select ward_type,bed_type,bed_size from bed where status='" + "active" + "'";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
 
+    public int updateBed(Bed bed) {
+        String ward_type = bed.getWardType();
+        String bed_type = bed.getBedType();
+        String bed_size = bed.getBedSize();
+
+        String updateQuery = "update bed set ward_type='" + ward_type + "',bed_type='" + bed_type + "',bed_size='"
+                + bed_size + "'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(updateQuery);
+        return result;
+        
+    }
 
 }
