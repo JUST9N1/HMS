@@ -127,29 +127,17 @@ public class AddBed extends javax.swing.JFrame {
         ManualRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ManualRadio.setText("Manual");
         jPanel2.add(ManualRadio);
-<<<<<<< HEAD
-        ManualRadio.setBounds(250, 290, 120, 27);
-=======
         ManualRadio.setBounds(220, 250, 90, 27);
->>>>>>> main
 
         SemiRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         SemiRadio.setText("Semi Electric");
         jPanel2.add(SemiRadio);
-<<<<<<< HEAD
-        SemiRadio.setBounds(250, 320, 150, 27);
-=======
         SemiRadio.setBounds(220, 280, 139, 27);
->>>>>>> main
 
         ElectricButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ElectricButton.setText("Electric");
         jPanel2.add(ElectricButton);
-<<<<<<< HEAD
-        ElectricButton.setBounds(250, 350, 120, 27);
-=======
         ElectricButton.setBounds(220, 310, 90, 27);
->>>>>>> main
 
         jLabel8.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 0, 0));
