@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+
+import java.sql.ResultSet;
+
+import controller.PatientController;
+
 // Writing a comment
 /**
  *
@@ -10,11 +15,12 @@ package view;
  */
 public class EditPatientDetails extends javax.swing.JFrame {
 
-    /**
+    /** 
      * Creates new form EditPatientDetails
      */
     public EditPatientDetails() {
         initComponents();
+        display();
     }
 
     /**
@@ -42,13 +48,14 @@ public class EditPatientDetails extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        emailText = new javax.swing.JTextField();
+        idText = new javax.swing.JTextField();
+        ageText = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        bgCombo = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        historyTxt = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -210,27 +217,32 @@ public class EditPatientDetails extends javax.swing.JFrame {
         jLabel10.setText("DESCRIPTIVE PATIENT'S MEDICAL HISTORY");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, -1, -1));
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 255, 255));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 320, 40));
+        emailText.setEditable(false);
+        emailText.setBackground(new java.awt.Color(0, 0, 0));
+        emailText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        emailText.setForeground(new java.awt.Color(0, 255, 255));
+        jPanel1.add(emailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 320, 40));
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 255, 255));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 320, 40));
+        idText.setEditable(false);
+        idText.setBackground(new java.awt.Color(0, 0, 0));
+        idText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        idText.setForeground(new java.awt.Color(0, 255, 255));
+        idText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(idText, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 320, 40));
 
-        jTextField3.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField3.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(0, 255, 255));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 310, 40));
-
-        jTextField4.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField4.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 12)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(0, 255, 255));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 610, 110));
+        ageText.setBackground(new java.awt.Color(0, 0, 0));
+        ageText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        ageText.setForeground(new java.awt.Color(0, 255, 255));
+        ageText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ageTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ageText, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 310, 40));
 
         jButton7.setBackground(new java.awt.Color(0, 0, 0));
         jButton7.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
@@ -246,13 +258,19 @@ public class EditPatientDetails extends javax.swing.JFrame {
         jButton8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
         jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 530, -1, 50));
 
-        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setEditable(true);
-        jComboBox1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 24)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(255, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+" }));
-        jComboBox1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 90, 40));
+        bgCombo.setBackground(new java.awt.Color(0, 0, 0));
+        bgCombo.setEditable(true);
+        bgCombo.setFont(new java.awt.Font("Perpetua Titling MT", 1, 24)); // NOI18N
+        bgCombo.setForeground(new java.awt.Color(255, 0, 0));
+        bgCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+" }));
+        bgCombo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
+        jPanel1.add(bgCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 90, 40));
+
+        historyTxt.setColumns(20);
+        historyTxt.setRows(5);
+        jScrollPane1.setViewportView(historyTxt);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 410, 490, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Edit Patitent details.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -297,6 +315,33 @@ public class EditPatientDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void idTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idTextActionPerformed
+
+    private void ageTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ageTextActionPerformed
+    public void display(){
+        try {
+            ResultSet rs = new PatientController().fetch();
+            while(rs.next()){
+                String email = rs.getString(1);
+                String id = rs.getString(2);
+                String age = rs.getString(3);
+                String bg = rs.getString(4);
+                String histroy = rs.getString(5);
+
+                emailText.setText(email);
+                idText.setText(id);
+                ageText.setText(age);
+                bgCombo.setSelectedItem(bg);
+                historyTxt.setText(histroy);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -333,6 +378,11 @@ public class EditPatientDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ageText;
+    private javax.swing.JComboBox<String> bgCombo;
+    private javax.swing.JTextField emailText;
+    private javax.swing.JTextArea historyTxt;
+    private javax.swing.JTextField idText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -341,7 +391,6 @@ public class EditPatientDetails extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -354,9 +403,6 @@ public class EditPatientDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
