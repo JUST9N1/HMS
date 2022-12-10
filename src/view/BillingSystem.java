@@ -4,19 +4,33 @@
  */
 package view;
 import java.awt.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+
+import controller.AppointmentController;
+import controller.BillController;
+import controller.UserMedController;
+import models.Appointment;
 /**
  *
  * @author razee
  */
 public class BillingSystem extends javax.swing.JFrame {
 
+    private String total_display;
     /**
      * Creates new form BillingSystem
      */
     public BillingSystem() {
         initComponents();
+        
+        func();
+        fetch();
+        // func2();
     }
 
     /**
@@ -40,13 +54,14 @@ public class BillingSystem extends javax.swing.JFrame {
         MedicineDetails = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        billText = new javax.swing.JTextField();
+        dateText = new javax.swing.JTextField();
+        patientText = new javax.swing.JTextField();
+        totalBtn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        totalLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,9 +101,6 @@ public class BillingSystem extends javax.swing.JFrame {
                 "TEST NAME", "QUANTITY", "AMOUNT"
             }
         ));
-        JTableHeader tableheader = TestDetails.getTableHeader();
-        Font headerFont = new Font("Rockwell Extra Bold", Font.BOLD, 14);
-        tableheader.setFont(headerFont);
         jScrollPane1.setViewportView(TestDetails);
 
         MedicineDetails.setModel(new javax.swing.table.DefaultTableModel(
@@ -103,9 +115,6 @@ public class BillingSystem extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(MedicineDetails);
-        JTableHeader tableheader1 = MedicineDetails.getTableHeader();
-        // Font headerFont = new Font("Rockwell Extra Bold", Font.BOLD, 14);
-        tableheader1.setFont(headerFont); 
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,13 +128,6 @@ public class BillingSystem extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,15 +137,22 @@ public class BillingSystem extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(153, 153, 153))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(10, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -151,37 +160,42 @@ public class BillingSystem extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 710, 460));
 
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        billText.setBackground(new java.awt.Color(0, 0, 0));
+        billText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        billText.setForeground(new java.awt.Color(255, 255, 255));
+        billText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                billTextActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 200, 35));
+        jPanel1.add(billText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 200, 35));
 
-        jTextField2.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        dateText.setBackground(new java.awt.Color(0, 0, 0));
+        dateText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        dateText.setForeground(new java.awt.Color(255, 255, 255));
+        dateText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                dateTextActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 230, 35));
+        jPanel1.add(dateText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 230, 35));
 
-        jTextField3.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField3.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 280, 35));
+        patientText.setBackground(new java.awt.Color(0, 0, 0));
+        patientText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        patientText.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(patientText, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 280, 35));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 255, 255));
-        jButton2.setText("SHOW  TOTAL AMOUNT");
-        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 4, true));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 250, 280, 50));
+        totalBtn.setBackground(new java.awt.Color(0, 0, 0));
+        totalBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        totalBtn.setForeground(new java.awt.Color(0, 255, 255));
+        totalBtn.setText("SHOW  TOTAL AMOUNT");
+        totalBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 4, true));
+        totalBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(totalBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 250, 280, 50));
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
@@ -204,6 +218,11 @@ public class BillingSystem extends javax.swing.JFrame {
         jButton5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 4, true));
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 410, 260, 50));
 
+        totalLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        totalLabel.setForeground(new java.awt.Color(0, 255, 255));
+        totalLabel.setText("Rs. 0");
+        jPanel1.add(totalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 220, 140, 30));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Billing System.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -225,14 +244,90 @@ public class BillingSystem extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void billTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_billTextActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void dateTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_dateTextActionPerformed
 
+    private void totalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalBtnActionPerformed
+        JOptionPane.showMessageDialog(this, "Total Amount :"+total_display);
+        totalLabel.setText("Rs. "+total_display+"");
+    }//GEN-LAST:event_totalBtnActionPerformed
+    public void func(){
+        try {
+            
+            DefaultTableModel model = (DefaultTableModel) TestDetails.getModel();
+            model.setRowCount(0);
+            int total=0;
+            Appointment a1 = new Appointment(0,0,"","","",0,"","","","");
+            AppointmentController ac = new AppointmentController();
+            ResultSet rs = ac.countAppoint(a1);
+            while(rs.next()){
+                int count = Integer.parseInt(rs.getString(1));
+                Object[] rows= {"Appointment(Advance)",count,700*count};
+                total = total+(700*count);
+                model.addRow(rows);
+
+                System.out.println(total);
+            }
+
+            rs = ac.countAppoint_Doc(a1);
+            while(rs.next()){
+                int count = Integer.parseInt(rs.getString(1));
+                Object[] rows= {"Appointment Fees",count,1400*count};
+                model.addRow(rows);
+                total = total+(1400*count);
+                // System.out.println(total);
+
+
+
+            }
+            DefaultTableModel medModel = (DefaultTableModel) MedicineDetails.getModel();
+            medModel.setRowCount(0);
+            //  total=0;
+            UserMedController umc = new UserMedController();
+           ResultSet reSet =  umc.selectMedicine();
+           while(reSet.next()){
+            String name = reSet.getString(1);
+            int rate = Integer.parseInt(reSet.getString(2));
+            int quantity = Integer.parseInt(reSet.getString(3));
+            Object[] rows = {name,quantity,rate*quantity};
+            medModel.addRow(rows);
+            total = total+(rate*quantity);
+           }
+           total_display = Integer.toString(total);
+            
+            total_display = Integer.toString(total);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+        
+    
+            
+        }
+
+        public void fetch(){
+            try {
+                ResultSet rs = new BillController().selectBill();
+                while(rs.next()){
+                    String id = rs.getString(1);
+                    String email = rs.getString(2);
+                    String date= rs.getString(3);
+
+                    billText.setText(id);
+                    dateText.setText(date);
+                    patientText.setText(email);
+                    
+                }
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
     /**
      * @param args the command line arguments
      */
@@ -271,7 +366,8 @@ public class BillingSystem extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable MedicineDetails;
     private javax.swing.JTable TestDetails;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField billText;
+    private javax.swing.JTextField dateText;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -286,8 +382,8 @@ public class BillingSystem extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField patientText;
+    private javax.swing.JButton totalBtn;
+    private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 }
