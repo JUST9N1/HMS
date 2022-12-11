@@ -91,4 +91,5 @@ public class DoctorController {
         int result = dbConnection.manipulate(deleteQuery);
         return result;
     }
+    
 }
