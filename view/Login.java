@@ -123,7 +123,7 @@ public class Login extends javax.swing.JFrame {
                 loginbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 240, 170, 40));
+        jPanel1.add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 170, 40));
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -141,14 +141,14 @@ public class Login extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Palatino Linotype", 1, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 255, 255));
         jButton2.setText("Forgot Password ?");
-        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
+        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 51), 4, true));
         jButton2.setBorderPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 290, 230, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 300, 230, -1));
 
         jLabel7.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
         jLabel7.setText("PLEASE SELECT YOUR ROLE");
