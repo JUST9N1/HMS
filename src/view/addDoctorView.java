@@ -4,6 +4,7 @@
  */
 package view;
 
+import java.awt.event.ActionEvent;
 import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
@@ -54,7 +55,7 @@ public class addDoctorView extends javax.swing.JFrame {
         doctorTable = new javax.swing.JTable();
         addBtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
         firstText = new javax.swing.JTextField();
         LastText = new javax.swing.JTextField();
         AgeText = new javax.swing.JTextField();
@@ -157,14 +158,14 @@ public class addDoctorView extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 160, 70));
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setText("Delete Doctor");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        deleteBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        deleteBtn.setText("Delete Doctor");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                deleteBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 430, 160, 70));
+        jPanel1.add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 430, 160, 70));
 
         firstText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         firstText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -250,6 +251,23 @@ public class addDoctorView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    protected void deleteBtnActionPerformed(ActionEvent evt) {
+        int i = doctorTable.getSelectedRow();
+    
+
+            TableModel model = doctorTable.getModel();
+            
+            int id = Integer.parseInt(model.getValueAt(i, 0).toString());
+            Doctor d1 = new Doctor(id,null,null,null,null,null);
+            DoctorController dc = new DoctorController();
+            int result = dc.deleteDoctor(d1);
+            if(result>0){
+                JOptionPane.showMessageDialog(this, "Deleted Success");
+                
+                table();
+            }
+    }
 
     private void SpecialTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SpecialTextFocusGained
         // TODO add your handling code here:
@@ -427,6 +445,8 @@ public class addDoctorView extends javax.swing.JFrame {
             Doctor d1 = new Doctor(0, null, null, null, null, null);
             DoctorController sc = new DoctorController();
             ResultSet result = sc.selectdetails(d1);
+            DefaultTableModel model = (DefaultTableModel) doctorTable.getModel();
+                    model.setRowCount(0);
             while (result.next()) {
                 int id = Integer.parseInt(result.getString(1));
                 String name = result.getString(2) + " " + result.getString(3);
@@ -438,7 +458,7 @@ public class addDoctorView extends javax.swing.JFrame {
                 if(depart.equals("0")){
                     continue;
                 }
-                DefaultTableModel model = (DefaultTableModel) doctorTable.getModel();
+                // DefaultTableModel model = (DefaultTableModel) doctorTable.getModel();
                 model.addRow(row);
             }
 
@@ -506,10 +526,10 @@ public class addDoctorView extends javax.swing.JFrame {
     private javax.swing.JTextField LastText;
     private javax.swing.JComboBox<String> SpecialText;
     private javax.swing.JButton addBtn;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JTable doctorTable;
     private javax.swing.JTextField firstText;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

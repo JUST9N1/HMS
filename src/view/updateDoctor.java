@@ -34,7 +34,7 @@ public class updateDoctor extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        //creting required panels and buttons 
+
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -47,18 +47,17 @@ public class updateDoctor extends javax.swing.JFrame {
         ageText = new javax.swing.JTextField();
         departText = new javax.swing.JTextField();
         UpdateBtn = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        homeBtn = new javax.swing.JButton();// adding extra buttons
+        homeBtn = new javax.swing.JButton();
         aboutBtn = new javax.swing.JButton();
         contactBtn = new javax.swing.JButton();
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         specialText = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-//adding labels
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -130,13 +129,7 @@ public class updateDoctor extends javax.swing.JFrame {
                 UpdateBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 210, 70));
-
-        jButton7.setBackground(new java.awt.Color(255, 255, 0));
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton7.setText("DELETE DOCTOR");
-        jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 230, 70));
+        jPanel1.add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 210, 70));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
@@ -249,7 +242,6 @@ public class updateDoctor extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         specialText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(51, 51, 51), null, null));
-        specialText.setEditable(true);
         jPanel1.add(specialText, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 250, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/View Doctor.png"))); // NOI18N
@@ -395,7 +387,6 @@ public class updateDoctor extends javax.swing.JFrame {
     private javax.swing.JTextField departText;
     private javax.swing.JButton homeBtn;
     private javax.swing.JTextField idText;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
