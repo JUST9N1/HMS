@@ -137,6 +137,11 @@ public class ViewDoctor extends javax.swing.JFrame {
                 UpdateBtnActionPerformed(evt);
             }
         });
+    jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton7ActionPerformed(evt);
+            }
+        });
         jPanel1.add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 210, 70));
 
         jButton7.setBackground(new java.awt.Color(255, 255, 0));
@@ -279,6 +284,16 @@ public class ViewDoctor extends javax.swing.JFrame {
 
     private void idTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_idTextActionPerformed
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
+        int id = Integer.parseInt(idText.getText());
+        Doctor d1 = new Doctor(id,null,null,null,null,null);
+            DoctorController dc = new DoctorController();
+            int result = dc.deleteDoctor(d1);
+            if(result>0){
+                JOptionPane.showMessageDialog(this, "Deleted Success");
+            }
+                
     }//GEN-LAST:event_idTextActionPerformed
 
     private void specialTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialTextActionPerformed
