@@ -148,8 +148,9 @@ public class AddBed extends javax.swing.JFrame {
         WardCombo.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         WardCombo.setForeground(new java.awt.Color(204, 0, 0));
         WardCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "Emergency", "Semi Special", "ICU", "CCU", "SICU", "Special", "Deluxe", "Super Deluxe", "BurnWard", "NICU", "PICU" }));
+        WardCombo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 0), 3, true));
         jPanel2.add(WardCombo);
-        WardCombo.setBounds(220, 380, 120, 30);
+        WardCombo.setBounds(220, 370, 170, 40);
 
         AddBtn.setBackground(new java.awt.Color(0, 255, 255));
         AddBtn.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N

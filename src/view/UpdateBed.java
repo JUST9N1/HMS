@@ -259,7 +259,7 @@ public class UpdateBed extends javax.swing.JFrame {
                 updateBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 310, 260, 60));
+        jPanel1.add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 540, 260, 60));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
