@@ -57,7 +57,7 @@ public class AddBed extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         bedTable = new javax.swing.JTable();
         viewBed = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -202,17 +202,17 @@ public class AddBed extends javax.swing.JFrame {
         jPanel2.add(viewBed);
         viewBed.setBounds(470, 510, 200, 50);
 
-        jButton8.setBackground(new java.awt.Color(0, 255, 255));
-        jButton8.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(51, 0, 102));
-        jButton8.setText("Delete Bed");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        deleteBtn.setBackground(new java.awt.Color(0, 255, 255));
+        deleteBtn.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
+        deleteBtn.setForeground(new java.awt.Color(51, 0, 102));
+        deleteBtn.setText("Delete Bed");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                deleteBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton8);
-        jButton8.setBounds(760, 510, 190, 50);
+        jPanel2.add(deleteBtn);
+        deleteBtn.setBounds(760, 510, 190, 50);
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
@@ -388,9 +388,9 @@ public class AddBed extends javax.swing.JFrame {
         view();
     }//GEN-LAST:event_viewBedActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void aboutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBtnActionPerformed
         // TODO add your handling code here:
@@ -522,8 +522,8 @@ public class AddBed extends javax.swing.JFrame {
     private javax.swing.JButton aboutBtn;
     private javax.swing.JTable bedTable;
     private javax.swing.JButton contactBtn;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
