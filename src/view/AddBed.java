@@ -73,7 +73,6 @@ public class AddBed extends javax.swing.JFrame {
         jLabel1.setText("Left panel");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1012, 606));
         setSize(new java.awt.Dimension(1012, 606));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -149,8 +148,9 @@ public class AddBed extends javax.swing.JFrame {
         WardCombo.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         WardCombo.setForeground(new java.awt.Color(204, 0, 0));
         WardCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "Emergency", "Semi Special", "ICU", "CCU", "SICU", "Special", "Deluxe", "Super Deluxe", "BurnWard", "NICU", "PICU" }));
+        WardCombo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 0), 3, true));
         jPanel2.add(WardCombo);
-        WardCombo.setBounds(220, 380, 120, 30);
+        WardCombo.setBounds(220, 370, 170, 40);
 
         AddBtn.setBackground(new java.awt.Color(0, 255, 255));
         AddBtn.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
