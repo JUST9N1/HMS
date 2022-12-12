@@ -83,4 +83,12 @@ public class DoctorController {
         int result = dbConnection.manipulate(updateQuery);
         return result;
     }
+
+    public int deleteDoctor(Doctor doctor){
+        int did = doctor.getDoctorId();
+        String deleteQuery = "delete from doctor where doctor_id='"+did+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
 }

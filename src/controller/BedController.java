@@ -103,4 +103,12 @@ public class BedController {
         
     }
 
+    public int deleteBed(Bed bed){
+        int id = bed.getBedNo();
+        String deleteQuery = "delete from bed where bed_no='"+id+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+
 }

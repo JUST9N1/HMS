@@ -98,4 +98,19 @@ public class AppointmentController {
         int result = dbConnection.manipulate(updateQuery);
         return result;
     }
+
+    public ResultSet countAppoint(Appointment appointment){
+        String selectQuery = "select count(appointment.appoint_id) from appointment join user_login on appointment.user_email = user_login.user_email where user_login.user_status='"+"1"+"'";
+        dbConnection = new DbConnection();
+        ResultSet result= dbConnection.retrieve(selectQuery);
+        return result;
+    }
+    public ResultSet countAppoint_Doc(Appointment appointment){
+        String selectQuery = "select count(appointment.appoint_id) from appointment join user_login on appointment.user_email = user_login.user_email where user_login.user_status='"+"1"+"' and appointment.doctor_status='"+"active"+"'";
+        dbConnection = new DbConnection();
+        ResultSet result= dbConnection.retrieve(selectQuery);
+        return result;
+    }
+
+
 }
