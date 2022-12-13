@@ -54,7 +54,7 @@ public class addDoctorView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         doctorTable = new javax.swing.JTable();
         addBtn = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        viewBtn = new javax.swing.JButton();
         deleteBtn = new javax.swing.JButton();
         firstText = new javax.swing.JTextField();
         LastText = new javax.swing.JTextField();
@@ -149,14 +149,14 @@ public class addDoctorView extends javax.swing.JFrame {
         });
         jPanel1.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, 210, 70));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setText("View Doctor");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        viewBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        viewBtn.setText("View Doctor");
+        viewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                viewBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 160, 70));
+        jPanel1.add(viewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 160, 70));
 
         deleteBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         deleteBtn.setText("Delete Doctor");
@@ -341,7 +341,7 @@ public class addDoctorView extends javax.swing.JFrame {
         }
     }// GEN-LAST:event_addBtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
+    private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int i = doctorTable.getSelectedRow();
         // if (i>0){
@@ -529,7 +529,6 @@ public class addDoctorView extends javax.swing.JFrame {
     private javax.swing.JButton deleteBtn;
     private javax.swing.JTable doctorTable;
     private javax.swing.JTextField firstText;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -541,5 +540,6 @@ public class addDoctorView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton viewBtn;
     // End of variables declaration//GEN-END:variables
 }
