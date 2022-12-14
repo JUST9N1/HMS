@@ -41,7 +41,7 @@ public class BillingSystem extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+       // creating panels
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -196,7 +196,7 @@ public class BillingSystem extends javax.swing.JFrame {
             }
         });
         jPanel1.add(totalBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 250, 280, 50));
-
+       //creating buttons
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 255, 255));
