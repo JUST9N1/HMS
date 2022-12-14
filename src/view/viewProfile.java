@@ -96,6 +96,7 @@ public class viewProfile extends javax.swing.JFrame {
         eText = new javax.swing.JTextField();
         gText = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -168,64 +169,112 @@ public class viewProfile extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(java.awt.Color.lightGray);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 600));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Account details");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 403, 33));
+        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 530, 60));
 
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("First Name");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 130, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 180, 20));
 
+        fText.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
         fText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fTextActionPerformed(evt);
             }
         });
-        jPanel1.add(fText, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 200, -1));
+        jPanel1.add(fText, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 250, 35));
+        fText.getAccessibleContext().setAccessibleName("");
 
+        jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("User Name");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 130, 20));
-        jPanel1.add(userText, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 200, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 190, 20));
 
+        userText.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
+        jPanel1.add(userText, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 250, 35));
+        userText.getAccessibleContext().setAccessibleName("");
+
+        jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Contact");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 86, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, 200, 20));
 
+        jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Date of Birth");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 110, 20));
-        jPanel1.add(cText, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 160, -1));
-        jPanel1.add(dText, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 123, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 200, 20));
 
+        cText.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
+        jPanel1.add(cText, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 450, 250, 35));
+        cText.getAccessibleContext().setAccessibleName("");
+
+        dText.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
+        jPanel1.add(dText, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 250, 35));
+        dText.getAccessibleContext().setAccessibleName("");
+
+        jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Last Name");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 77, 20));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 190, 20));
 
+        jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Email");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 110, 20));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 190, 30));
 
+        gLabel.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         gLabel.setForeground(new java.awt.Color(255, 255, 255));
+        gLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gLabel.setText("Gender");
-        jPanel1.add(gLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 100, 20));
-        jPanel1.add(lText, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 160, -1));
-        jPanel1.add(eText, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 300, 30));
-        jPanel1.add(gText, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, 128, -1));
+        jPanel1.add(gLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 190, 30));
 
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lText.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
+        jPanel1.add(lText, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 250, 35));
+        lText.getAccessibleContext().setAccessibleName("");
+
+        eText.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
+        jPanel1.add(eText, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 250, 35));
+        eText.getAccessibleContext().setAccessibleName("");
+
+        gText.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
+        jPanel1.add(gText, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 250, 35));
+        gText.getAccessibleContext().setAccessibleName("");
+
+        jButton6.setBackground(new java.awt.Color(0, 0, 0));
+        jButton6.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 0, 0));
         jButton6.setText("Update Account");
+        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 163, 43));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, 200, 50));
+
+        jButton7.setBackground(new java.awt.Color(0, 0, 0));
+        jButton7.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(255, 0, 0));
+        jButton7.setText("BACK");
+        jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 110, -1));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/iccon.png"))); // NOI18N
@@ -238,11 +287,13 @@ public class viewProfile extends javax.swing.JFrame {
         homeBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         homeBtn.setForeground(new java.awt.Color(255, 153, 0));
         homeBtn.setText("HOME");
+        homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 3, true));
 
         aboutBtn.setBackground(new java.awt.Color(0, 0, 0));
         aboutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         aboutBtn.setForeground(new java.awt.Color(255, 153, 0));
         aboutBtn.setText("About Us");
+        aboutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 3, true));
         aboutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboutBtnActionPerformed(evt);
@@ -253,11 +304,13 @@ public class viewProfile extends javax.swing.JFrame {
         contactBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         contactBtn.setForeground(new java.awt.Color(255, 153, 0));
         contactBtn.setText("Contact Us");
+        contactBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
 
         profileBtn.setBackground(new java.awt.Color(0, 0, 0));
         profileBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         profileBtn.setForeground(new java.awt.Color(255, 153, 0));
         profileBtn.setText("My Profile");
+        profileBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 3, true));
         profileBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 profileBtnActionPerformed(evt);
@@ -268,6 +321,7 @@ public class viewProfile extends javax.swing.JFrame {
         logoutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         logoutBtn.setForeground(new java.awt.Color(255, 153, 0));
         logoutBtn.setText("Log Out");
+        logoutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
         logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutBtnActionPerformed(evt);
@@ -329,23 +383,22 @@ public class viewProfile extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/viewProfile.png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/View Profile.png"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -110, 990, 770));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 945, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -437,6 +490,7 @@ public class viewProfile extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
