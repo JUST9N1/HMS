@@ -31,7 +31,7 @@ public class PatientController {
 
     }
 
-    public ResultSet selectDetails(Patient patient) {
+    public ResultSet selectDetails() {
         String selectQuery = " select patient.patient_id,concat(user_login.user_fname,'" + ""
                 + "',user_login.user_lname) as name,patient.age,user_login.gender,patient.blood_group,user_login.user_contact from patient join user_login on patient.user_email = user_login.user_email ";
         dbConnection = new DbConnection();
@@ -76,6 +76,22 @@ public class PatientController {
         dbConnection = new DbConnection();
         String Query = "update patient set age='" + age + "',patient_history='" + medical + "',blood_group='" + blood
                 + "' where status='"+"active"+"'";
+        int result = dbConnection.manipulate(Query);
+        return result;
+    }
+
+    public ResultSet selectEmail(Patient patient){
+       int  id = patient.getPatient_id();
+       String query = "select user_email from patient where patient_id='"+id+"'";
+       dbConnection = new DbConnection();
+       ResultSet result= dbConnection.retrieve(query);
+       return result;
+    }
+
+    public int deletePatient(Patient patient){
+        int id  = patient.getPatient_id();
+        String Query = "delete from patient where patient_id='"+id+"'";
+        dbConnection = new DbConnection();
         int result = dbConnection.manipulate(Query);
         return result;
     }

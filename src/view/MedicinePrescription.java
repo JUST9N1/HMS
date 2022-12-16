@@ -4,6 +4,18 @@
  */
 package view;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
+import controller.MedicineController;
+import controller.PatientController;
+import controller.UserMedController;
+import models.Medicine;
+import models.Patient;
+import models.User_Med;
+
 /**
  *
  * @author razee
@@ -15,6 +27,7 @@ public class MedicinePrescription extends javax.swing.JFrame {
      */
     public MedicinePrescription() {
         initComponents();
+        display();
     }
 
     /**
@@ -34,12 +47,11 @@ public class MedicinePrescription extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        patinetIdText = new javax.swing.JTextField();
+        fnameText = new javax.swing.JTextField();
+        medNameText = new javax.swing.JTextField();
+        timeText = new javax.swing.JTextField();
+        prescribeBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -48,6 +60,7 @@ public class MedicinePrescription extends javax.swing.JFrame {
         contactBtn = new javax.swing.JButton();
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
+        idText = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,12 +71,14 @@ public class MedicinePrescription extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Stencil", 1, 55)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("MEDICINE PRESCRIPTION");
+        jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 255, 255));
         jButton1.setText("BACK");
+        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 0), 4, true));
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
@@ -91,38 +106,42 @@ public class MedicinePrescription extends javax.swing.JFrame {
         jLabel7.setText("TIME INTERVAL");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 300, 40));
+        patinetIdText.setEditable(false);
+        patinetIdText.setBackground(new java.awt.Color(0, 0, 0));
+        patinetIdText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        patinetIdText.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(patinetIdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 300, 40));
 
-        jTextField2.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 300, 40));
+        fnameText.setEditable(false);
+        fnameText.setBackground(new java.awt.Color(0, 0, 0));
+        fnameText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        fnameText.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(fnameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 300, 40));
 
-        jTextField3.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField3.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 300, 40));
+        medNameText.setBackground(new java.awt.Color(0, 0, 0));
+        medNameText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        medNameText.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(medNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 300, 40));
 
-        jTextField4.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField4.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 300, 40));
+        timeText.setBackground(new java.awt.Color(0, 0, 0));
+        timeText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        timeText.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(timeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, 300, 40));
 
-        jTextField5.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField5.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, 300, 40));
-
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Perpetua Titling MT", 1, 36)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 255, 255));
-        jButton2.setText("PRESCRIBE MEDICINE");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 510, 460, 60));
+        prescribeBtn.setBackground(new java.awt.Color(0, 0, 0));
+        prescribeBtn.setFont(new java.awt.Font("Perpetua Titling MT", 1, 36)); // NOI18N
+        prescribeBtn.setForeground(new java.awt.Color(0, 255, 255));
+        prescribeBtn.setText("PRESCRIBE MEDICINE");
+        prescribeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 0), 4, true));
+        prescribeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prescribeBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(prescribeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 510, 460, 60));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/iccon.png"))); // NOI18N
@@ -135,11 +154,13 @@ public class MedicinePrescription extends javax.swing.JFrame {
         homeBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         homeBtn.setForeground(new java.awt.Color(255, 153, 0));
         homeBtn.setText("HOME");
+        homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 3, true));
 
         aboutBtn.setBackground(new java.awt.Color(0, 0, 0));
         aboutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         aboutBtn.setForeground(new java.awt.Color(255, 153, 0));
         aboutBtn.setText("About Us");
+        aboutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 3, true));
         aboutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboutBtnActionPerformed(evt);
@@ -150,11 +171,13 @@ public class MedicinePrescription extends javax.swing.JFrame {
         contactBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         contactBtn.setForeground(new java.awt.Color(255, 153, 0));
         contactBtn.setText("Contact Us");
+        contactBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
 
         profileBtn.setBackground(new java.awt.Color(0, 0, 0));
         profileBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         profileBtn.setForeground(new java.awt.Color(255, 153, 0));
         profileBtn.setText("My Profile");
+        profileBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 3, true));
         profileBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 profileBtnActionPerformed(evt);
@@ -165,6 +188,7 @@ public class MedicinePrescription extends javax.swing.JFrame {
         logoutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         logoutBtn.setForeground(new java.awt.Color(255, 153, 0));
         logoutBtn.setText("Log Out");
+        logoutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
         logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutBtnActionPerformed(evt);
@@ -226,6 +250,22 @@ public class MedicinePrescription extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        idText.setBackground(new java.awt.Color(0, 0, 0));
+        idText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        idText.setForeground(new java.awt.Color(255, 255, 255));
+        idText.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        idText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                idTextFocusLost(evt);
+            }
+        });
+        idText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(idText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 300, 40));
+
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -263,6 +303,77 @@ public class MedicinePrescription extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutBtnActionPerformed
 
+    private void prescribeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prescribeBtnActionPerformed
+        int id = Integer.parseInt(patinetIdText.getText());
+        Patient p1 = new Patient(id, 0, 0, null, null, null,0, 0);
+        String email = null;
+        ResultSet rs = new PatientController().selectEmail(p1);
+        try {
+            while(rs.next()){
+                email=rs.getString(1);
+
+            }
+            int med_id = 0;
+        Object selecteditem = idText.getSelectedItem();
+        if(selecteditem!=null){
+            med_id = Integer.parseInt(selecteditem.toString());
+        }
+        String time = timeText.getText();
+            User_Med um1 = new User_Med(med_id, email, time);
+            UserMedController usc = new UserMedController();
+            int result = usc.prescribeMedicine(um1);
+            if(result>0){
+                JOptionPane.showMessageDialog(this, "Prescirbed Success");
+                dispose();
+            }
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }//GEN-LAST:event_prescribeBtnActionPerformed
+
+    private void idTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idTextActionPerformed
+
+    private void idTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idTextFocusLost
+        int id = 0;
+        Object selecteditem = idText.getSelectedItem();
+        if(selecteditem!=null){
+            id = Integer.parseInt(selecteditem.toString());
+        }
+        Medicine m1 = new Medicine(id,null,0,0);
+        MedicineController mc = new MedicineController();
+        ResultSet result = mc.fetchMedicineName(m1);
+        try {
+            while(result.next()){
+                medNameText.setText(result.getString(1));
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+    }//GEN-LAST:event_idTextFocusLost
+    public void display(){
+        try {
+            ResultSet rs = new PatientController().selectDetails();
+
+            while(rs.next()){
+                patinetIdText.setText(rs.getString(1));
+                fnameText.setText(rs.getString(2));
+            }
+            ResultSet result = new MedicineController().fetchMedicineId();
+            idText.removeAllItems();
+            while(result.next()){
+                String item=result.getString(1);
+                idText.addItem(item);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -301,9 +412,10 @@ public class MedicinePrescription extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutBtn;
     private javax.swing.JButton contactBtn;
+    private javax.swing.JTextField fnameText;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JComboBox<String> idText;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -315,12 +427,11 @@ public class MedicinePrescription extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JButton logoutBtn;
+    private javax.swing.JTextField medNameText;
+    private javax.swing.JTextField patinetIdText;
+    private javax.swing.JButton prescribeBtn;
     private javax.swing.JButton profileBtn;
+    private javax.swing.JTextField timeText;
     // End of variables declaration//GEN-END:variables
 }

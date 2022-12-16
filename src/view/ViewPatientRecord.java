@@ -41,7 +41,7 @@ public class ViewPatientRecord extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         patientTable = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
+        updateBtn = new javax.swing.JButton();
         assginBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -82,18 +82,21 @@ public class ViewPatientRecord extends javax.swing.JFrame {
                 "Patient ID", "Patient Name", "Age", "Gender", "Blood Group", "Contact Number"
             }
         ));
-        patientTable.setColumnSelectionAllowed(true);
         patientTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(patientTable);
-        patientTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 660, 490));
 
-        jButton3.setBackground(java.awt.Color.black);
-        jButton3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jButton3.setForeground(java.awt.Color.white);
-        jButton3.setText("Update Patients");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 390, -1, 70));
+        updateBtn.setBackground(java.awt.Color.black);
+        updateBtn.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        updateBtn.setForeground(java.awt.Color.white);
+        updateBtn.setText("Update Patients");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 390, -1, 70));
 
         assginBtn.setBackground(java.awt.Color.black);
         assginBtn.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
@@ -107,6 +110,7 @@ public class ViewPatientRecord extends javax.swing.JFrame {
         jPanel1.add(assginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 280, 160, 70));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/iccon.png"))); // NOI18N
@@ -119,11 +123,13 @@ public class ViewPatientRecord extends javax.swing.JFrame {
         homeBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         homeBtn.setForeground(new java.awt.Color(255, 153, 0));
         homeBtn.setText("HOME");
+        homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 3, true));
 
         aboutBtn.setBackground(new java.awt.Color(0, 0, 0));
         aboutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         aboutBtn.setForeground(new java.awt.Color(255, 153, 0));
         aboutBtn.setText("About Us");
+        aboutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 3, true));
         aboutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboutBtnActionPerformed(evt);
@@ -134,11 +140,13 @@ public class ViewPatientRecord extends javax.swing.JFrame {
         contactBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         contactBtn.setForeground(new java.awt.Color(255, 153, 0));
         contactBtn.setText("Contact Us");
+        contactBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
 
         profileBtn.setBackground(new java.awt.Color(0, 0, 0));
         profileBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         profileBtn.setForeground(new java.awt.Color(255, 153, 0));
         profileBtn.setText("My Profile");
+        profileBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 3, true));
         profileBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 profileBtnActionPerformed(evt);
@@ -149,6 +157,7 @@ public class ViewPatientRecord extends javax.swing.JFrame {
         logoutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         logoutBtn.setForeground(new java.awt.Color(255, 153, 0));
         logoutBtn.setText("Log Out");
+        logoutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
         logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutBtnActionPerformed(evt);
@@ -251,6 +260,18 @@ public class ViewPatientRecord extends javax.swing.JFrame {
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        int i = patientTable.getSelectedRow();
+        TableModel model = patientTable.getModel();
+        int id = Integer.parseInt(model.getValueAt(i, 0).toString());
+        Patient p1 = new Patient(id, 0, 0, null, null, null, 0,0);
+            PatientController pc = new PatientController();
+            pc.resetStatus(p1);
+            pc.updatestatus(p1);
+            dispose();
+            new EditPatientDetails().setVisible(true);
+    }//GEN-LAST:event_updateBtnActionPerformed
 public void table(){
     try {
         DefaultTableModel moddel  = (DefaultTableModel) patientTable.getModel();
@@ -258,7 +279,7 @@ public void table(){
         moddel.isCellEditable(0,0);
         Patient p1 = new Patient(0, 0, 0, null, null, null,0, 0);
         PatientController pc = new PatientController();
-        ResultSet rSet = pc.selectDetails(p1);
+        ResultSet rSet = pc.selectDetails();
         while(rSet.next()){
             String id = rSet.getString(1);
             String name = rSet.getString(2);
@@ -317,7 +338,6 @@ public void table(){
     private javax.swing.JButton contactBtn;
     private javax.swing.JButton homeBtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -328,5 +348,6 @@ public void table(){
     private javax.swing.JButton logoutBtn;
     private javax.swing.JTable patientTable;
     private javax.swing.JButton profileBtn;
+    private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }
