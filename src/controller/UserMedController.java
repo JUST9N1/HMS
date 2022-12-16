@@ -14,4 +14,15 @@ public class UserMedController {
         ResultSet rs = dbConnection.retrieve(query);
         return rs;
     }
+
+    public int prescribeMedicine(User_Med user_Med){
+        int med_id = user_Med.getMed_id();
+        String email = user_Med.getUser_email();
+        String time = user_Med.getTime();
+
+        String query = "insert into user_med(med_id,user_email,time) "+ "values('"+med_id+"','"+email+"','"+time+"')";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(query);
+        return result;
+    }
 }

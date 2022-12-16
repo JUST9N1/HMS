@@ -94,4 +94,40 @@ public class UserController {
         int result = dbConnection.manipulate(updateQuery);
         return result;
     }
+
+    public int deleteAppointEmail(){
+
+        String deleteQuery = "delete from appointment join user_login on appointment.user_email=user_login.user_email where user_login.user_status=1";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+    public int deletePatientEmail(){
+
+        String deleteQuery = "delete from patient join user_login on patient.user_email=user_login.user_email where user_login.user_status=1";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+    public int deleteMedicineEmail(){
+
+        String deleteQuery = "delete from user_med join user_login on user_med.user_email=user_login.user_email where user_login.user_status=1";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+
+    public int deleteProfile(){
+        String deleteQuery = "delete from user_login where user_status=1";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+
+    public int deleteBillEmail(){
+        String deleteQuery = "delete from bill join user_login on bill.user_email=user_login.user_email where user_login.user_status=1";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
 }   
