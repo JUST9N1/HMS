@@ -4,6 +4,15 @@
  */
 package view;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.table.DefaultTableModel;
+
+import controller.AppointmentController;
+import controller.UserController;
+import models.Appointment;
+
 /**
  *
  * @author razee
@@ -15,6 +24,7 @@ public class ViewOldAppointment extends javax.swing.JFrame {
      */
     public ViewOldAppointment() {
         initComponents();
+        display();
     }
 
     /**
@@ -38,7 +48,7 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        AppointmentTable = new javax.swing.JTable();
+        appointTable = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -170,11 +180,11 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 3));
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, -1, -1));
 
-        AppointmentTable.setBackground(new java.awt.Color(0, 0, 0));
-        AppointmentTable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
-        AppointmentTable.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        AppointmentTable.setForeground(new java.awt.Color(255, 255, 255));
-        AppointmentTable.setModel(new javax.swing.table.DefaultTableModel(
+        appointTable.setBackground(new java.awt.Color(0, 0, 0));
+        appointTable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
+        appointTable.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
+        appointTable.setForeground(new java.awt.Color(255, 255, 255));
+        appointTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -184,12 +194,16 @@ public class ViewOldAppointment extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Appointment ID", "Appointment Date", "Booked by", "Assigned Doctor ID", "Assigned Doctor Name", "Speciality"
+                "Appointment ID", "Appointment Date", "Booked by", "Doctor ID", "Assigned Doctor Name", "Speciality"
             }
         ));
-        jScrollPane1.setViewportView(AppointmentTable);
-        if (AppointmentTable.getColumnModel().getColumnCount() > 0) {
-            AppointmentTable.getColumnModel().getColumn(2).setPreferredWidth(35);
+        appointTable.setRowHeight(50);
+        jScrollPane1.setViewportView(appointTable);
+        if (appointTable.getColumnModel().getColumnCount() > 0) {
+            appointTable.getColumnModel().getColumn(0).setMinWidth(30);
+            appointTable.getColumnModel().getColumn(0).setPreferredWidth(30);
+            appointTable.getColumnModel().getColumn(2).setPreferredWidth(35);
+            appointTable.getColumnModel().getColumn(3).setPreferredWidth(20);
         }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 820, 360));
@@ -237,7 +251,44 @@ public class ViewOldAppointment extends javax.swing.JFrame {
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutBtnActionPerformed
+    public void display(){
+        DefaultTableModel model = (DefaultTableModel) appointTable.getModel();
+        model.setRowCount(0);
+        try {
+            String email = null;
+            UserController usc = new UserController();
+            ResultSet email_result = usc.selectEmail();
+            try {
+                while(email_result.next()){
+                    email = email_result.getString(1);
+                }
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            Appointment a1 = new Appointment(0, 0, email, null, null, 0, null, null, null, null);
+            AppointmentController ac = new AppointmentController();
+            ResultSet result = ac.selectolddetails(a1);
+            while(result.next()){
+                String appointId = result.getString(1);
+                String appointName = result.getString(3);
+                String appointDate = result.getString(2);
+                String doctorId = "";
+                String doctorName = "";
+                String Special = result.getString(6);
+                if (!result.getString(4).equals("11")){
+                    
+                    doctorId = result.getString(4);
+                    doctorName = result.getString(5);
+                }
 
+                Object[] rows = {appointId,appointDate,appointName,doctorId,doctorName,Special};
+                model.addRow(rows);
+             }
+             } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -274,8 +325,8 @@ public class ViewOldAppointment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable AppointmentTable;
     private javax.swing.JButton aboutBtn;
+    private javax.swing.JTable appointTable;
     private javax.swing.JButton contactBtn;
     private javax.swing.JButton homeBtn;
     private javax.swing.JButton jButton1;

@@ -398,18 +398,19 @@ public class addApointment extends javax.swing.JFrame {
             String email = null;
             User u1 = new User(null,null,null,null,null,null,null,null, null, null);
             UserController usc = new UserController();
-            ResultSet email_result = usc.selectEmail(u1);
+            ResultSet email_result = usc.selectEmail();
             while(email_result.next()){
                 email = email_result.getString(1);
             }
 
             int age_int   = Integer.parseInt(age);
-            Appointment s1 = new Appointment(0, 2, email,fName,lName, age_int,location,appoint,gender,special);
+            Appointment s1 = new Appointment(0,11, email,fName,lName, age_int,location,appoint,gender,special);
             AppointmentController sc= new AppointmentController();
             int result = sc.changeStatus(s1);
             int isInserted = sc.insertAppointment(s1);
             if(isInserted>0){
-                System.out.println("Inserted");
+                JOptionPane.showMessageDialog(null,"Inserted Successfully");
+                // System.out.println("Inserted");
                 nameText.setText("");
                 ageText.setText("");
                 phoneText.setText("");
@@ -421,7 +422,6 @@ public class addApointment extends javax.swing.JFrame {
                 System.out.println(" NOt Inserted");
 
             }
-            JOptionPane.showMessageDialog(null,"Inserted Successfully");
             
         // } catch (Exception e) {
         //     // TODO Auto-generated catch block

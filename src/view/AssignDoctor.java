@@ -161,7 +161,7 @@ public class AssignDoctor extends javax.swing.JFrame {
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
-           //setting background image
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 640));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
