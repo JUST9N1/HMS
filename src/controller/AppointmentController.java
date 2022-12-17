@@ -142,4 +142,13 @@ public class AppointmentController {
                 return result;
     }
 
+    public int deleteAppoint(Appointment appointment){
+        int id = appointment.getAppointId();
+        String deleteQuery = "delete from appointment where appoint_id='"+id+"'";
+        dbConnection = new DbConnection();
+        
+         int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+
 }

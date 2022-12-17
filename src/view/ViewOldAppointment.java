@@ -7,7 +7,9 @@ package view;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import controller.AppointmentController;
 import controller.UserController;
@@ -49,7 +51,7 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         appointTable = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -208,12 +210,17 @@ public class ViewOldAppointment extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 820, 360));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 102, 0));
-        jButton2.setText("DELETE APPOINTMENT");
-        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 4, true));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 380, 60));
+        deleteBtn.setBackground(new java.awt.Color(0, 0, 0));
+        deleteBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        deleteBtn.setForeground(new java.awt.Color(255, 102, 0));
+        deleteBtn.setText("DELETE APPOINTMENT");
+        deleteBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 4, true));
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 380, 60));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -251,6 +258,21 @@ public class ViewOldAppointment extends javax.swing.JFrame {
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        int i = appointTable.getSelectedRow();
+        TableModel model = appointTable.getModel();
+        int id = Integer.parseInt(model.getValueAt(i, 0).toString());
+        Appointment a1 = new Appointment(id, 0, null, null, null, 0, null, null, null, null);
+            AppointmentController ac = new AppointmentController();
+            int result = ac.deleteAppoint(a1);
+
+            if(result>0){
+                JOptionPane.showMessageDialog(this, "deleted");
+                display();
+            }
+
+    }//GEN-LAST:event_deleteBtnActionPerformed
     public void display(){
         DefaultTableModel model = (DefaultTableModel) appointTable.getModel();
         model.setRowCount(0);
@@ -328,9 +350,9 @@ public class ViewOldAppointment extends javax.swing.JFrame {
     private javax.swing.JButton aboutBtn;
     private javax.swing.JTable appointTable;
     private javax.swing.JButton contactBtn;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JButton homeBtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
