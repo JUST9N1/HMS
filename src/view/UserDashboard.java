@@ -38,10 +38,10 @@ public class UserDashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        appointBtn = new javax.swing.JButton();
+        reminderBtn = new javax.swing.JButton();
         payBtn = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        accountBtn = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -60,24 +60,24 @@ public class UserDashboard extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 600));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
-        jButton6.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("APPOINTMENT");
-        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        appointBtn.setBackground(new java.awt.Color(0, 0, 0));
+        appointBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
+        appointBtn.setForeground(new java.awt.Color(255, 255, 255));
+        appointBtn.setText("APPOINTMENT");
+        appointBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
+        appointBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                appointBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 400, 80));
+        jPanel1.add(appointBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 400, 80));
 
-        jButton7.setBackground(new java.awt.Color(0, 0, 0));
-        jButton7.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("PRESCRIBED MEDICINE");
-        jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 400, 80));
+        reminderBtn.setBackground(new java.awt.Color(0, 0, 0));
+        reminderBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
+        reminderBtn.setForeground(new java.awt.Color(255, 255, 255));
+        reminderBtn.setText("PRESCRIBED MEDICINE");
+        reminderBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
+        jPanel1.add(reminderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 400, 80));
 
         payBtn.setBackground(new java.awt.Color(0, 0, 0));
         payBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
@@ -91,12 +91,12 @@ public class UserDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(payBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 400, 80));
 
-        jButton9.setBackground(new java.awt.Color(0, 0, 0));
-        jButton9.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("MY ACCOUNT STATUS");
-        jButton9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 400, 80));
+        accountBtn.setBackground(new java.awt.Color(0, 0, 0));
+        accountBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
+        accountBtn.setForeground(new java.awt.Color(255, 255, 255));
+        accountBtn.setText("MY ACCOUNT STATUS");
+        accountBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
+        jPanel1.add(accountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 400, 80));
 
         jButton10.setBackground(new java.awt.Color(0, 0, 0));
         jButton10.setFont(new java.awt.Font("Perpetua Titling MT", 1, 24)); // NOI18N
@@ -252,9 +252,11 @@ public class UserDashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void appointBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appointBtnActionPerformed
+        addApointment aAP = new addApointment();
+        dispose();
+        aAP.setVisible(true);
+    }//GEN-LAST:event_appointBtnActionPerformed
 
     private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
         try {
@@ -336,12 +338,11 @@ public class UserDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutBtn;
+    private javax.swing.JButton accountBtn;
+    private javax.swing.JButton appointBtn;
     private javax.swing.JButton contactBtn;
     private javax.swing.JButton homeBtn;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
@@ -352,5 +353,6 @@ public class UserDashboard extends javax.swing.JFrame {
     private javax.swing.JButton logoutBtn;
     private javax.swing.JButton payBtn;
     private javax.swing.JButton profileBtn;
+    private javax.swing.JButton reminderBtn;
     // End of variables declaration//GEN-END:variables
 }
