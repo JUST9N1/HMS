@@ -4,6 +4,12 @@
  */
 package view;
 
+import java.sql.ResultSet;
+
+import javax.swing.table.DefaultTableModel;
+
+import controller.BillController;
+
 /**
  *
  * @author razee
@@ -15,6 +21,7 @@ public class ViewOldPayment extends javax.swing.JFrame {
      */
     public ViewOldPayment() {
         initComponents();
+        table();
     }
 
     /**
@@ -30,9 +37,9 @@ public class ViewOldPayment extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        billTable = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        totalLabel = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -55,13 +62,13 @@ public class ViewOldPayment extends javax.swing.JFrame {
         jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, -1, -1));
 
-        jTable1.setBackground(new java.awt.Color(0, 0, 0));
-        jTable1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 0), 4, true));
-        jTable1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        billTable.setBackground(new java.awt.Color(0, 0, 0));
+        billTable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 0), 4, true));
+        billTable.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        billTable.setForeground(new java.awt.Color(0, 255, 255));
+        billTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
+                {null, "", null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null}
@@ -70,7 +77,9 @@ public class ViewOldPayment extends javax.swing.JFrame {
                 "BILL ID", "DATE OF PAYMENT", "PAID AMOUNT"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        billTable.setRowHeight(50);
+        billTable.setShowGrid(true);
+        jScrollPane1.setViewportView(billTable);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 630, 400));
 
@@ -80,11 +89,11 @@ public class ViewOldPayment extends javax.swing.JFrame {
         jLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 0), 5, true));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 520, 130, 50));
 
-        jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 255, 255));
-        jLabel4.setText("Rs.");
-        jLabel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 5, true));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 180, 50));
+        totalLabel.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        totalLabel.setForeground(new java.awt.Color(0, 255, 255));
+        totalLabel.setText("Rs.");
+        totalLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 5, true));
+        jPanel1.add(totalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 180, 50));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
@@ -124,7 +133,26 @@ public class ViewOldPayment extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void table(){
+        try {
+            int totalPay = 0;
+            DefaultTableModel model = (DefaultTableModel) billTable.getModel();
+            model.setRowCount(0);
+            BillController bc= new BillController();
+            ResultSet result = bc.viewPayment();
+            while(result.next()){
+                String id = result.getString(1);
+                String date  = result.getString(2);
+                String total= result.getString(3);
+                Object[] rows = {id,date,total};
+                totalPay+=Integer.parseInt(total);
+                model.addRow(rows);
+            }
+            totalLabel.setText("Rs. "+totalPay);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -161,15 +189,15 @@ public class ViewOldPayment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable billTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 }

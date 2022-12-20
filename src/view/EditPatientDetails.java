@@ -47,7 +47,7 @@ public class EditPatientDetails extends javax.swing.JFrame {
         idText = new javax.swing.JTextField();
         ageText = new javax.swing.JTextField();
         updateBtn = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
         bgCombo = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         historyTxt = new javax.swing.JTextArea();
@@ -70,12 +70,14 @@ public class EditPatientDetails extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("EDIT PATIENT DETAILS");
+        jLabel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
 
         jButton6.setBackground(new java.awt.Color(0, 0, 0));
         jButton6.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(153, 0, 51));
         jButton6.setText("BACK");
+        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -139,6 +141,7 @@ public class EditPatientDetails extends javax.swing.JFrame {
         updateBtn.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
         updateBtn.setForeground(new java.awt.Color(255, 255, 255));
         updateBtn.setText("UPDATE YOUR PROFILE");
+        updateBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateBtnActionPerformed(evt);
@@ -146,17 +149,24 @@ public class EditPatientDetails extends javax.swing.JFrame {
         });
         jPanel1.add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, -1, 50));
 
-        jButton8.setBackground(new java.awt.Color(0, 0, 0));
-        jButton8.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("DELETE PATIENT DETAILS");
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 530, -1, 50));
+        deleteBtn.setBackground(new java.awt.Color(0, 0, 0));
+        deleteBtn.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
+        deleteBtn.setForeground(new java.awt.Color(255, 255, 255));
+        deleteBtn.setText("DELETE PATIENT DETAILS");
+        deleteBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 530, -1, 50));
 
         bgCombo.setBackground(new java.awt.Color(0, 0, 0));
         bgCombo.setEditable(true);
         bgCombo.setFont(new java.awt.Font("Perpetua Titling MT", 1, 24)); // NOI18N
         bgCombo.setForeground(new java.awt.Color(255, 0, 0));
         bgCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+" }));
+        bgCombo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
         jPanel1.add(bgCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 90, 40));
 
         historyTxt.setColumns(20);
@@ -166,6 +176,7 @@ public class EditPatientDetails extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 410, 490, -1));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/iccon.png"))); // NOI18N
@@ -178,11 +189,13 @@ public class EditPatientDetails extends javax.swing.JFrame {
         homeBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         homeBtn.setForeground(new java.awt.Color(255, 153, 0));
         homeBtn.setText("HOME");
+        homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 3, true));
 
         aboutBtn.setBackground(new java.awt.Color(0, 0, 0));
         aboutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         aboutBtn.setForeground(new java.awt.Color(255, 153, 0));
         aboutBtn.setText("About Us");
+        aboutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 3, true));
         aboutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboutBtnActionPerformed(evt);
@@ -193,11 +206,13 @@ public class EditPatientDetails extends javax.swing.JFrame {
         contactBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         contactBtn.setForeground(new java.awt.Color(255, 153, 0));
         contactBtn.setText("Contact Us");
+        contactBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
 
         profileBtn.setBackground(new java.awt.Color(0, 0, 0));
         profileBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         profileBtn.setForeground(new java.awt.Color(255, 153, 0));
         profileBtn.setText("My Profile");
+        profileBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 3, true));
         profileBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 profileBtnActionPerformed(evt);
@@ -208,6 +223,7 @@ public class EditPatientDetails extends javax.swing.JFrame {
         logoutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         logoutBtn.setForeground(new java.awt.Color(255, 153, 0));
         logoutBtn.setText("Log Out");
+        logoutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
         logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutBtnActionPerformed(evt);
@@ -343,6 +359,19 @@ public class EditPatientDetails extends javax.swing.JFrame {
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        int id = Integer.parseInt(idText.getText());
+        Patient p1 = new Patient(id,0,0,null,null,null,0,0);
+            PatientController pc = new PatientController();
+            int result = pc.deletePatient(p1);
+            if(result>0){
+                JOptionPane.showMessageDialog(this, "Deleted ");
+                dispose();
+                new ViewPatientRecord().setVisible(true);
+            }
+
+    }//GEN-LAST:event_deleteBtnActionPerformed
     public void display(){
         try {
             ResultSet rs = new PatientController().fetch();
@@ -403,12 +432,12 @@ public class EditPatientDetails extends javax.swing.JFrame {
     private javax.swing.JTextField ageText;
     private javax.swing.JComboBox<String> bgCombo;
     private javax.swing.JButton contactBtn;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JTextField emailText;
     private javax.swing.JTextArea historyTxt;
     private javax.swing.JButton homeBtn;
     private javax.swing.JTextField idText;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

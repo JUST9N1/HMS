@@ -13,8 +13,11 @@ import javax.swing.table.JTableHeader;
 
 import controller.AppointmentController;
 import controller.BillController;
+import controller.UserController;
 import controller.UserMedController;
 import models.Appointment;
+import models.Bill;
+import models.User_Med;
 /**
  *
  * @author razee
@@ -22,6 +25,8 @@ import models.Appointment;
 public class BillingSystem extends javax.swing.JFrame {
 
     private String total_display;
+    private int med_total;
+    private int test_total;
     /**
      * Creates new form BillingSystem
      */
@@ -60,7 +65,7 @@ public class BillingSystem extends javax.swing.JFrame {
         totalBtn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        payBtn = new javax.swing.JButton();
         totalLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -211,12 +216,17 @@ public class BillingSystem extends javax.swing.JFrame {
         jButton4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 4, true));
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 100, 40));
 
-        jButton5.setBackground(new java.awt.Color(0, 0, 0));
-        jButton5.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 255, 255));
-        jButton5.setText("PROCEED TO PAY");
-        jButton5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 4, true));
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 410, 260, 50));
+        payBtn.setBackground(new java.awt.Color(0, 0, 0));
+        payBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        payBtn.setForeground(new java.awt.Color(0, 255, 255));
+        payBtn.setText("PROCEED TO PAY");
+        payBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 4, true));
+        payBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(payBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 410, 260, 50));
 
         totalLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         totalLabel.setForeground(new java.awt.Color(0, 255, 255));
@@ -256,12 +266,41 @@ public class BillingSystem extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Total Amount :"+total_display);
         totalLabel.setText("Rs. "+total_display+"");
     }//GEN-LAST:event_totalBtnActionPerformed
+
+    private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
+       Bill b1 = new Bill(Integer.parseInt(billText.getText()), null,null, (med_total+test_total), med_total, test_total);
+       BillController bc=  new BillController();
+       String email = null;
+       int result  = bc.payment(b1);
+       if(result>0){
+        JOptionPane.showMessageDialog(this, "Payment Success");
+        UserController usc = new UserController();
+            ResultSet email_result = usc.selectEmail();
+            try {
+                while(email_result.next()){
+                    email = email_result.getString(1);
+                }
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        // Appointment a1 = new Appointment
+        Appointment a1 = new Appointment(0,0,email,"","",0,"","","","");
+        AppointmentController ac = new AppointmentController();
+        ac.payAdvance(a1);
+        ac.updateBill(a1); 
+        
+        new UserMedController().payAdvance(new User_Med(0, email, null));
+        func();
+       }
+    }//GEN-LAST:event_payBtnActionPerformed
     public void func(){
         try {
             
             DefaultTableModel model = (DefaultTableModel) TestDetails.getModel();
             model.setRowCount(0);
             int total=0;
+            test_total = 0;
             Appointment a1 = new Appointment(0,0,"","","",0,"","","","");
             AppointmentController ac = new AppointmentController();
             ResultSet rs = ac.countAppoint(a1);
@@ -270,10 +309,11 @@ public class BillingSystem extends javax.swing.JFrame {
                 Object[] rows= {"Appointment(Advance)",count,700*count};
                 total = total+(700*count);
                 model.addRow(rows);
+                // test_total+=(700*count);
 
                 System.out.println(total);
             }
-
+            
             rs = ac.countAppoint_Doc(a1);
             while(rs.next()){
                 int count = Integer.parseInt(rs.getString(1));
@@ -285,6 +325,9 @@ public class BillingSystem extends javax.swing.JFrame {
 
 
             }
+            test_total = total;
+            med_total=0;
+            System.out.println(test_total);
             DefaultTableModel medModel = (DefaultTableModel) MedicineDetails.getModel();
             medModel.setRowCount(0);
             //  total=0;
@@ -296,8 +339,10 @@ public class BillingSystem extends javax.swing.JFrame {
             int quantity = Integer.parseInt(reSet.getString(3));
             Object[] rows = {name,quantity,rate*quantity};
             medModel.addRow(rows);
+            med_total = total+(rate*quantity);
             total = total+(rate*quantity);
            }
+           System.out.println(med_total);
            total_display = Integer.toString(total);
             
             total_display = Integer.toString(total);
@@ -370,7 +415,6 @@ public class BillingSystem extends javax.swing.JFrame {
     private javax.swing.JTextField dateText;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -383,6 +427,7 @@ public class BillingSystem extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField patientText;
+    private javax.swing.JButton payBtn;
     private javax.swing.JButton totalBtn;
     private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables

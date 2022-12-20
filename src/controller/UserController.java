@@ -45,7 +45,7 @@ public class UserController {
         return result;
     }
 
-    public ResultSet selectEmail(User user) {
+    public ResultSet selectEmail() {
         String selectQuery = "select user_email from user_login where user_status=1";
         dbConnection = new DbConnection();
         ResultSet result = dbConnection.retrieve(selectQuery);
@@ -92,6 +92,42 @@ public class UserController {
         String updateQuery = "update user_login set user_pass='"+pass+"' where user_email='"+email+"' and user_sq1='"+sq+"'";
         dbConnection = new DbConnection();
         int result = dbConnection.manipulate(updateQuery);
+        return result;
+    }
+
+    public int deleteAppointEmail(User user){
+
+        String deleteQuery = "delete from appointment where user_email='"+user.getUserEmail()+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+    public int deletePatientEmail(User user){
+
+        String deleteQuery = "delete from patient where user_email='"+user.getUserEmail()+"' ";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+    public int deleteMedicineEmail(User user){
+
+        String deleteQuery = "delete from user_med where user_email='"+user.getUserEmail()+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+
+    public int deleteProfile(User user){
+        String deleteQuery = "delete from user_login where user_status=1";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+
+    public int deleteBillEmail(User user){
+        String deleteQuery = "delete from bill where user_email='"+user.getUserEmail()+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
         return result;
     }
 }   

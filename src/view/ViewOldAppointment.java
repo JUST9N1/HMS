@@ -4,6 +4,18 @@
  */
 package view;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+import controller.AppointmentController;
+import controller.UserController;
+import models.Appointment;
+
+import star.rating.*;
 /**
  *
  * @author razee
@@ -15,6 +27,14 @@ public class ViewOldAppointment extends javax.swing.JFrame {
      */
     public ViewOldAppointment() {
         initComponents();
+        display();
+
+        starRating1.addEventStarRating(new EventStarRating() {
+            @Override
+            public void selected(int star) {
+                System.out.println(star);
+            }
+        });
     }
 
     /**
@@ -26,6 +46,16 @@ public class ViewOldAppointment extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        RateDoctor = new javax.swing.JFrame();
+        jPanel2 = new javax.swing.JPanel();
+        starRating1 = new star.rating.StarRating();
+        jLabel4 = new javax.swing.JLabel();
+        nameText = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        idText = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        confirmBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -38,9 +68,61 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        AppointmentTable = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        appointTable = new javax.swing.JTable();
+        deleteBtn = new javax.swing.JButton();
+        rateBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+
+        RateDoctor.setMinimumSize(new java.awt.Dimension(390, 500));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(starRating1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, 50));
+
+        jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        jLabel4.setText("Doctor Id");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, 40));
+
+        nameText.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        nameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTextActionPerformed(evt);
+            }
+        });
+        jPanel2.add(nameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 220, 40));
+
+        jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        jLabel5.setText("Doctor Name");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 150, 40));
+
+        idText.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        jPanel2.add(idText, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 220, 39));
+
+        jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Choose Doctor Rating");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Rate Doctor");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 6, -1, -1));
+
+        confirmBtn.setBackground(new java.awt.Color(255, 51, 51));
+        confirmBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        confirmBtn.setForeground(new java.awt.Color(255, 255, 255));
+        confirmBtn.setText("Confirm");
+        jPanel2.add(confirmBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 300, 310, 50));
+
+        javax.swing.GroupLayout RateDoctorLayout = new javax.swing.GroupLayout(RateDoctor.getContentPane());
+        RateDoctor.getContentPane().setLayout(RateDoctorLayout);
+        RateDoctorLayout.setHorizontalGroup(
+            RateDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        RateDoctorLayout.setVerticalGroup(
+            RateDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -170,11 +252,11 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 3));
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, -1, -1));
 
-        AppointmentTable.setBackground(new java.awt.Color(0, 0, 0));
-        AppointmentTable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
-        AppointmentTable.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        AppointmentTable.setForeground(new java.awt.Color(255, 255, 255));
-        AppointmentTable.setModel(new javax.swing.table.DefaultTableModel(
+        appointTable.setBackground(new java.awt.Color(0, 0, 0));
+        appointTable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
+        appointTable.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
+        appointTable.setForeground(new java.awt.Color(255, 255, 255));
+        appointTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -184,22 +266,43 @@ public class ViewOldAppointment extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Appointment ID", "Appointment Date", "Booked by", "Assigned Doctor ID", "Assigned Doctor Name", "Speciality"
+                "Appointment ID", "Appointment Date", "Booked by", "Doctor ID", "Assigned Doctor Name", "Speciality"
             }
         ));
-        jScrollPane1.setViewportView(AppointmentTable);
-        if (AppointmentTable.getColumnModel().getColumnCount() > 0) {
-            AppointmentTable.getColumnModel().getColumn(2).setPreferredWidth(35);
+        appointTable.setRowHeight(50);
+        jScrollPane1.setViewportView(appointTable);
+        if (appointTable.getColumnModel().getColumnCount() > 0) {
+            appointTable.getColumnModel().getColumn(0).setMinWidth(30);
+            appointTable.getColumnModel().getColumn(0).setPreferredWidth(30);
+            appointTable.getColumnModel().getColumn(2).setPreferredWidth(35);
+            appointTable.getColumnModel().getColumn(3).setPreferredWidth(20);
         }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 820, 360));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 102, 0));
-        jButton2.setText("DELETE APPOINTMENT");
-        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 4, true));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 380, 60));
+        deleteBtn.setBackground(new java.awt.Color(0, 0, 0));
+        deleteBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        deleteBtn.setForeground(new java.awt.Color(255, 102, 0));
+        deleteBtn.setText("DELETE APPOINTMENT");
+        deleteBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 4, true));
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 380, 60));
+
+        rateBtn.setBackground(new java.awt.Color(0, 0, 0));
+        rateBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        rateBtn.setForeground(new java.awt.Color(255, 102, 0));
+        rateBtn.setText("Rate Doctor");
+        rateBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 4, true));
+        rateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rateBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 380, 60));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -238,6 +341,73 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutBtnActionPerformed
 
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        int i = appointTable.getSelectedRow();
+        TableModel model = appointTable.getModel();
+        int id = Integer.parseInt(model.getValueAt(i, 0).toString());
+        Appointment a1 = new Appointment(id, 0, null, null, null, 0, null, null, null, null);
+            AppointmentController ac = new AppointmentController();
+            int result = ac.deleteAppoint(a1);
+
+            if(result>0){
+                JOptionPane.showMessageDialog(this, "deleted");
+                display();
+            }
+
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void rateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rateBtnActionPerformed
+        int i = appointTable.getSelectedRow();
+        TableModel model = appointTable.getModel();
+        String id = (model.getValueAt(i, 3).toString());
+        String name = (model.getValueAt(i, 4).toString());
+        idText.setText(id);
+        nameText.setText(name);
+        RateDoctor.setVisible(true);
+        
+    }//GEN-LAST:event_rateBtnActionPerformed
+
+    private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTextActionPerformed
+    public void display(){
+        DefaultTableModel model = (DefaultTableModel) appointTable.getModel();
+        model.setRowCount(0);
+        try {
+            String email = null;
+            UserController usc = new UserController();
+            ResultSet email_result = usc.selectEmail();
+            try {
+                while(email_result.next()){
+                    email = email_result.getString(1);
+                }
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            Appointment a1 = new Appointment(0, 0, email, null, null, 0, null, null, null, null);
+            AppointmentController ac = new AppointmentController();
+            ResultSet result = ac.selectolddetails(a1);
+            while(result.next()){
+                String appointId = result.getString(1);
+                String appointName = result.getString(3);
+                String appointDate = result.getString(2);
+                String doctorId = "";
+                String doctorName = "";
+                String Special = result.getString(6);
+                if (!result.getString(4).equals("11")){
+                    
+                    doctorId = result.getString(4);
+                    doctorName = result.getString(5);
+                }
+
+                Object[] rows = {appointId,appointDate,appointName,doctorId,doctorName,Special};
+                model.addRow(rows);
+             }
+             } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -274,20 +444,31 @@ public class ViewOldAppointment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable AppointmentTable;
+    private javax.swing.JFrame RateDoctor;
     private javax.swing.JButton aboutBtn;
+    private javax.swing.JTable appointTable;
+    private javax.swing.JButton confirmBtn;
     private javax.swing.JButton contactBtn;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JTextField idText;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logoutBtn;
+    private javax.swing.JTextField nameText;
     private javax.swing.JButton profileBtn;
+    private javax.swing.JButton rateBtn;
+    private star.rating.StarRating starRating1;
     // End of variables declaration//GEN-END:variables
 }

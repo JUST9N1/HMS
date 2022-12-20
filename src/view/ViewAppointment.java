@@ -319,13 +319,13 @@ public class ViewAppointment extends javax.swing.JFrame {
                 String doctorId = "";
                 String doctorName = "";
                 String Special = result.getString(6);
-                if (!result.getString(4).equals("2")){
+                if (!result.getString(4).equals("11")){
                     
                     doctorId = result.getString(4);
                     doctorName = result.getString(5);
                 }
 
-                Object[] rows = {appointId,appointName,appointDate,doctorId,doctorName,Special};
+                Object[] rows = {appointId,appointDate,appointName,doctorId,doctorName,Special};
                 model.addRow(rows);
              }
              } catch (Exception e) {
