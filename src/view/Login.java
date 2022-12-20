@@ -67,6 +67,8 @@ public class Login extends javax.swing.JFrame {
         userRadio = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
 
+        askPass.setMinimumSize(new java.awt.Dimension(450, 350));
+
         jLabel8.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel8.setText("Supervisor Login");
 
