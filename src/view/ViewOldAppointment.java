@@ -9,12 +9,13 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 
 import controller.AppointmentController;
 import controller.UserController;
 import models.Appointment;
-
+import java.awt.*;
 import star.rating.*;
 /**
  *
@@ -27,6 +28,8 @@ public class ViewOldAppointment extends javax.swing.JFrame {
      */
     public ViewOldAppointment() {
         initComponents();
+
+        
         display();
 
         starRating1.addEventStarRating(new EventStarRating() {
@@ -69,6 +72,7 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         appointTable = new javax.swing.JTable();
+        
         deleteBtn = new javax.swing.JButton();
         rateBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -269,6 +273,9 @@ public class ViewOldAppointment extends javax.swing.JFrame {
                 "Appointment ID", "Appointment Date", "Booked by", "Doctor ID", "Assigned Doctor Name", "Speciality"
             }
         ));
+        JTableHeader tableheader = appointTable.getTableHeader();
+        Font headerFont = new Font("Rockwell Extra Bold", Font.BOLD, 14);
+        tableheader.setFont(headerFont);
         appointTable.setRowHeight(50);
         jScrollPane1.setViewportView(appointTable);
         if (appointTable.getColumnModel().getColumnCount() > 0) {
