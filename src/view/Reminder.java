@@ -180,7 +180,7 @@ public class Reminder extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/medicine.png"))); // NOI18N
         jLabel4.setText("jLabel4");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, 200, 270));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 110, 200, 270));
 
         ReminderTable.setBackground(new java.awt.Color(0, 0, 0));
         ReminderTable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 51), 3, true));
