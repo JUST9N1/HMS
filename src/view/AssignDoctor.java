@@ -295,7 +295,7 @@ public class AssignDoctor extends javax.swing.JFrame {
         }
 
         try {
-            Doctor d1 = new Doctor(Integer.parseInt(dId),null,null,null,null,null);
+            Doctor d1 = new Doctor(Integer.parseInt(dId),null,null,null,null,null,0,0);
             DoctorController dc = new DoctorController();
                 ResultSet value = dc.viewDoctorName(d1);
                 String name= null;
@@ -338,7 +338,7 @@ public class AssignDoctor extends javax.swing.JFrame {
                     special = result.getString(3);
                 }
 
-                Doctor d1 = new Doctor(0, null,null,null,null,special);
+                Doctor d1 = new Doctor(0, null,null,null,null,special,0,0);
                 DoctorController dc = new DoctorController();
                 ResultSet rSet = dc.viewDoctorid(d1);
              String dId  = null;

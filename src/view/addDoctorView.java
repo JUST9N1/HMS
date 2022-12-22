@@ -259,7 +259,7 @@ public class addDoctorView extends javax.swing.JFrame {
             TableModel model = doctorTable.getModel();
             
             int id = Integer.parseInt(model.getValueAt(i, 0).toString());
-            Doctor d1 = new Doctor(id,null,null,null,null,null);
+            Doctor d1 = new Doctor(id,null,null,null,null,null,0,0);
             DoctorController dc = new DoctorController();
             int result = dc.deleteDoctor(d1);
             if(result>0){
@@ -293,31 +293,14 @@ public class addDoctorView extends javax.swing.JFrame {
         }
 
         try {
-            Doctor d1 = new Doctor(0, fname, lname, age, department, special);
+            Doctor d1 = new Doctor(0, fname, lname, age, department, special,0,0);
             DoctorController sc = new DoctorController();
             int result = sc.insertdetails(d1);
             if (result > 0) {
                 JOptionPane.showMessageDialog(null, "Inserted Success");
-                try {
-                    d1 = new Doctor(0, null, null, null, null, null);
-                    sc = new DoctorController();
-                    ResultSet test = sc.selectdetails(d1);
-                    DefaultTableModel model = (DefaultTableModel) doctorTable.getModel();
-                    model.setRowCount(0);
-                    while (test.next()) {
-                        int id = Integer.parseInt(test.getString(1));
-                        String name = test.getString(2) + " " + test.getString(3);
-                        age = test.getString(4);
-                        String depart = test.getString(5);
-                        special = test.getString(6);
-                        if(depart.equals("0")){
-                            continue;
-                        }
-                        Object[] row = { id, name, age, depart, special };
-                        model.addRow(row);
-                        
+                
 
-                    }
+                    table();
                     firstText.setText("Doctor First name");
                     LastText.setText("Doctor last name");
                     // SpecialText.
@@ -326,10 +309,7 @@ public class addDoctorView extends javax.swing.JFrame {
                     AgeText.setText("Doctor Age");
                     DepartText.setText("Department");
 
-                } catch (Exception e) {
-                    // TODO: handle exception
-                    JOptionPane.showMessageDialog(null, e);
-                }
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Inserted inSuccess");
 
@@ -350,7 +330,7 @@ public class addDoctorView extends javax.swing.JFrame {
             
             int id = Integer.parseInt(model.getValueAt(i, 0).toString());
             try {
-                Doctor d1 = new Doctor(id, null, null, null, null, null);
+                Doctor d1 = new Doctor(id, null, null, null, null, null,0,0);
     
                 DoctorController sc = new DoctorController();
                 int out = sc.updatestatus(d1);
@@ -442,7 +422,7 @@ public class addDoctorView extends javax.swing.JFrame {
 
     public void table(){
         try {
-            Doctor d1 = new Doctor(0, null, null, null, null, null);
+            Doctor d1 = new Doctor(0, null, null, null, null, null,0,0);
             DoctorController sc = new DoctorController();
             ResultSet result = sc.selectdetails(d1);
             DefaultTableModel model = (DefaultTableModel) doctorTable.getModel();
