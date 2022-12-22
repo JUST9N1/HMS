@@ -269,7 +269,7 @@ public class ViewDoctor extends javax.swing.JFrame {
     }                                      
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
         int id = Integer.parseInt(idText.getText());
-        Doctor d1 = new Doctor(id,null,null,null,null,null);
+        Doctor d1 = new Doctor(id,null,null,null,null,null,0,0);
             DoctorController dc = new DoctorController();
             int result = dc.deleteDoctor(d1);
             if(result>0){
@@ -304,7 +304,7 @@ public class ViewDoctor extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnActionPerformed
     public void view(){
         try {
-            Doctor d1 = new Doctor(0, null, null, null, null, null);
+            Doctor d1 = new Doctor(0, null, null, null, null, null,0,0);
             DoctorController sc = new DoctorController();
             ResultSet result = sc.viewdetails(d1);
             while (result.next()) {

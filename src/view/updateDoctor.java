@@ -287,7 +287,7 @@ public class updateDoctor extends javax.swing.JFrame {
                 special = selectedItem.toString();
             }
             
-            Doctor d1 = new Doctor(Integer.parseInt(id), fname, lname, age, depart, special);
+            Doctor d1 = new Doctor(Integer.parseInt(id), fname, lname, age, depart, special,0,0);
             DoctorController dc= new DoctorController();
             int result  = dc.updateDoctor(d1);
             if(result>0){
@@ -314,7 +314,7 @@ public class updateDoctor extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnActionPerformed
     public void view(){
         try {
-            Doctor d1 = new Doctor(0, null, null, null, null, null);
+            Doctor d1 = new Doctor(0, null, null, null, null, null,0,0);
             DoctorController sc = new DoctorController();
             ResultSet result = sc.viewdetails(d1);
             while (result.next()) {
