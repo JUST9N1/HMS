@@ -13,8 +13,11 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 
 import controller.AppointmentController;
+import controller.DoctorController;
 import controller.UserController;
 import models.Appointment;
+import models.Doctor;
+
 import java.awt.*;
 import star.rating.*;
 /**
@@ -23,6 +26,7 @@ import star.rating.*;
  */
 public class ViewOldAppointment extends javax.swing.JFrame {
 
+    private int rate;
     /**
      * Creates new form ViewOldAppointment
      */
@@ -32,12 +36,7 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         
         display();
 
-        starRating1.addEventStarRating(new EventStarRating() {
-            @Override
-            public void selected(int star) {
-                System.out.println(star);
-            }
-        });
+        
     }
 
     /**
@@ -72,7 +71,6 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         appointTable = new javax.swing.JTable();
-        
         deleteBtn = new javax.swing.JButton();
         rateBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -115,6 +113,11 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         confirmBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         confirmBtn.setForeground(new java.awt.Color(255, 255, 255));
         confirmBtn.setText("Confirm");
+        confirmBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmBtnActionPerformed(evt);
+            }
+        });
         jPanel2.add(confirmBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 300, 310, 50));
 
         javax.swing.GroupLayout RateDoctorLayout = new javax.swing.GroupLayout(RateDoctor.getContentPane());
@@ -273,9 +276,6 @@ public class ViewOldAppointment extends javax.swing.JFrame {
                 "Appointment ID", "Appointment Date", "Booked by", "Doctor ID", "Assigned Doctor Name", "Speciality"
             }
         ));
-        JTableHeader tableheader = appointTable.getTableHeader();
-        Font headerFont = new Font("Rockwell Extra Bold", Font.BOLD, 14);
-        tableheader.setFont(headerFont);
         appointTable.setRowHeight(50);
         jScrollPane1.setViewportView(appointTable);
         if (appointTable.getColumnModel().getColumnCount() > 0) {
@@ -368,6 +368,12 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         TableModel model = appointTable.getModel();
         String id = (model.getValueAt(i, 3).toString());
         String name = (model.getValueAt(i, 4).toString());
+        starRating1.addEventStarRating(new EventStarRating() {
+            @Override
+            public void selected(int star) {
+                rate = star;
+            }
+        });
         idText.setText(id);
         nameText.setText(name);
         RateDoctor.setVisible(true);
@@ -377,6 +383,30 @@ public class ViewOldAppointment extends javax.swing.JFrame {
     private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTextActionPerformed
+
+    private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
+       int id = Integer.parseInt(idText.getText());
+       int rating = 0;
+       int rate_no = 0;
+        int newRating = rate;
+       try {
+           Doctor d1 = new Doctor(id, null, null, null, null, null,0,0);
+            DoctorController sc = new DoctorController();
+            ResultSet result= sc.selectRating(d1);
+            while(result.next()){
+
+                rating = Integer.parseInt(result.getString(1));
+                rate_no = Integer.parseInt(result.getString(2));
+                int ratingA = rating*rate_no;
+                rate_no +=1;
+                int avgRating = (ratingA+newRating)/rate_no;
+                System.out.println(avgRating);
+
+            }
+       } catch (Exception e) {
+        // TODO: handle exception
+       }
+    }//GEN-LAST:event_confirmBtnActionPerformed
     public void display(){
         DefaultTableModel model = (DefaultTableModel) appointTable.getModel();
         model.setRowCount(0);
