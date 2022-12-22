@@ -111,7 +111,7 @@ public class UserDashboard extends javax.swing.JFrame {
         jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(892, 7, 100, 40));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/doctoricon.png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 460, 390));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 460, 390));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 255, 255));
