@@ -386,25 +386,34 @@ public class ViewOldAppointment extends javax.swing.JFrame {
 
     private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
        int id = Integer.parseInt(idText.getText());
-       int rating = 0;
+       float rating = 0;
        int rate_no = 0;
-        int newRating = rate;
-       try {
-           Doctor d1 = new Doctor(id, null, null, null, null, null,0,0);
-            DoctorController sc = new DoctorController();
-            ResultSet result= sc.selectRating(d1);
+       float avgRating = 0;
+       int newrate_no =0;
+       float ratingA = 0;
+
+        float newRating = rate;
+        Doctor d1 = new Doctor(id, null, null, null, null, null,0,0);
+        DoctorController sc = new DoctorController();
+        ResultSet result= sc.selectRating(d1);
+        try {
             while(result.next()){
 
-                rating = Integer.parseInt(result.getString(1));
-                rate_no = Integer.parseInt(result.getString(2));
-                int ratingA = rating*rate_no;
-                rate_no +=1;
-                int avgRating = (ratingA+newRating)/rate_no;
+                rating =  Float.parseFloat(result.getString(1));
+                rate_no =  Integer.parseInt(result.getString(2));
+                ratingA = rating*rate_no;
+                newrate_no =rate_no+1;
+                System.out.println(newrate_no);
+                 avgRating = (ratingA+newRating)/newrate_no;
                 System.out.println(avgRating);
+                Doctor d2 = new Doctor(id, null, null, null, null, null,newrate_no,avgRating);
+            // sc = new DoctorController();
+            sc.giveRating(d2);
 
             }
        } catch (Exception e) {
         // TODO: handle exception
+        JOptionPane.showMessageDialog(this, e);
        }
     }//GEN-LAST:event_confirmBtnActionPerformed
     public void display(){

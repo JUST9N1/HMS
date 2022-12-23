@@ -102,7 +102,7 @@ public class DoctorController {
 
     public int giveRating(Doctor doctor){
         int did = doctor.getDoctor_id();
-        int rating = doctor.getRating();
+        float rating = doctor.getRating();
         int rate_no = doctor.getRate_no();
 
         String updateQuery = "update doctor set rating='"+rating+"',rate_no='"+rate_no+"' where doctor_id='"+did+"'";

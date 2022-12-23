@@ -95,4 +95,12 @@ public class PatientController {
         int result = dbConnection.manipulate(Query);
         return result;
     }
+
+    public ResultSet selectPatinetEmail(){
+        // int id = patient.getPatient_id();
+        String query = "select user_email from patient ";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(query);
+        return result;
+    }
 }

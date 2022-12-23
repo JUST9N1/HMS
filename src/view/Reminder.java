@@ -4,9 +4,18 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
+import models.*;
+import controller.*;
 /**
  *
  * @author razee
@@ -18,6 +27,7 @@ public class Reminder extends javax.swing.JFrame {
      */
     public Reminder() {
         initComponents();
+        view();
         //table fonts
         JTableHeader tableheader = ReminderTable.getTableHeader();
         Font headerFont = new Font("Rockwell Extra Bold", Font.BOLD, 14);
@@ -197,6 +207,7 @@ public class Reminder extends javax.swing.JFrame {
                 "Medicine ID", "Medicine Name", "Time interval", "Duration"
             }
         ));
+        ReminderTable.setRowHeight(60);
         jScrollPane1.setViewportView(ReminderTable);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 620, 490));
@@ -234,7 +245,41 @@ public class Reminder extends javax.swing.JFrame {
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutBtnActionPerformed
+    public void view(){
+        DefaultTableModel model = (DefaultTableModel) ReminderTable.getModel();
+        model.setRowCount(0);
 
+        String email = null;
+        try {
+            
+
+            ResultSet rs1= new UserMedController().selectPrescription();
+            while(rs1.next()){
+                int id = Integer.parseInt(rs1.getString(1));
+                email = rs1.getString(2);
+                String time = rs1.getString(3);
+                String date = rs1.getString(5);
+                String name = null;
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY");  
+   LocalDateTime now = LocalDateTime.now(); 
+   String date1 =   dtf.format(now);
+
+                new DifferenceTime();
+                int duration = DifferenceTime.days(date1,date);
+                Medicine m1 = new Medicine(id,null,0,0);
+            MedicineController mc = new MedicineController();
+            ResultSet result = mc.fetchMedicineName(m1);
+            while(result.next()){
+              name = result.getString(1);
+               
+                
+            }
+            model.addRow(new Object[]{id,name,time,duration});
+        }
+        } catch (Exception e) {
+           JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * @param args the command line arguments
      */

@@ -290,7 +290,7 @@ public class BillingSystem extends javax.swing.JFrame {
         ac.payAdvance(a1);
         ac.updateBill(a1); 
         
-        new UserMedController().payAdvance(new User_Med(0, email, null));
+        new UserMedController().payAdvance(new User_Med(0, email, null,null));
         func();
        }
     }//GEN-LAST:event_payBtnActionPerformed
