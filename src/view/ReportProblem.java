@@ -74,7 +74,7 @@ public class ReportProblem extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 102, 0));
         jLabel4.setText("Additional INFO");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
-
+//info text
         infoText.setBackground(new java.awt.Color(0, 0, 0));
         infoText.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         infoText.setForeground(new java.awt.Color(255, 255, 255));
