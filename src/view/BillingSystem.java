@@ -164,7 +164,7 @@ public class BillingSystem extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 710, 460));
-
+//bill text
         billText.setBackground(new java.awt.Color(0, 0, 0));
         billText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         billText.setForeground(new java.awt.Color(255, 255, 255));
