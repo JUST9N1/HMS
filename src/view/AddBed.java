@@ -101,7 +101,7 @@ public class AddBed extends javax.swing.JFrame {
         wardField.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(wardField);
         wardField.setBounds(220, 80, 170, 30);
-
+//radio buttons for bed type
         singleRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         singleRadio.setText("Single");
         jPanel2.add(singleRadio);
