@@ -66,7 +66,7 @@ public class ReportProblem extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 102, 0));
         jLabel3.setText("PROBLEM TYPE");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, 30));
-
+//combo box
         problemCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "App", "Feature" }));
         jPanel1.add(problemCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 300, 40));
 
