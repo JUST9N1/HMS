@@ -135,7 +135,7 @@ public class addApointment extends javax.swing.JFrame {
         jLabel7.setForeground(java.awt.Color.white);
         jLabel7.setText("Location");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 210, 40));
-
+//text
         locationText.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         locationText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
