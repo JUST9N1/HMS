@@ -79,7 +79,7 @@ public class ReportProblem extends javax.swing.JFrame {
         infoText.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         infoText.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(infoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, 110));
-
+//submit button
         submitBtn.setBackground(new java.awt.Color(0, 0, 0));
         submitBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         submitBtn.setForeground(new java.awt.Color(255, 255, 255));
