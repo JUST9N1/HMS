@@ -25,6 +25,7 @@ import models.User;
  */
 public class Login extends javax.swing.JFrame {
     Connection conn;
+    private String role;
     
     /**
      * Creates new form Login
@@ -298,7 +299,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"Please fill all the fields");
             }else{
                 try {
-                    User s1 = new User(null, null, null, eText.getText(), null, pText.getText(), null, null, null, null);
+                    User s1 = new User(null, null, null, eText.getText(), null, pText.getText(), null, null, null, null,role);
                     UserController sc= new UserController();
                     ResultSet isInserted = sc.selectLogin(s1);
                     
@@ -346,7 +347,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"Please fill all the fields");
             }else{
                 try {
-                    User s1 = new User(null, null, null, eText.getText(), null, pText.getText(), null, null, null, null);
+                    User s1 = new User(null, null, null, eText.getText(), null, pText.getText(), null, null, null, null,role);
                     UserController sc= new UserController();
                     ResultSet isInserted = sc.selectLogin(s1);
                     

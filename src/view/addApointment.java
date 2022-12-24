@@ -396,7 +396,7 @@ public class addApointment extends javax.swing.JFrame {
             }
             // conn=db.connectmysqldb();
             String email = null;
-            User u1 = new User(null,null,null,null,null,null,null,null, null, null);
+            User u1 = new User(null,null,null,null,null,null,null,null, null, null, null);
             UserController usc = new UserController();
             ResultSet email_result = usc.selectEmail();
             while(email_result.next()){

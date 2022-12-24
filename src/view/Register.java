@@ -321,7 +321,7 @@ public class Register extends javax.swing.JFrame {
         }else{
 
             try {
-                User u1 = new User(null, null, username, email, pass, repass, dob, sq, null, gender);
+                User u1 = new User(null, null, username, email, pass, repass, dob, sq, null, gender,null);
                 UserController sc = new UserController();
                 int result = sc.insertdetails(u1);
                 if(result>0){
