@@ -304,6 +304,7 @@ public class BillingSystem extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_backBtnActionPerformed
     public void func(){
+        //try
         try {
             
             DefaultTableModel model = (DefaultTableModel) TestDetails.getModel();
