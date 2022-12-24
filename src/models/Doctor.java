@@ -8,9 +8,9 @@ public class Doctor {
     private String doctor_department;
     private String doctor_special;
     private int rate_no;
-    private int rating;
+    private float rating;
 
-    public Doctor(int doctor_id, String doctor_fname, String doctor_lname, String doctor_age, String doctor_department, String doctor_special, int rate_no, int rating) {
+    public Doctor(int doctor_id, String doctor_fname, String doctor_lname, String doctor_age, String doctor_department, String doctor_special, int rate_no, float rating) {
         this.doctor_id = doctor_id;
         this.doctor_fname = doctor_fname;
         this.doctor_lname = doctor_lname;
@@ -77,11 +77,11 @@ public class Doctor {
         this.rate_no = rate_no;
     }
 
-    public int getRating() {
+    public float getRating() {
         return this.rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(float rating) {
         this.rating = rating;
     }
 

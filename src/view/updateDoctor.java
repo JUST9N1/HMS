@@ -277,8 +277,7 @@ public class updateDoctor extends javax.swing.JFrame {
     private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
         try {
             String id  = idText.getText();
-            String fname = null;
-            String lname = null;
+            String name = NameText.getText();
             String age = ageText.getText();
             String depart = departText.getText();
             String special = null;
@@ -286,8 +285,22 @@ public class updateDoctor extends javax.swing.JFrame {
             if (selectedItem != null) {
                 special = selectedItem.toString();
             }
-            
-            Doctor d1 = new Doctor(Integer.parseInt(id), fname, lname, age, depart, special,0,0);
+            String fName="";
+            String lName="";
+            String temp = "";
+            char[] ary = name.toCharArray();
+
+            for(int i=0;i<ary.length;i++){
+                if(ary[i]==' '){
+                    temp+="1";
+                }
+                if(temp==""){
+                    fName+=ary[i];
+                }else{
+                    lName+=ary[i];
+                }
+            }
+            Doctor d1 = new Doctor(Integer.parseInt(id), fName, lName, age, depart, special,0,0);
             DoctorController dc= new DoctorController();
             int result  = dc.updateDoctor(d1);
             if(result>0){

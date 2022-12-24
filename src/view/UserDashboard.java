@@ -298,7 +298,9 @@ public class UserDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_profileBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
-        // TODO add your handling code here:
+        new UserController().logout();
+        dispose();
+        new Login().setVisible(true);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     /**

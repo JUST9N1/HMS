@@ -4,8 +4,11 @@
  */
 package view;
 
+import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JOptionPane;
 
@@ -61,6 +64,8 @@ public class MedicinePrescription extends javax.swing.JFrame {
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         idText = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        durationDate = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,27 +89,27 @@ public class MedicinePrescription extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PATIENT ID");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 129, 260, 40));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("FULL NAME");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 199, 260, 40));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("MEDICINE ID");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 269, 260, 40));
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("MEDICINE NAME");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 270, 40));
 
         jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("TIME INTERVAL");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, -1, -1));
+        jLabel7.setText("Duration");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 270, 40));
 
         patinetIdText.setEditable(false);
         patinetIdText.setBackground(new java.awt.Color(0, 0, 0));
@@ -121,12 +126,12 @@ public class MedicinePrescription extends javax.swing.JFrame {
         medNameText.setBackground(new java.awt.Color(0, 0, 0));
         medNameText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         medNameText.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(medNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 300, 40));
+        jPanel1.add(medNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 300, 40));
 
         timeText.setBackground(new java.awt.Color(0, 0, 0));
         timeText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         timeText.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(timeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, 300, 40));
+        jPanel1.add(timeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, 300, 40));
 
         prescribeBtn.setBackground(new java.awt.Color(0, 0, 0));
         prescribeBtn.setFont(new java.awt.Font("Perpetua Titling MT", 1, 36)); // NOI18N
@@ -259,12 +264,23 @@ public class MedicinePrescription extends javax.swing.JFrame {
                 idTextFocusLost(evt);
             }
         });
+        idText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                idTextMouseClicked(evt);
+            }
+        });
         idText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idTextActionPerformed(evt);
             }
         });
-        jPanel1.add(idText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 300, 40));
+        jPanel1.add(idText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 300, 40));
+
+        jLabel9.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("TIME INTERVAL");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 270, 40));
+        jPanel1.add(durationDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 402, 300, 40));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
@@ -290,6 +306,9 @@ public class MedicinePrescription extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    protected void idTextMouseClicked(MouseEvent evt) {
+    }
+
     private void aboutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_aboutBtnActionPerformed
@@ -307,6 +326,9 @@ public class MedicinePrescription extends javax.swing.JFrame {
         int id = Integer.parseInt(patinetIdText.getText());
         Patient p1 = new Patient(id, 0, 0, null, null, null,0, 0);
         String email = null;
+        DateFormat fmt = new SimpleDateFormat("dd/MM/YYYY");
+
+        String date=  fmt.format(durationDate.getDate());
         ResultSet rs = new PatientController().selectEmail(p1);
         try {
             while(rs.next()){
@@ -319,7 +341,7 @@ public class MedicinePrescription extends javax.swing.JFrame {
             med_id = Integer.parseInt(selecteditem.toString());
         }
         String time = timeText.getText();
-            User_Med um1 = new User_Med(med_id, email, time);
+            User_Med um1 = new User_Med(med_id, email, time,date);
             UserMedController usc = new UserMedController();
             int result = usc.prescribeMedicine(um1);
             if(result>0){
@@ -412,6 +434,7 @@ public class MedicinePrescription extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutBtn;
     private javax.swing.JButton contactBtn;
+    private com.toedter.calendar.JDateChooser durationDate;
     private javax.swing.JTextField fnameText;
     private javax.swing.JButton homeBtn;
     private javax.swing.JComboBox<String> idText;
@@ -425,6 +448,7 @@ public class MedicinePrescription extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton logoutBtn;
