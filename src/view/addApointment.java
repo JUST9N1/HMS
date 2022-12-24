@@ -5,7 +5,7 @@ package view;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-
+//importing libraries
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
