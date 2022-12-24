@@ -15,6 +15,7 @@ public class AboutUs extends javax.swing.JFrame {
      */
     public AboutUs() {
         initComponents();
+        
     }
 
     /**
@@ -28,7 +29,8 @@ public class AboutUs extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        aboutText = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -44,16 +46,24 @@ public class AboutUs extends javax.swing.JFrame {
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Our product portfolio includes electronic health system products eHospital,\n eClinic, ePharmacy, eLaboratory, and eRadiology Systems. \nAll our software productsare multi-lingual and come with a\nbuilt-in on-screen editor that allows our implementation team to\nlocalize the software as per country-specific needs. \n\t Hospital Systems is a hospital management system software\nwhich includes OPD and IPD Management, Pharmacy, Laboratory, Radiology,\nWard Management, Mobile Application, Online Appointments Scheduling,\nSecured Messaging, Doctor Portal, Patient and Family Portals,\n Medical Electronic Billing, Accounting, HR/Payroll and \nHL7/Integrated PACS System.  This software vision is to enable\nhealthcare businesses to provide superior healthcare delivery and\npatient care with technology – globally. Our value system defines us,\nand acts as an anchor when we are faced with challenges.\nWe have a culture of customer focus, continuous improvement and\ncustomer service with a goal to provide a scalable, secure platform to\nclinics and hospitals that provide great value at reasonable cost\n");
-        jScrollPane1.setViewportView(jTextArea1);
+        aboutText.setEditable(false);
+        aboutText.setBackground(new java.awt.Color(0, 0, 0));
+        aboutText.setColumns(20);
+        aboutText.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
+        aboutText.setForeground(new java.awt.Color(255, 255, 255));
+        aboutText.setRows(5);
+        aboutText.setText("Our product portfolio includes electronic health system products eHospital,\n eClinic, ePharmacy, eLaboratory, and eRadiology Systems. \nAll our software productsare multi-lingual and come with a\nbuilt-in on-screen editor that allows our implementation team to\nlocalize the software as per country-specific needs. \n\t Hospital Systems is a hospital management system software\nwhich includes OPD and IPD Management, Pharmacy, Laboratory, Radiology,\nWard Management, Mobile Application, Online Appointments Scheduling,\nSecured Messaging, Doctor Portal, Patient and Family Portals,\n Medical Electronic Billing, Accounting, HR/Payroll and \nHL7/Integrated PACS System.  This software vision is to enable\nhealthcare businesses to provide superior healthcare delivery and\npatient care with technology – globally. Our value system defines us,\nand acts as an anchor when we are faced with challenges.\nWe have a culture of customer focus, continuous improvement and\ncustomer service with a goal to provide a scalable, secure platform to\nclinics and hospitals that provide great value at reasonable cost\n");
+        aboutText.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(aboutText);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 730, 310));
+
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 102, 0));
+        jButton1.setText("BACK");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 3));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 430, 160, 60));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/doctoricon.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -81,15 +91,16 @@ public class AboutUs extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -131,6 +142,8 @@ public class AboutUs extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea aboutText;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -138,6 +151,5 @@ public class AboutUs extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

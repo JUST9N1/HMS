@@ -26,6 +26,7 @@ public class UserDashboard extends javax.swing.JFrame {
      */
     public UserDashboard() {
         initComponents();
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("iccon.png")).getImage());
     }
 
     /**
@@ -42,7 +43,6 @@ public class UserDashboard extends javax.swing.JFrame {
         reminderBtn = new javax.swing.JButton();
         payBtn = new javax.swing.JButton();
         accountBtn = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -55,7 +55,8 @@ public class UserDashboard extends javax.swing.JFrame {
         logoutBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("HMS");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -105,18 +106,6 @@ public class UserDashboard extends javax.swing.JFrame {
         accountBtn.setText("MY ACCOUNT STATUS");
         accountBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
         jPanel1.add(accountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 400, 80));
-
-        jButton10.setBackground(new java.awt.Color(0, 0, 0));
-        jButton10.setFont(new java.awt.Font("Perpetua Titling MT", 1, 24)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("BACK");
-        jButton10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(892, 7, 100, 40));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/doctoricon.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 460, 390));
@@ -302,17 +291,14 @@ public class UserDashboard extends javax.swing.JFrame {
 
     }//GEN-LAST:event_payBtnActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
-
     private void aboutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBtnActionPerformed
-        
+    
+    new AboutUs().setVisible(true);
     }//GEN-LAST:event_aboutBtnActionPerformed
 
     private void profileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileBtnActionPerformed
         dispose();
-        new viewAdminProfile().setVisible(true);
+        new viewProfile().setVisible(true);
     }//GEN-LAST:event_profileBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
@@ -344,7 +330,8 @@ public class UserDashboard extends javax.swing.JFrame {
         int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to close?", "Close", JOptionPane.YES_NO_OPTION);
 
         if(result == JOptionPane.YES_OPTION){
-            logout();
+            new UserController().logout();
+            dispose();
         }else{
             return;
         }
@@ -397,7 +384,6 @@ public class UserDashboard extends javax.swing.JFrame {
     private javax.swing.JButton appointBtn;
     private javax.swing.JButton contactBtn;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JButton jButton10;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
