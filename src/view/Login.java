@@ -303,7 +303,7 @@ public class Login extends javax.swing.JFrame {
                     ResultSet isInserted = sc.selectLogin(s1);
                     
                     if(isInserted.next()){
-                        JOptionPane.showMessageDialog(null,"Login Successfully");
+                        JOptionPane.showMessageDialog(this,"Login Successfully");
                         int result = sc.UpdateStatus(s1);
                         int resul1 = sc.changestatus(s1);
                         dispose();
