@@ -54,7 +54,7 @@ public class ReportProblem extends javax.swing.JFrame {
         jLabel2.setText("REPORT ");
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 255), 2, true));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 240, -1));
-
+//back button
         backBtn.setBackground(new java.awt.Color(102, 102, 102));
         backBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
