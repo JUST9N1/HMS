@@ -85,7 +85,7 @@ public class addApointment extends javax.swing.JFrame {
 
         jPanel4.setBackground(java.awt.Color.lightGray);
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
+//labels
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Please fill up the given details");
