@@ -210,7 +210,7 @@ public class addApointment extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Script MT Bold", 1, 48)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 0));
         jLabel12.setText("HMS");
-
+//home buttons
         homeBtn.setBackground(new java.awt.Color(0, 0, 0));
         homeBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         homeBtn.setForeground(new java.awt.Color(255, 153, 0));
