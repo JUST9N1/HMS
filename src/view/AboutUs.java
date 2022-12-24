@@ -61,7 +61,7 @@ public class AboutUs extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 102, 0));
-        jButton1.setText("BACK");
+        jButton1.setText("Close");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 3));
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 430, 160, 60));
 

@@ -58,6 +58,7 @@ public class AddBed extends javax.swing.JFrame {
         bedTable = new javax.swing.JTable();
         viewBed = new javax.swing.JButton();
         deleteBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -126,17 +127,17 @@ public class AddBed extends javax.swing.JFrame {
         ManualRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ManualRadio.setText("Manual");
         jPanel2.add(ManualRadio);
-        ManualRadio.setBounds(220, 250, 90, 27);
+        ManualRadio.setBounds(220, 250, 150, 27);
 
         SemiRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         SemiRadio.setText("Semi Electric");
         jPanel2.add(SemiRadio);
-        SemiRadio.setBounds(220, 280, 139, 27);
+        SemiRadio.setBounds(220, 280, 150, 27);
 
         ElectricButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ElectricButton.setText("Electric");
         jPanel2.add(ElectricButton);
-        ElectricButton.setBounds(220, 310, 90, 27);
+        ElectricButton.setBounds(220, 310, 130, 27);
 
         jLabel8.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 0, 0));
@@ -167,7 +168,7 @@ public class AddBed extends javax.swing.JFrame {
 
         bedTable.setBackground(new java.awt.Color(102, 102, 102));
         bedTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(102, 0, 0), new java.awt.Color(255, 0, 51)));
-        bedTable.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        bedTable.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         bedTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -188,7 +189,7 @@ public class AddBed extends javax.swing.JFrame {
         jScrollPane1.setViewportView(bedTable);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(460, 50, 530, 430);
+        jScrollPane1.setBounds(460, 60, 530, 430);
 
         viewBed.setBackground(new java.awt.Color(0, 255, 255));
         viewBed.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
@@ -213,6 +214,19 @@ public class AddBed extends javax.swing.JFrame {
         });
         jPanel2.add(deleteBtn);
         deleteBtn.setBounds(760, 510, 190, 50);
+
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(backBtn);
+        backBtn.setBounds(840, 0, 150, 50);
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
@@ -405,6 +419,10 @@ public class AddBed extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutBtnActionPerformed
 
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backBtnActionPerformed
+
 
     public void table(){
         try {
@@ -520,6 +538,7 @@ public class AddBed extends javax.swing.JFrame {
     private javax.swing.JRadioButton SemiRadio;
     private javax.swing.JComboBox<String> WardCombo;
     private javax.swing.JButton aboutBtn;
+    private javax.swing.JButton backBtn;
     private javax.swing.JTable bedTable;
     private javax.swing.JButton contactBtn;
     private javax.swing.JButton deleteBtn;

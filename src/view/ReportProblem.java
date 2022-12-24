@@ -58,9 +58,9 @@ public class ReportProblem extends javax.swing.JFrame {
         backBtn.setBackground(new java.awt.Color(102, 102, 102));
         backBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
-        backBtn.setText("BACK");
+        backBtn.setText("Close");
         backBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 2, true));
-        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 10, 70, 30));
 
         jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 102, 0));
@@ -90,7 +90,7 @@ public class ReportProblem extends javax.swing.JFrame {
                 submitBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(submitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 150, 50));
+        jPanel1.add(submitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 150, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Report.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

@@ -37,7 +37,6 @@ public class EditPatientDetails extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -59,8 +58,8 @@ public class EditPatientDetails extends javax.swing.JFrame {
         contactBtn = new javax.swing.JButton();
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,18 +71,6 @@ public class EditPatientDetails extends javax.swing.JFrame {
         jLabel5.setText("EDIT PATIENT DETAILS");
         jLabel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
-
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
-        jButton6.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(153, 0, 51));
-        jButton6.setText("BACK");
-        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 100, 40));
 
         jLabel6.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -285,14 +272,20 @@ public class EditPatientDetails extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 0, 130, 50));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Edit Patitent details.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/User Dashboard.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -311,10 +304,6 @@ public class EditPatientDetails extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void idTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
         // TODO add your handling code here:
@@ -372,6 +361,10 @@ public class EditPatientDetails extends javax.swing.JFrame {
             }
 
     }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backBtnActionPerformed
     public void display(){
         try {
             ResultSet rs = new PatientController().fetch();
@@ -430,6 +423,7 @@ public class EditPatientDetails extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutBtn;
     private javax.swing.JTextField ageText;
+    private javax.swing.JButton backBtn;
     private javax.swing.JComboBox<String> bgCombo;
     private javax.swing.JButton contactBtn;
     private javax.swing.JButton deleteBtn;
@@ -437,11 +431,9 @@ public class EditPatientDetails extends javax.swing.JFrame {
     private javax.swing.JTextArea historyTxt;
     private javax.swing.JButton homeBtn;
     private javax.swing.JTextField idText;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

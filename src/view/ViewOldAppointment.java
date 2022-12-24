@@ -68,11 +68,11 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         appointTable = new javax.swing.JTable();
         deleteBtn = new javax.swing.JButton();
         rateBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         RateDoctor.setMinimumSize(new java.awt.Dimension(390, 500));
@@ -250,14 +250,7 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("VIEW OLD APPOINTMENT");
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 0), 4, true));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 750, -1));
-
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 102, 0));
-        jButton1.setText("BACK");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 3));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 750, -1));
 
         appointTable.setBackground(new java.awt.Color(0, 0, 0));
         appointTable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
@@ -310,6 +303,18 @@ public class ViewOldAppointment extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 380, 60));
+
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 0, 130, 50));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -416,6 +421,10 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, e);
        }
     }//GEN-LAST:event_confirmBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backBtnActionPerformed
     public void display(){
         DefaultTableModel model = (DefaultTableModel) appointTable.getModel();
         model.setRowCount(0);
@@ -493,12 +502,12 @@ public class ViewOldAppointment extends javax.swing.JFrame {
     private javax.swing.JFrame RateDoctor;
     private javax.swing.JButton aboutBtn;
     private javax.swing.JTable appointTable;
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton confirmBtn;
     private javax.swing.JButton contactBtn;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JButton homeBtn;
     private javax.swing.JTextField idText;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -44,7 +44,6 @@ public class MedicinePrescription extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -66,6 +65,7 @@ public class MedicinePrescription extends javax.swing.JFrame {
         idText = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         durationDate = new com.toedter.calendar.JDateChooser();
+        backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,14 +77,7 @@ public class MedicinePrescription extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("MEDICINE PRESCRIPTION");
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
-
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 255, 255));
-        jButton1.setText("BACK");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 0), 4, true));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -282,6 +275,18 @@ public class MedicinePrescription extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 270, 40));
         jPanel1.add(durationDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 402, 300, 40));
 
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 120, 50));
+
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -378,6 +383,10 @@ public class MedicinePrescription extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_idTextFocusLost
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backBtnActionPerformed
     public void display(){
         try {
             ResultSet rs = new PatientController().selectDetails();
@@ -433,12 +442,12 @@ public class MedicinePrescription extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aboutBtn;
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton contactBtn;
     private com.toedter.calendar.JDateChooser durationDate;
     private javax.swing.JTextField fnameText;
     private javax.swing.JButton homeBtn;
     private javax.swing.JComboBox<String> idText;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
