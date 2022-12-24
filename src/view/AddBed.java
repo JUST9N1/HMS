@@ -111,7 +111,7 @@ public class AddBed extends javax.swing.JFrame {
         MultipleRadio.setText("Multiple");
         jPanel2.add(MultipleRadio);
         MultipleRadio.setBounds(220, 190, 110, 27);
-
+//Adding labels
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 0, 0));
         jLabel6.setText("Bed Size");
