@@ -112,7 +112,7 @@ public class ReportProblem extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Strings
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         String problem = problemCombo.getSelectedItem().toString();
         String info = infoText.getText();
