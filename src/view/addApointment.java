@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 // import org.netbeans.lib.awtextra.AbsoluteLayout;
-
+//IMPORTING DATABASE CONTROLLERS
 import controller.AppointmentController;
 import controller.UserController;
 import database.db;
