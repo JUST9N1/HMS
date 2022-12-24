@@ -64,9 +64,9 @@ public class BillingSystem extends javax.swing.JFrame {
         patientText = new javax.swing.JTextField();
         totalBtn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         payBtn = new javax.swing.JButton();
         totalLabel = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -209,13 +209,6 @@ public class BillingSystem extends javax.swing.JFrame {
         jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 4, true));
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 330, 260, 50));
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 255, 255));
-        jButton4.setText("BACK");
-        jButton4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 4, true));
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 100, 40));
-
         payBtn.setBackground(new java.awt.Color(0, 0, 0));
         payBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         payBtn.setForeground(new java.awt.Color(0, 255, 255));
@@ -232,6 +225,18 @@ public class BillingSystem extends javax.swing.JFrame {
         totalLabel.setForeground(new java.awt.Color(0, 255, 255));
         totalLabel.setText("Rs. 0");
         jPanel1.add(totalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 220, 140, 30));
+
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 0, 130, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Billing System.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -294,6 +299,10 @@ public class BillingSystem extends javax.swing.JFrame {
         func();
        }
     }//GEN-LAST:event_payBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backBtnActionPerformed
     public void func(){
         try {
             
@@ -411,10 +420,10 @@ public class BillingSystem extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable MedicineDetails;
     private javax.swing.JTable TestDetails;
+    private javax.swing.JButton backBtn;
     private javax.swing.JTextField billText;
     private javax.swing.JTextField dateText;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
