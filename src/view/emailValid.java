@@ -22,17 +22,5 @@ public class emailValid {
     }
     return false;
    }
-   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    System.out.println("Enter a email");
-    String email = sc.nextLine();
-    if(emailVerify(email)){
-        System.out.println("Email is valid");
-    }else{
-        System.out.println("Email is invalid");
-
-    }
-
-    // emailVerify("")
-   }
+   
 }
