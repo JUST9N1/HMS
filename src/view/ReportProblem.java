@@ -4,16 +4,23 @@
  */
 package view;
 
+import java.sql.ResultSet;
+
+import javax.swing.JOptionPane;
+
+import controller.ReportController;
+import controller.UserController;
+import models.Report ;
 /**
  *
  * @author razee
  */
-public class Report extends javax.swing.JFrame {
+public class ReportProblem extends javax.swing.JFrame {
 
     /**
      * Creates new form Report
      */
-    public Report() {
+    public ReportProblem() {
         initComponents();
     }
 
@@ -28,12 +35,12 @@ public class Report extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        problemCombo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        infoText = new javax.swing.JTextField();
+        submitBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,37 +55,42 @@ public class Report extends javax.swing.JFrame {
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 255), 2, true));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 240, -1));
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("BACK");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 2, true));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
+        backBtn.setBackground(new java.awt.Color(102, 102, 102));
+        backBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
+        backBtn.setText("BACK");
+        backBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 2, true));
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 102, 0));
         jLabel3.setText("PROBLEM TYPE");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 300, 40));
+        problemCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "App", "Feature" }));
+        jPanel1.add(problemCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 300, 40));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 102, 0));
         jLabel4.setText("Additional INFO");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, 110));
+        infoText.setBackground(new java.awt.Color(0, 0, 0));
+        infoText.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
+        infoText.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(infoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, 110));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("SUBMIT");
-        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 150, 50));
+        submitBtn.setBackground(new java.awt.Color(0, 0, 0));
+        submitBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        submitBtn.setForeground(new java.awt.Color(255, 255, 255));
+        submitBtn.setText("SUBMIT");
+        submitBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
+        submitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(submitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 150, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Report.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -101,6 +113,30 @@ public class Report extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        String problem = problemCombo.getSelectedItem().toString();
+        String info = infoText.getText();
+        String email =""; //get email from login
+        if (problem.equals("Select Problem Type")) {
+            JOptionPane.showMessageDialog(this, "Please Select Problem Type");
+        } else if (info.equals("")) {
+            JOptionPane.showMessageDialog(this, "Please Enter Additional Info");
+        } else {
+            try {
+                ResultSet rs = new UserController().selectEmail();
+                while(rs.next()){
+                    email = rs.getString(1);
+                }
+                Report report = new Report(0,problem,info,email);
+                ReportController rc= new ReportController();
+                rc.reportDetails(report);
+                JOptionPane.showMessageDialog(this, "Report Submitted");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e);
+            }
+        }
+    }//GEN-LAST:event_submitBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -118,33 +154,33 @@ public class Report extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Report.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportProblem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Report.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportProblem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Report.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportProblem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Report.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportProblem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Report().setVisible(true);
+                new ReportProblem().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JTextField infoText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox<String> problemCombo;
+    private javax.swing.JButton submitBtn;
     // End of variables declaration//GEN-END:variables
 }

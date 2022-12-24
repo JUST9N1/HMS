@@ -130,4 +130,18 @@ public class UserController {
         int result = dbConnection.manipulate(deleteQuery);
         return result;
     }
+
+    public int logout(){
+        String updateQuery = "update user_login set user_status=false where user_status=true";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(updateQuery);
+        return result;
+    }
+
+    public ResultSet selectAllEmail(){
+        String selectQuery = "select user_email from user_login";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
 }   
