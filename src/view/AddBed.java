@@ -93,7 +93,7 @@ public class AddBed extends javax.swing.JFrame {
         jLabel5.setText("Ward number");
         jPanel2.add(jLabel5);
         jLabel5.setBounds(220, 43, 190, 40);
-
+//ward field
         wardField.setBackground(new java.awt.Color(0, 0, 0));
         wardField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         wardField.setForeground(new java.awt.Color(255, 255, 255));
