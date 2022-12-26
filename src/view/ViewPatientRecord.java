@@ -248,7 +248,7 @@ public class ViewPatientRecord extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+// Updating table
     private void assginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assginBtnActionPerformed
         int i = patientTable.getSelectedRow();
         TableModel model = patientTable.getModel();
