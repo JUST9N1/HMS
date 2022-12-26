@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 import controller.PatientController;
 import models.Patient;
 
-// Writing a comment
 /**
  *
  * @author razee
@@ -304,7 +303,7 @@ public class EditPatientDetails extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //editing
     private void idTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idTextActionPerformed
