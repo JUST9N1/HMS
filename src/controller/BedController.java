@@ -34,7 +34,7 @@ public class BedController {
         ResultSet result = dbConnection.retrieve(selectQuery);
         return result;
     }
-
+// adding
     public int changestatus(Bed bed) {
         int BedNo = bed.getBedNo();
 
