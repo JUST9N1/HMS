@@ -26,7 +26,7 @@ public class AssignBed extends javax.swing.JFrame {
      */
     public AssignBed() {
         initComponents();
-        func1();
+        // func1();
         id();
     }
 

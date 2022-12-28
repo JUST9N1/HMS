@@ -321,6 +321,9 @@ public class Register extends javax.swing.JFrame {
             // JOptionPane.showMessageDialog(this,"Please enter same passwords");
             JOptionPane.showMessageDialog(this,"Please enter correct date");
     }
+    else if(!nameValid.nameVerify(username)){
+        JOptionPane.showMessageDialog(this,"Please enter correct name");
+    }
         else if(!pass.equals(repass)){
             JOptionPane.showMessageDialog(this,"Please enter same passwords");
 
@@ -332,6 +335,8 @@ public class Register extends javax.swing.JFrame {
                 int result = sc.insertdetails(u1);
                 if(result>0){
                     JOptionPane.showMessageDialog(this,"Inserted Successfully");
+                    dispose();
+                    new Login().setVisible(true);
                 }
             } catch (Exception e) {
             // TODO: handle exception
