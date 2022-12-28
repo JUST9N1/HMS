@@ -5,7 +5,7 @@
 package view;
 //importing required libraries
 import java.sql.ResultSet;
-
+//import
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -23,6 +23,7 @@ public class AddBed extends javax.swing.JFrame {
     /**
      * Creates new form AddBed
      */
+    //public
     public AddBed() {
         initComponents();
         table();
@@ -37,6 +38,7 @@ public class AddBed extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 //labels and buttons
+//BEDSIZE
         jLabel1 = new javax.swing.JLabel();
         BedSize = new javax.swing.ButtonGroup();
         BedType = new javax.swing.ButtonGroup();
@@ -68,7 +70,7 @@ public class AddBed extends javax.swing.JFrame {
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-
+//LABELS
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Left panel");
@@ -123,7 +125,7 @@ public class AddBed extends javax.swing.JFrame {
         jLabel7.setText("Bed Type");
         jPanel2.add(jLabel7);
         jLabel7.setBounds(220, 220, 130, 40);
-
+//radio button
         ManualRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ManualRadio.setText("Manual");
         jPanel2.add(ManualRadio);
@@ -133,7 +135,7 @@ public class AddBed extends javax.swing.JFrame {
         SemiRadio.setText("Semi Electric");
         jPanel2.add(SemiRadio);
         SemiRadio.setBounds(220, 280, 150, 27);
-
+//electric
         ElectricButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ElectricButton.setText("Electric");
         jPanel2.add(ElectricButton);
@@ -152,7 +154,7 @@ public class AddBed extends javax.swing.JFrame {
         WardCombo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 0), 3, true));
         jPanel2.add(WardCombo);
         WardCombo.setBounds(220, 370, 170, 40);
-
+//add button abcd   
         AddBtn.setBackground(new java.awt.Color(0, 255, 255));
         AddBtn.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         AddBtn.setForeground(new java.awt.Color(153, 0, 51));
@@ -163,6 +165,7 @@ public class AddBed extends javax.swing.JFrame {
                 AddBtnActionPerformed(evt);
             }
         });
+        //panels
         jPanel2.add(AddBtn);
         AddBtn.setBounds(220, 430, 160, 50);
 
