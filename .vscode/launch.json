@@ -1,0 +1,329 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch JCalendar",
+            "request": "launch",
+            "mainClass": "com.toedter.calendar.JCalendar",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch JDateChooser",
+            "request": "launch",
+            "mainClass": "com.toedter.calendar.JDateChooser",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch JDayChooser",
+            "request": "launch",
+            "mainClass": "com.toedter.calendar.JDayChooser",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch JMonthChooser",
+            "request": "launch",
+            "mainClass": "com.toedter.calendar.JMonthChooser",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch JTextFieldDateEditor",
+            "request": "launch",
+            "mainClass": "com.toedter.calendar.JTextFieldDateEditor",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch JYearChooser",
+            "request": "launch",
+            "mainClass": "com.toedter.calendar.JYearChooser",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch JLocaleChooser",
+            "request": "launch",
+            "mainClass": "com.toedter.components.JLocaleChooser",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch JSpinField",
+            "request": "launch",
+            "mainClass": "com.toedter.components.JSpinField",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch DbConnection",
+            "request": "launch",
+            "mainClass": "database.DbConnection",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch NewJFrame",
+            "request": "launch",
+            "mainClass": "star.rating.NewJFrame",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch AboutUs",
+            "request": "launch",
+            "mainClass": "view.AboutUs",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch AddBed",
+            "request": "launch",
+            "mainClass": "view.AddBed",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch AdminDashboard",
+            "request": "launch",
+            "mainClass": "view.AdminDashboard",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch AssignBed",
+            "request": "launch",
+            "mainClass": "view.AssignBed",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch AssignDoctor",
+            "request": "launch",
+            "mainClass": "view.AssignDoctor",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch BillingSystem",
+            "request": "launch",
+            "mainClass": "view.BillingSystem",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch DifferenceTime",
+            "request": "launch",
+            "mainClass": "view.DifferenceTime",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch EditPatientDetails",
+            "request": "launch",
+            "mainClass": "view.EditPatientDetails",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch Login",
+            "request": "launch",
+            "mainClass": "view.Login",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch MedicinePrescription",
+            "request": "launch",
+            "mainClass": "view.MedicinePrescription",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch PatientDetails",
+            "request": "launch",
+            "mainClass": "view.PatientDetails",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch Register",
+            "request": "launch",
+            "mainClass": "view.Register",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch Reminder",
+            "request": "launch",
+            "mainClass": "view.Reminder",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch ReportProblem",
+            "request": "launch",
+            "mainClass": "view.ReportProblem",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch ResetPass",
+            "request": "launch",
+            "mainClass": "view.ResetPass",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch UpdateAppointment",
+            "request": "launch",
+            "mainClass": "view.UpdateAppointment",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch UpdateBed",
+            "request": "launch",
+            "mainClass": "view.UpdateBed",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch UpdateProfile",
+            "request": "launch",
+            "mainClass": "view.UpdateProfile",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch UserDashboard",
+            "request": "launch",
+            "mainClass": "view.UserDashboard",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch UsernameValid",
+            "request": "launch",
+            "mainClass": "view.UsernameValid",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch ViewAppointment",
+            "request": "launch",
+            "mainClass": "view.ViewAppointment",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch ViewDoctor",
+            "request": "launch",
+            "mainClass": "view.ViewDoctor",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch ViewOldAppointment",
+            "request": "launch",
+            "mainClass": "view.ViewOldAppointment",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch ViewOldPayment",
+            "request": "launch",
+            "mainClass": "view.ViewOldPayment",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch ViewPatientRecord",
+            "request": "launch",
+            "mainClass": "view.ViewPatientRecord",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch addApointment",
+            "request": "launch",
+            "mainClass": "view.addApointment",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch addDoctorView",
+            "request": "launch",
+            "mainClass": "view.addDoctorView",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch dateValid",
+            "request": "launch",
+            "mainClass": "view.dateValid",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch fullNameValid",
+            "request": "launch",
+            "mainClass": "view.fullNameValid",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch nameValid",
+            "request": "launch",
+            "mainClass": "view.nameValid",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch phoneValid",
+            "request": "launch",
+            "mainClass": "view.phoneValid",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch startPage",
+            "request": "launch",
+            "mainClass": "view.startPage",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch updateDoctor",
+            "request": "launch",
+            "mainClass": "view.updateDoctor",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch viewBed",
+            "request": "launch",
+            "mainClass": "view.viewBed",
+            "projectName": "Hosptial Managment System_32611578"
+        },
+        {
+            "type": "java",
+            "name": "Launch viewProfile",
+            "request": "launch",
+            "mainClass": "view.viewProfile",
+            "projectName": "Hosptial Managment System_32611578"
+        }
+    ]
+}

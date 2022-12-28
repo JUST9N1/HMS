@@ -348,6 +348,13 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"Please fill all the fields");
             }else{
                 try {
+                    String role= null;
+        if(adminRadio.isSelected()){
+            role="admin";
+        }else if(userRadio.isSelected()){
+            role="user";
+        }
+                    System.out.println(role);
                     User s1 = new User(null, null, null, eText.getText(), null, pText.getText(), null, null, null, null,role);
                     UserController sc= new UserController();
                     ResultSet isInserted = sc.selectLogin(s1);

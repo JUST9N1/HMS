@@ -486,7 +486,7 @@ public class viewProfile extends javax.swing.JFrame {
             ResultSet result = uc.selectPassword();
             String pass = null;
             while (result.next()) {
-                pass = result.getString("password");
+                pass = result.getString(    1);
             }
             if(pass.equals(passwordText.getText())) {
                 askPassFrame.setVisible(false);
