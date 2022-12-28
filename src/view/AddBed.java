@@ -135,7 +135,7 @@ public class AddBed extends javax.swing.JFrame {
         SemiRadio.setText("Semi Electric");
         jPanel2.add(SemiRadio);
         SemiRadio.setBounds(220, 280, 150, 27);
-
+//electric
         ElectricButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ElectricButton.setText("Electric");
         jPanel2.add(ElectricButton);
