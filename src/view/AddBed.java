@@ -23,6 +23,7 @@ public class AddBed extends javax.swing.JFrame {
     /**
      * Creates new form AddBed
      */
+    //public
     public AddBed() {
         initComponents();
         table();
