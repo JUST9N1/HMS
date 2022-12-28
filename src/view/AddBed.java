@@ -125,7 +125,7 @@ public class AddBed extends javax.swing.JFrame {
         jLabel7.setText("Bed Type");
         jPanel2.add(jLabel7);
         jLabel7.setBounds(220, 220, 130, 40);
-
+//radio button
         ManualRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ManualRadio.setText("Manual");
         jPanel2.add(ManualRadio);
