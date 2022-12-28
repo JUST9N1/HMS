@@ -54,7 +54,7 @@ public class ReportProblem extends javax.swing.JFrame {
         jLabel2.setText("REPORT ");
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 255), 2, true));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 240, -1));
-
+//back button
         backBtn.setBackground(new java.awt.Color(102, 102, 102));
         backBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,7 +71,7 @@ public class ReportProblem extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 102, 0));
         jLabel3.setText("PROBLEM TYPE");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, 30));
-
+//combo box
         problemCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "App", "Feature" }));
         jPanel1.add(problemCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 300, 40));
 
@@ -79,12 +79,12 @@ public class ReportProblem extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 102, 0));
         jLabel4.setText("Additional INFO");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
-
+//info text
         infoText.setBackground(new java.awt.Color(0, 0, 0));
         infoText.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         infoText.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(infoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, 110));
-
+//submit button
         submitBtn.setBackground(new java.awt.Color(0, 0, 0));
         submitBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         submitBtn.setForeground(new java.awt.Color(255, 255, 255));

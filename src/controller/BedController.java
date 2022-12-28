@@ -111,4 +111,16 @@ public class BedController {
         return result;
     }
 
+    public int deAssignBed(Bed bed) {
+        // int patient_id = patient.getPatient_id();
+        String updaateQuery = "update patient set bed_no='" + 4 + "' where bed_no='" + bed.getBedNo()+ "'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(updaateQuery);
+        return result;
+
+    }
+
+    
+    
+
 }

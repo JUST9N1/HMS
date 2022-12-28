@@ -37,7 +37,7 @@ public class PatientDetails extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+//labels
         Gender = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         othersRadio = new javax.swing.JRadioButton();

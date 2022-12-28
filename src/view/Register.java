@@ -134,8 +134,8 @@ public class Register extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Enter Your Date of BIrth");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 300, 28));
+        jLabel5.setText("Enter Your Date of BIrth(yyyy-MM-dd)");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 470, 28));
         jPanel1.add(passText, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 250, 40));
 
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
@@ -196,7 +196,7 @@ public class Register extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Gender");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 220, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 110, 30));
 
         gendergroup.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Segoe UI Semilight", 3, 14)); // NOI18N
@@ -207,19 +207,19 @@ public class Register extends javax.swing.JFrame {
                 jRadioButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, -1, -1));
+        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, -1, -1));
 
         gendergroup.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI Semilight", 3, 14)); // NOI18N
         jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("Female");
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
+        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, -1, -1));
 
         gendergroup.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Segoe UI Semilight", 3, 14)); // NOI18N
         jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton3.setText("Others");
-        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, -1, -1));
+        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -310,15 +310,20 @@ public class Register extends javax.swing.JFrame {
         }
         String sq = sqText.getText();
         if(username.equals("")||dob.equals("")||pass.equals("")||repass.equals("")||gender.equals("")){
-            JOptionPane.showMessageDialog(null,"Please enter all the details");
+            JOptionPane.showMessageDialog(this,"Please enter all the details");
             
         }
         else if(!emailValid.emailVerify(email)){
-        JOptionPane.showMessageDialog(null,"Please enter correct email");
+        JOptionPane.showMessageDialog(this,"Please enter correct email");
 
     }
+    else if(!dateValid.dateVerify(dob)){
+            // JOptionPane.showMessageDialog(this,"Please enter same passwords");
+            JOptionPane.showMessageDialog(this,"Please enter correct date");
+    }
         else if(!pass.equals(repass)){
-            JOptionPane.showMessageDialog(null,"Please enter same passwords");
+            JOptionPane.showMessageDialog(this,"Please enter same passwords");
+
         }else{
 
             try {
@@ -326,7 +331,7 @@ public class Register extends javax.swing.JFrame {
                 UserController sc = new UserController();
                 int result = sc.insertdetails(u1);
                 if(result>0){
-                    JOptionPane.showMessageDialog(null,"Inserted Successfully");
+                    JOptionPane.showMessageDialog(this,"Inserted Successfully");
                 }
             } catch (Exception e) {
             // TODO: handle exception

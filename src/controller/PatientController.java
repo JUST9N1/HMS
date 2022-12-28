@@ -31,6 +31,8 @@ public class PatientController {
 
     }
 
+    
+
     public ResultSet selectDetails() {
         String selectQuery = " select patient.patient_id,concat(user_login.user_fname,'" + ""
                 + "',user_login.user_lname) as name,patient.age,user_login.gender,patient.blood_group,user_login.user_contact from patient join user_login on patient.user_email = user_login.user_email ";

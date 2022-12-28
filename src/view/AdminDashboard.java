@@ -24,7 +24,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     public AdminDashboard() {
         initComponents();
     }
-
+// Creating table
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -298,7 +298,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void accountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountBtnActionPerformed
         dispose();
-       new viewAdminProfile().setVisible(true);
+       new viewProfile().setVisible(true);
     }//GEN-LAST:event_accountBtnActionPerformed
 
     private void bedBTnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bedBTnActionPerformed

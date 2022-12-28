@@ -36,7 +36,7 @@ public class AddBed extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+//labels and buttons
         jLabel1 = new javax.swing.JLabel();
         BedSize = new javax.swing.ButtonGroup();
         BedType = new javax.swing.ButtonGroup();
@@ -93,7 +93,7 @@ public class AddBed extends javax.swing.JFrame {
         jLabel5.setText("Ward number");
         jPanel2.add(jLabel5);
         jLabel5.setBounds(220, 43, 190, 40);
-
+//ward field
         wardField.setBackground(new java.awt.Color(0, 0, 0));
         wardField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         wardField.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,7 +101,7 @@ public class AddBed extends javax.swing.JFrame {
         wardField.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(wardField);
         wardField.setBounds(220, 80, 170, 30);
-
+//radio buttons for bed type
         singleRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         singleRadio.setText("Single");
         jPanel2.add(singleRadio);
@@ -111,7 +111,7 @@ public class AddBed extends javax.swing.JFrame {
         MultipleRadio.setText("Multiple");
         jPanel2.add(MultipleRadio);
         MultipleRadio.setBounds(220, 190, 110, 27);
-
+//Adding labels
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 0, 0));
         jLabel6.setText("Bed Size");
@@ -414,9 +414,29 @@ public class AddBed extends javax.swing.JFrame {
     }//GEN-LAST:event_viewBedActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
-        
-    }//GEN-LAST:event_deleteBtnActionPerformed
+        int respnse=JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this record?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(respnse==JOptionPane.YES_OPTION){
+            try {
+                int row = bedTable.getSelectedRow();
+                String value = (bedTable.getModel().getValueAt(row, 0).toString());
+                Bed b1 = new Bed(Integer.parseInt(value), 0, null, null, null);
+                BedController bc = new BedController();
+                bc.deAssignBed(b1);
+                int result = bc.deleteBed(b1);
+                if(result>0){
+                    JOptionPane.showMessageDialog(null, "Bed Deleted Successfully");
+                    tableadd();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Bed can't be deleted");
 
+                }
+
+            } catch (Exception e) {
+
+    }//GEN-LAST:event_deleteBtnActionPerformed
+}   
+} 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         dispose();
         new AdminDashboard().setVisible(true);
@@ -483,6 +503,9 @@ public class AddBed extends javax.swing.JFrame {
             ResultSet result = sc.selectdetails(d1);
             while (result.next()) {
                 int id = Integer.parseInt(result.getString(1));
+                if(id==4){
+                    continue;
+                }
                 int ward_no = Integer.parseInt(result.getString(4));
                 String bedtype = result.getString(2);
                 String bedsize = result.getString(3);
@@ -507,6 +530,9 @@ public class AddBed extends javax.swing.JFrame {
             model.setRowCount(0);
             while (result.next()) {
                 int id = Integer.parseInt(result.getString(1));
+                if(id==4){
+                    continue;
+                }
                 int ward_no = Integer.parseInt(result.getString(4));
                 String bedtype = result.getString(2);
                 String bedsize = result.getString(3);
