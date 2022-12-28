@@ -5,7 +5,7 @@ package view;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 // package view;
-
+//import package
 import java.sql.*;
 import javax.swing.*;
 
