@@ -55,7 +55,8 @@ public class AssignBed extends javax.swing.JFrame {
         bedSizTXt = new javax.swing.JTextField();
         BedTypeTxt = new javax.swing.JTextField();
         assignBtn = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        selectBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -165,13 +166,25 @@ public class AssignBed extends javax.swing.JFrame {
         });
         jPanel2.add(assignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 510, 240, -1));
 
-        jButton6.setText("jButton6");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        selectBtn.setText("Select");
+        selectBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                selectBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, -1, -1));
+        jPanel2.add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, -1, -1));
+
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
@@ -377,7 +390,7 @@ public class AssignBed extends javax.swing.JFrame {
         // BedNO.removeAllItems();
     }
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void selectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtnActionPerformed
         String bedno = null;
             Object selecteditem = BedNO.getSelectedItem();
             if(selecteditem!=null){
@@ -403,7 +416,7 @@ public class AssignBed extends javax.swing.JFrame {
         } catch (Exception e) {
             // TODO: handle exception
         }
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_selectBtnActionPerformed
 
     private void assignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignBtnActionPerformed
         // TODO add your handling code here:
@@ -474,14 +487,12 @@ public class AssignBed extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logoutBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jButton1ActionPerformed
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        dispose();
+        new ViewPatientRecord().setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jButton2ActionPerformed
-
+    
     private void BedNOActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BedNOActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_BedNOActionPerformed
@@ -569,10 +580,10 @@ public class AssignBed extends javax.swing.JFrame {
     private javax.swing.JTextField BedTypeTxt;
     private javax.swing.JButton aboutBtn;
     private javax.swing.JButton assignBtn;
+    private javax.swing.JButton backBtn;
     private javax.swing.JTextField bedSizTXt;
     private javax.swing.JButton contactBtn;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -588,6 +599,7 @@ public class AssignBed extends javax.swing.JFrame {
     private javax.swing.JButton logoutBtn;
     private javax.swing.JTextField patinettxt;
     private javax.swing.JButton profileBtn;
+    private javax.swing.JButton selectBtn;
     private javax.swing.JComboBox<String> wardNo;
     private javax.swing.JComboBox<String> wardType;
     // End of variables declaration//GEN-END:variables

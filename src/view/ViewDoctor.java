@@ -47,8 +47,7 @@ public class ViewDoctor extends javax.swing.JFrame {
         specialText = new javax.swing.JTextField();
         departText = new javax.swing.JTextField();
         UpdateBtn = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        deleteBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -57,6 +56,8 @@ public class ViewDoctor extends javax.swing.JFrame {
         contactBtn = new javax.swing.JButton();
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,14 +140,16 @@ public class ViewDoctor extends javax.swing.JFrame {
         });
         jPanel1.add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 210, 70));
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 0));
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton7.setText("DELETE DOCTOR");
-        jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 230, 70));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/View Doctor.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1040, 630));
+        deleteBtn.setBackground(new java.awt.Color(255, 255, 0));
+        deleteBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        deleteBtn.setText("DELETE DOCTOR");
+        deleteBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 230, 70));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
@@ -269,6 +272,21 @@ public class ViewDoctor extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 130, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/View Doctor.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 630));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -276,7 +294,7 @@ public class ViewDoctor extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,7 +325,8 @@ public class ViewDoctor extends javax.swing.JFrame {
     }//GEN-LAST:event_specialTextActionPerformed
 
     private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        new updateDoctor().setVisible(true);
     }//GEN-LAST:event_UpdateBtnActionPerformed
 
     private void NameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTextActionPerformed
@@ -365,6 +384,14 @@ public class ViewDoctor extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteBtnActionPerformed
     public void view(){
         try {
             Doctor d1 = new Doctor(0, null, null, null, null, null,0,0);
@@ -430,11 +457,12 @@ public class ViewDoctor extends javax.swing.JFrame {
     private javax.swing.JButton UpdateBtn;
     private javax.swing.JButton aboutBtn;
     private javax.swing.JTextField ageText;
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton contactBtn;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JTextField departText;
     private javax.swing.JButton homeBtn;
     private javax.swing.JTextField idText;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

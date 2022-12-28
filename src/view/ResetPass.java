@@ -128,7 +128,7 @@ public class ResetPass extends javax.swing.JFrame {
                 if(result>0){
                     JOptionPane.showMessageDialog(this, "Reset password Success");
                     dispose();
-                    new Login().setVisible(true);
+                   
                 }else{
                     JOptionPane.showMessageDialog(this, "Please enter correct security question answer");
                     

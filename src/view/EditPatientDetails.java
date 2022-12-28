@@ -128,14 +128,14 @@ public class EditPatientDetails extends javax.swing.JFrame {
         updateBtn.setBackground(new java.awt.Color(0, 0, 0));
         updateBtn.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
         updateBtn.setForeground(new java.awt.Color(255, 255, 255));
-        updateBtn.setText("UPDATE YOUR PROFILE");
+        updateBtn.setText("UPDATE Patient");
         updateBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, -1, 50));
+        jPanel1.add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, 270, 50));
 
         deleteBtn.setBackground(new java.awt.Color(0, 0, 0));
         deleteBtn.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
@@ -362,7 +362,8 @@ public class EditPatientDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        new ViewPatientRecord().setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed

@@ -40,7 +40,6 @@ public class AssignDoctor extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         appointId = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -52,6 +51,7 @@ public class AssignDoctor extends javax.swing.JFrame {
         dNameTxt = new javax.swing.JTextField();
         assignBtn = new javax.swing.JButton();
         dIdCombo = new javax.swing.JComboBox<>();
+        backBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -71,12 +71,6 @@ public class AssignDoctor extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 0, 0));
         jLabel4.setText("ASSIGN DOCTOR");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 420, 50));
-
-        jButton6.setBackground(new java.awt.Color(0, 51, 51));
-        jButton6.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(204, 0, 51));
-        jButton6.setText("BACK");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 100, 40));
 
         jLabel5.setFont(new java.awt.Font("Modern No. 20", 1, 30)); // NOI18N
         jLabel5.setText("APPOINTMENT ID ");
@@ -148,6 +142,18 @@ public class AssignDoctor extends javax.swing.JFrame {
             }
         });
         jPanel1.add(dIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 280, 50));
+
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 140, 80));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
@@ -390,6 +396,11 @@ public class AssignDoctor extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        dispose();
+        new ViewAppointment().setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
     public void select(){
         try {
             Appointment a1 = new Appointment(0, 0, null, null, null, 0, null, null, null, null);
@@ -458,11 +469,11 @@ public class AssignDoctor extends javax.swing.JFrame {
     private javax.swing.JButton aboutBtn;
     private javax.swing.JTextField appointId;
     private javax.swing.JButton assignBtn;
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton contactBtn;
     private javax.swing.JComboBox<String> dIdCombo;
     private javax.swing.JTextField dNameTxt;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;

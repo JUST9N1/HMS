@@ -63,6 +63,7 @@ public class addDoctorView extends javax.swing.JFrame {
         contactBtn = new javax.swing.JButton();
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -308,6 +309,18 @@ public class addDoctorView extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 130, 50));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/doctor.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1027, 610));
 
@@ -403,6 +416,11 @@ public class addDoctorView extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        dispose();
+        new AdminDashboard().setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
@@ -632,6 +650,7 @@ public class addDoctorView extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> SpecialText;
     private javax.swing.JButton aboutBtn;
     private javax.swing.JButton addBtn;
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton contactBtn;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JTable doctorTable;

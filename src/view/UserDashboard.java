@@ -86,6 +86,11 @@ public class UserDashboard extends javax.swing.JFrame {
         reminderBtn.setForeground(new java.awt.Color(255, 255, 255));
         reminderBtn.setText("PRESCRIBED MEDICINE");
         reminderBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
+        reminderBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reminderBtnActionPerformed(evt);
+            }
+        });
         jPanel1.add(reminderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 400, 80));
 
         payBtn.setBackground(new java.awt.Color(0, 0, 0));
@@ -105,6 +110,11 @@ public class UserDashboard extends javax.swing.JFrame {
         accountBtn.setForeground(new java.awt.Color(255, 255, 255));
         accountBtn.setText("MY ACCOUNT STATUS");
         accountBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
+        accountBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountBtnActionPerformed(evt);
+            }
+        });
         jPanel1.add(accountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 400, 80));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/doctoricon.png"))); // NOI18N
@@ -360,6 +370,16 @@ public class UserDashboard extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_formWindowClosing
+
+    private void accountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountBtnActionPerformed
+       dispose();
+        new viewProfile().setVisible(true);
+    }//GEN-LAST:event_accountBtnActionPerformed
+
+    private void reminderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reminderBtnActionPerformed
+        dispose();
+        new Reminder().setVisible(true);
+    }//GEN-LAST:event_reminderBtnActionPerformed
 
 
     public void logout(){

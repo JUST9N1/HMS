@@ -47,8 +47,8 @@ public class viewBed extends javax.swing.JFrame {
         BedSizeText = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         BedTypeText = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        deleteBed = new javax.swing.JButton();
+        updateBed = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -57,6 +57,7 @@ public class viewBed extends javax.swing.JFrame {
         contactBtn = new javax.swing.JButton();
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,29 +111,29 @@ public class viewBed extends javax.swing.JFrame {
         BedTypeText.setEditable(false);
         jPanel1.add(BedTypeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 290, 40));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 255, 255));
-        jButton1.setText("Delete Bed");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        deleteBed.setBackground(new java.awt.Color(0, 0, 0));
+        deleteBed.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        deleteBed.setForeground(new java.awt.Color(0, 255, 255));
+        deleteBed.setText("Delete Bed");
+        deleteBed.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
+        deleteBed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                deleteBedActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 530, 200, 60));
+        jPanel1.add(deleteBed, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 530, 200, 60));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 255, 255));
-        jButton2.setText("Update Bed");
-        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        updateBed.setBackground(new java.awt.Color(0, 0, 0));
+        updateBed.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        updateBed.setForeground(new java.awt.Color(0, 255, 255));
+        updateBed.setText("Update Bed");
+        updateBed.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
+        updateBed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                updateBedActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 530, 230, 60));
+        jPanel1.add(updateBed, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 530, 230, 60));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
@@ -255,6 +256,18 @@ public class viewBed extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 0, 130, 50));
+
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 102, 0));
@@ -276,13 +289,14 @@ public class viewBed extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void deleteBedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_deleteBedActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void updateBedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBedActionPerformed
+        dispose();
+        new UpdateBed().setVisible(true);
+    }//GEN-LAST:event_updateBedActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         dispose();
@@ -335,6 +349,10 @@ public class viewBed extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backBtnActionPerformed
 
     public void view(){
         try {
@@ -402,10 +420,10 @@ public class viewBed extends javax.swing.JFrame {
     private javax.swing.JTextField WardNoText;
     private javax.swing.JTextField WardTypeText;
     private javax.swing.JButton aboutBtn;
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton contactBtn;
+    private javax.swing.JButton deleteBed;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -419,5 +437,6 @@ public class viewBed extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JButton profileBtn;
+    private javax.swing.JButton updateBed;
     // End of variables declaration//GEN-END:variables
 }

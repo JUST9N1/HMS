@@ -414,11 +414,12 @@ public class AddBed extends javax.swing.JFrame {
     }//GEN-LAST:event_viewBedActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        new AdminDashboard().setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
