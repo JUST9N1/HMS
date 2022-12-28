@@ -70,7 +70,7 @@ public class AddBed extends javax.swing.JFrame {
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-
+//LABELS
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Left panel");
