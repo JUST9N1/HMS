@@ -20,7 +20,7 @@ public class UserController {
     }
 
     public int UpdateStatus(User user) {
-        String status = user.getUserStatus();
+       
         String updatestatus = "update user_login set user_status=false where user_status=true";
         dbConnection = new DbConnection();
         int result = dbConnection.manipulate(updatestatus);
@@ -32,7 +32,7 @@ public class UserController {
 
     public int changestatus(User user) {
         String email = user.getUserEmail();
-        String updateQuery = "update user_login set user_status=true where user_email = '" + email + "'";
+        String updateQuery = "update user_login set user_status=true,role='"+user.getUserRole()+"' where user_email = '" + email + "'";
         dbConnection = new DbConnection();
         int result1 = dbConnection.manipulate(updateQuery);
         return result1;
@@ -45,8 +45,14 @@ public class UserController {
         return result;
     }
 
-    public ResultSet selectEmail(User user) {
+    public ResultSet selectEmail() {
         String selectQuery = "select user_email from user_login where user_status=1";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
+    public ResultSet selectRole() {
+        String selectQuery = "select role from user_login where user_status=1";
         dbConnection = new DbConnection();
         ResultSet result = dbConnection.retrieve(selectQuery);
         return result;
@@ -59,6 +65,7 @@ public class UserController {
         String dob = user.getUserDob();
         String gender = user.getUserGender();
         String sq = user.getUserSq1();
+        // String role = user.getUserRole();
 
         String insertQuery = "insert into user_login(user_userName,user_email,user_pass,user_dob,gender,user_sq1)" +
                 "values('" + username + "','" + email + "','" + pass + "','" + dob + "','" + gender + "','" + sq + "')";
@@ -94,4 +101,64 @@ public class UserController {
         int result = dbConnection.manipulate(updateQuery);
         return result;
     }
+
+    public int deleteAppointEmail(User user){
+
+        String deleteQuery = "delete from appointment where user_email='"+user.getUserEmail()+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+    public int deletePatientEmail(User user){
+
+        String deleteQuery = "delete from patient where user_email='"+user.getUserEmail()+"' ";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+    public int deleteMedicineEmail(User user){
+
+        String deleteQuery = "delete from user_med where user_email='"+user.getUserEmail()+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+
+    public int deleteProfile(User user){
+        String deleteQuery = "delete from user_login where user_status=1";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+
+    public int deleteBillEmail(User user){
+        String deleteQuery = "delete from bill where user_email='"+user.getUserEmail()+"'";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(deleteQuery);
+        return result;
+    }
+
+    public int logout(){
+        String updateQuery = "update user_login set user_status=false where user_status=true";
+        dbConnection = new DbConnection();
+        int result = dbConnection.manipulate(updateQuery);
+        return result;
+    }
+
+    public ResultSet selectAllEmail(){
+        String selectQuery = "select user_email from user_login";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
+
+    public ResultSet selectPassword(){
+       
+        String selectQuery = "select user_pass from user_login where user_status=true";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
+
+    
 }   

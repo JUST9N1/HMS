@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import controller.AppointmentController;
 import controller.DoctorController;
+import controller.UserController;
 import models.Appointment;
 import models.Doctor;
 
@@ -38,16 +39,7 @@ public class AssignDoctor extends javax.swing.JFrame {
     private void initComponents() {
 // creating panels
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         appointId = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -59,110 +51,20 @@ public class AssignDoctor extends javax.swing.JFrame {
         dNameTxt = new javax.swing.JTextField();
         assignBtn = new javax.swing.JButton();
         dIdCombo = new javax.swing.JComboBox<>();
+        backBtn = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        homeBtn = new javax.swing.JButton();
+        aboutBtn = new javax.swing.JButton();
+        contactBtn = new javax.swing.JButton();
+        profileBtn = new javax.swing.JButton();
+        logoutBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/iccon.png"))); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Script MT Bold", 1, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel3.setText("HMS");
-
-        jButton1.setBackground(new java.awt.Color(255, 255, 0));
-        jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jButton1.setText("HOME");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(102, 0, 0), new java.awt.Color(255, 0, 0), new java.awt.Color(102, 0, 51)));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setBackground(new java.awt.Color(255, 255, 0));
-        jButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
-        jButton2.setText("Contact Us");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 0)));
-
-        jButton3.setBackground(new java.awt.Color(255, 255, 0));
-        jButton3.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
-        jButton3.setText("About Us");
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 0), new java.awt.Color(255, 0, 51)));
-
-        jButton4.setBackground(new java.awt.Color(255, 255, 0));
-        jButton4.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
-        jButton4.setText("My Profile");
-        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 51), new java.awt.Color(255, 0, 0)));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setBackground(new java.awt.Color(255, 255, 0));
-        jButton5.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
-        jButton5.setText("Log Out");
-        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 0, 51), new java.awt.Color(255, 0, 0)));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addGap(9, 9, 9)
-                                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(35, 35, 35)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(5, 5, 5)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 640));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Stencil", 1, 48)); // NOI18N
@@ -170,43 +72,37 @@ public class AssignDoctor extends javax.swing.JFrame {
         jLabel4.setText("ASSIGN DOCTOR");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 420, 50));
 
-        jButton6.setBackground(new java.awt.Color(0, 51, 51));
-        jButton6.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(204, 0, 51));
-        jButton6.setText("BACK");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 100, 40));
-
         jLabel5.setFont(new java.awt.Font("Modern No. 20", 1, 30)); // NOI18N
         jLabel5.setText("APPOINTMENT ID ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
 
         appointId.setBackground(new java.awt.Color(0, 0, 0));
         appointId.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         appointId.setForeground(new java.awt.Color(255, 255, 0));
-        jPanel1.add(appointId, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 290, 50));
+        jPanel1.add(appointId, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 290, 50));
 
         jLabel6.setFont(new java.awt.Font("Modern No. 20", 1, 30)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 0, 51));
         jLabel6.setText("Full Name");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 200, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 200, -1));
 
         nameTxt.setBackground(new java.awt.Color(0, 0, 0));
         nameTxt.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         nameTxt.setForeground(new java.awt.Color(255, 255, 0));
-        jPanel1.add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 260, 50));
+        jPanel1.add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 260, 50));
 
         jLabel7.setFont(new java.awt.Font("Modern No. 20", 1, 30)); // NOI18N
         jLabel7.setText("SPECIALITY");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Modern No. 20", 1, 35)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 102, 0));
         jLabel8.setText("DOCTOR'S ID");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Modern No. 20", 1, 30)); // NOI18N
         jLabel9.setText("DOCTOR'S NAME");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, -1, -1));
 
         specialTxt.setBackground(new java.awt.Color(0, 0, 0));
         specialTxt.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
@@ -216,12 +112,12 @@ public class AssignDoctor extends javax.swing.JFrame {
                 specialTxtActionPerformed(evt);
             }
         });
-        jPanel1.add(specialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 300, 50));
+        jPanel1.add(specialTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 300, 50));
 
         dNameTxt.setBackground(new java.awt.Color(0, 0, 0));
         dNameTxt.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
         dNameTxt.setForeground(new java.awt.Color(255, 102, 0));
-        jPanel1.add(dNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 480, 290, 40));
+        jPanel1.add(dNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 290, 40));
 
         assignBtn.setBackground(new java.awt.Color(255, 255, 0));
         assignBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
@@ -231,7 +127,7 @@ public class AssignDoctor extends javax.swing.JFrame {
                 assignBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(assignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, 230, 60));
+        jPanel1.add(assignBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 230, 60));
 
         dIdCombo.setBackground(java.awt.Color.black);
         dIdCombo.setForeground(new java.awt.Color(255, 255, 0));
@@ -245,11 +141,144 @@ public class AssignDoctor extends javax.swing.JFrame {
                 dIdComboActionPerformed(evt);
             }
         });
-        jPanel1.add(dIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 422, 280, 50));
+        jPanel1.add(dIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 280, 50));
+
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 140, 80));
+
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/iccon.png"))); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Script MT Bold", 1, 48)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel11.setText("HMS");
+
+        homeBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        homeBtn.setForeground(new java.awt.Color(255, 153, 0));
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/home button.png"))); // NOI18N
+        homeBtn.setText("HOME");
+        homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 3, true));
+        homeBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBtnActionPerformed(evt);
+            }
+        });
+
+        aboutBtn.setBackground(new java.awt.Color(0, 0, 0));
+        aboutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        aboutBtn.setForeground(new java.awt.Color(255, 153, 0));
+        aboutBtn.setText("About Us");
+        aboutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 3, true));
+        aboutBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        aboutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutBtnActionPerformed(evt);
+            }
+        });
+
+        contactBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        contactBtn.setForeground(new java.awt.Color(255, 153, 0));
+        contactBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Report Button.png"))); // NOI18N
+        contactBtn.setText("Report");
+        contactBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
+        contactBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        contactBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contactBtnActionPerformed(evt);
+            }
+        });
+
+        profileBtn.setBackground(new java.awt.Color(0, 0, 0));
+        profileBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        profileBtn.setForeground(new java.awt.Color(255, 153, 0));
+        profileBtn.setText("My Profile");
+        profileBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 3, true));
+        profileBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileBtnActionPerformed(evt);
+            }
+        });
+
+        logoutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        logoutBtn.setForeground(new java.awt.Color(255, 153, 0));
+        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/log out.png"))); // NOI18N
+        logoutBtn.setText("Log Out");
+        logoutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
+        logoutBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(20, 20, 20))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(profileBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                            .addComponent(logoutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(aboutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel11))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(homeBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(contactBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))))
+                .addGap(0, 20, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(contactBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(profileBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 570));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Assign Doctor.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -257,27 +286,17 @@ public class AssignDoctor extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 866, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void specialTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialTxtActionPerformed
         // TODO add your handling code here:
@@ -295,7 +314,7 @@ public class AssignDoctor extends javax.swing.JFrame {
         }
 
         try {
-            Doctor d1 = new Doctor(Integer.parseInt(dId),null,null,null,null,null);
+            Doctor d1 = new Doctor(Integer.parseInt(dId),null,null,null,null,null,0,0);
             DoctorController dc = new DoctorController();
                 ResultSet value = dc.viewDoctorName(d1);
                 String name= null;
@@ -325,6 +344,63 @@ public class AssignDoctor extends javax.swing.JFrame {
 
             }
     }//GEN-LAST:event_assignBtnActionPerformed
+
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        dispose();
+        String role ="null";
+        try {
+            UserController uc = new UserController();
+            ResultSet result = uc.selectRole();
+
+            while (result.next()) {
+                role = result.getString("role");
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        if(role.equals("admin")) {
+            new AdminDashboard().setVisible(true);
+        }
+        else if(role.equals("user")) {
+            new UserDashboard().setVisible(true);
+        }
+        else {
+            new Login().setVisible(true);
+        }
+    }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void aboutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBtnActionPerformed
+
+        new AboutUs().setVisible(true);
+    }//GEN-LAST:event_aboutBtnActionPerformed
+
+    private void contactBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactBtnActionPerformed
+        dispose();
+        new ReportProblem().setVisible(true);
+    }//GEN-LAST:event_contactBtnActionPerformed
+
+    private void profileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileBtnActionPerformed
+        dispose();
+        new viewProfile().setVisible(true);
+    }//GEN-LAST:event_profileBtnActionPerformed
+
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+
+        if(result == JOptionPane.YES_OPTION){
+            dispose();
+            new UserDashboard().logout();
+        }else{
+            return;
+        }
+    }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        dispose();
+        new ViewAppointment().setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
     public void select(){
         try {
             Appointment a1 = new Appointment(0, 0, null, null, null, 0, null, null, null, null);
@@ -338,7 +414,7 @@ public class AssignDoctor extends javax.swing.JFrame {
                     special = result.getString(3);
                 }
 
-                Doctor d1 = new Doctor(0, null,null,null,null,special);
+                Doctor d1 = new Doctor(0, null,null,null,null,special,0,0);
                 DoctorController dc = new DoctorController();
                 ResultSet rSet = dc.viewDoctorid(d1);
              String dId  = null;
@@ -390,18 +466,16 @@ public class AssignDoctor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton aboutBtn;
     private javax.swing.JTextField appointId;
     private javax.swing.JButton assignBtn;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JButton contactBtn;
     private javax.swing.JComboBox<String> dIdCombo;
     private javax.swing.JTextField dNameTxt;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton homeBtn;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -410,8 +484,10 @@ public class AssignDoctor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton logoutBtn;
     private javax.swing.JTextField nameTxt;
+    private javax.swing.JButton profileBtn;
     private javax.swing.JTextField specialTxt;
     // End of variables declaration//GEN-END:variables
 }
