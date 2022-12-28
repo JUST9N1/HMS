@@ -38,6 +38,7 @@ public class AddBed extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 //labels and buttons
+//BEDSIZE
         jLabel1 = new javax.swing.JLabel();
         BedSize = new javax.swing.ButtonGroup();
         BedType = new javax.swing.ButtonGroup();
