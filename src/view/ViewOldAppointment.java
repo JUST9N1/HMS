@@ -9,24 +9,34 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 
 import controller.AppointmentController;
+import controller.DoctorController;
 import controller.UserController;
 import models.Appointment;
+import models.Doctor;
 
+import java.awt.*;
+import star.rating.*;
 /**
  *
  * @author razee
  */
 public class ViewOldAppointment extends javax.swing.JFrame {
 
+    private int rate;
     /**
      * Creates new form ViewOldAppointment
      */
     public ViewOldAppointment() {
         initComponents();
+
+        
         display();
+
+        
     }
 
     /**
@@ -38,6 +48,16 @@ public class ViewOldAppointment extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        RateDoctor = new javax.swing.JFrame();
+        jPanel2 = new javax.swing.JPanel();
+        starRating1 = new star.rating.StarRating();
+        jLabel4 = new javax.swing.JLabel();
+        nameText = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        idText = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        confirmBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -48,11 +68,68 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         appointTable = new javax.swing.JTable();
         deleteBtn = new javax.swing.JButton();
+        rateBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+
+        RateDoctor.setMinimumSize(new java.awt.Dimension(390, 500));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(starRating1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, 50));
+
+        jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        jLabel4.setText("Doctor Id");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, 40));
+
+        nameText.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        nameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTextActionPerformed(evt);
+            }
+        });
+        jPanel2.add(nameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 220, 40));
+
+        jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        jLabel5.setText("Doctor Name");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 150, 40));
+
+        idText.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        jPanel2.add(idText, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 220, 39));
+
+        jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Choose Doctor Rating");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Rate Doctor");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 6, -1, -1));
+
+        confirmBtn.setBackground(new java.awt.Color(255, 51, 51));
+        confirmBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        confirmBtn.setForeground(new java.awt.Color(255, 255, 255));
+        confirmBtn.setText("Confirm");
+        confirmBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(confirmBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 300, 310, 50));
+
+        javax.swing.GroupLayout RateDoctorLayout = new javax.swing.GroupLayout(RateDoctor.getContentPane());
+        RateDoctor.getContentPane().setLayout(RateDoctorLayout);
+        RateDoctorLayout.setHorizontalGroup(
+            RateDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        RateDoctorLayout.setVerticalGroup(
+            RateDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -173,14 +250,7 @@ public class ViewOldAppointment extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("VIEW OLD APPOINTMENT");
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 0), 4, true));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 750, -1));
-
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 102, 0));
-        jButton1.setText("BACK");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 3));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 750, -1));
 
         appointTable.setBackground(new java.awt.Color(0, 0, 0));
         appointTable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
@@ -220,7 +290,31 @@ public class ViewOldAppointment extends javax.swing.JFrame {
                 deleteBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 380, 60));
+        jPanel1.add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 380, 60));
+
+        rateBtn.setBackground(new java.awt.Color(0, 0, 0));
+        rateBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        rateBtn.setForeground(new java.awt.Color(255, 102, 0));
+        rateBtn.setText("Rate Doctor");
+        rateBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 4, true));
+        rateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rateBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 380, 60));
+
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 0, 130, 50));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -273,6 +367,64 @@ public class ViewOldAppointment extends javax.swing.JFrame {
             }
 
     }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void rateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rateBtnActionPerformed
+        int i = appointTable.getSelectedRow();
+        TableModel model = appointTable.getModel();
+        String id = (model.getValueAt(i, 3).toString());
+        String name = (model.getValueAt(i, 4).toString());
+        starRating1.addEventStarRating(new EventStarRating() {
+            @Override
+            public void selected(int star) {
+                rate = star;
+            }
+        });
+        idText.setText(id);
+        nameText.setText(name);
+        RateDoctor.setVisible(true);
+        
+    }//GEN-LAST:event_rateBtnActionPerformed
+
+    private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTextActionPerformed
+
+    private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
+       int id = Integer.parseInt(idText.getText());
+       float rating = 0;
+       int rate_no = 0;
+       float avgRating = 0;
+       int newrate_no =0;
+       float ratingA = 0;
+
+        float newRating = rate;
+        Doctor d1 = new Doctor(id, null, null, null, null, null,0,0);
+        DoctorController sc = new DoctorController();
+        ResultSet result= sc.selectRating(d1);
+        try {
+            while(result.next()){
+
+                rating =  Float.parseFloat(result.getString(1));
+                rate_no =  Integer.parseInt(result.getString(2));
+                ratingA = rating*rate_no;
+                newrate_no =rate_no+1;
+                System.out.println(newrate_no);
+                 avgRating = (ratingA+newRating)/newrate_no;
+                System.out.println(avgRating);
+                Doctor d2 = new Doctor(id, null, null, null, null, null,newrate_no,avgRating);
+            // sc = new DoctorController();
+            sc.giveRating(d2);
+
+            }
+       } catch (Exception e) {
+        // TODO: handle exception
+        JOptionPane.showMessageDialog(this, e);
+       }
+    }//GEN-LAST:event_confirmBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backBtnActionPerformed
     public void display(){
         DefaultTableModel model = (DefaultTableModel) appointTable.getModel();
         model.setRowCount(0);
@@ -347,20 +499,31 @@ public class ViewOldAppointment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame RateDoctor;
     private javax.swing.JButton aboutBtn;
     private javax.swing.JTable appointTable;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JButton confirmBtn;
     private javax.swing.JButton contactBtn;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField idText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logoutBtn;
+    private javax.swing.JTextField nameText;
     private javax.swing.JButton profileBtn;
+    private javax.swing.JButton rateBtn;
+    private star.rating.StarRating starRating1;
     // End of variables declaration//GEN-END:variables
 }

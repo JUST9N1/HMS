@@ -4,9 +4,14 @@
  */
 package view;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import javax.swing.JOptionPane;
 
 import controller.PatientController;
+import controller.UserController;
 import models.Patient;
 
 /**
@@ -20,6 +25,7 @@ public class PatientDetails extends javax.swing.JFrame {
      */
     public PatientDetails() {
         initComponents();
+        view()  ;
     }
 
     /**
@@ -34,7 +40,6 @@ public class PatientDetails extends javax.swing.JFrame {
 
         Gender = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
         othersRadio = new javax.swing.JRadioButton();
         femaleRadio = new javax.swing.JRadioButton();
         medicalText = new javax.swing.JTextField();
@@ -50,8 +55,7 @@ public class PatientDetails extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         ageText = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        emailText = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        viewBtn = new javax.swing.JButton();
         addressText = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -62,6 +66,8 @@ public class PatientDetails extends javax.swing.JFrame {
         contactBtn = new javax.swing.JButton();
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
+        emailCombo = new javax.swing.JComboBox<>();
+        backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,17 +75,6 @@ public class PatientDetails extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1000, 600));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setFont(new java.awt.Font("Rockwell Extra Bold", 3, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 255, 255));
-        jButton3.setText("BACK");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, 126, 48));
 
         Gender.add(othersRadio);
         othersRadio.setFont(new java.awt.Font("Rockwell Condensed", 1, 18)); // NOI18N
@@ -182,15 +177,16 @@ public class PatientDetails extends javax.swing.JFrame {
         jLabel3.setText("Name:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, -1, -1));
 
-        emailText.setBackground(new java.awt.Color(51, 255, 255));
-        emailText.setFont(new java.awt.Font("Rockwell Condensed", 1, 14)); // NOI18N
-        jPanel2.add(emailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 265, 35));
-
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Algerian", 3, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 0, 51));
-        jButton2.setText("View Details");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 260, 180, 50));
+        viewBtn.setBackground(new java.awt.Color(0, 0, 0));
+        viewBtn.setFont(new java.awt.Font("Algerian", 3, 18)); // NOI18N
+        viewBtn.setForeground(new java.awt.Color(255, 0, 51));
+        viewBtn.setText("View Details");
+        viewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(viewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 260, 180, 50));
 
         addressText.setBackground(new java.awt.Color(0, 255, 255));
         addressText.setFont(new java.awt.Font("Rockwell Condensed", 1, 14)); // NOI18N
@@ -202,6 +198,7 @@ public class PatientDetails extends javax.swing.JFrame {
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 110, -1));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/iccon.png"))); // NOI18N
@@ -214,11 +211,13 @@ public class PatientDetails extends javax.swing.JFrame {
         homeBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         homeBtn.setForeground(new java.awt.Color(255, 153, 0));
         homeBtn.setText("HOME");
+        homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 3, true));
 
         aboutBtn.setBackground(new java.awt.Color(0, 0, 0));
         aboutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         aboutBtn.setForeground(new java.awt.Color(255, 153, 0));
         aboutBtn.setText("About Us");
+        aboutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 3, true));
         aboutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboutBtnActionPerformed(evt);
@@ -229,11 +228,13 @@ public class PatientDetails extends javax.swing.JFrame {
         contactBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         contactBtn.setForeground(new java.awt.Color(255, 153, 0));
         contactBtn.setText("Contact Us");
+        contactBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
 
         profileBtn.setBackground(new java.awt.Color(0, 0, 0));
         profileBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         profileBtn.setForeground(new java.awt.Color(255, 153, 0));
         profileBtn.setText("My Profile");
+        profileBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 3, true));
         profileBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 profileBtnActionPerformed(evt);
@@ -244,6 +245,7 @@ public class PatientDetails extends javax.swing.JFrame {
         logoutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         logoutBtn.setForeground(new java.awt.Color(255, 153, 0));
         logoutBtn.setText("Log Out");
+        logoutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
         logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutBtnActionPerformed(evt);
@@ -305,6 +307,22 @@ public class PatientDetails extends javax.swing.JFrame {
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        emailCombo.setBackground(new java.awt.Color(102, 255, 255));
+        emailCombo.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
+        jPanel2.add(emailCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 270, 40));
+
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 0, 130, 50));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Create Patient Details.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -334,7 +352,11 @@ public class PatientDetails extends javax.swing.JFrame {
         String gender = null;
         String blood = null;
         String address = addressText.getText();
-        String email = emailText.getText();
+        String email = null;
+
+        if (emailCombo.getSelectedItem() != null) {
+            email = emailCombo.getSelectedItem().toString();
+        }
         String medical = medicalText.getText();
 
         if (maleRadio.isSelected()) {
@@ -382,6 +404,15 @@ public class PatientDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutBtnActionPerformed
 
+    private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
+        dispose();
+        new ViewPatientRecord().setVisible(true);
+    }//GEN-LAST:event_viewBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backBtnActionPerformed
+
     private void maleRadioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_maleRadioActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_maleRadioActionPerformed
@@ -402,7 +433,33 @@ public class PatientDetails extends javax.swing.JFrame {
     private void othersRadioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_othersRadioActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_othersRadioActionPerformed
-
+    public void view(){
+        ResultSet rs = new UserController().selectAllEmail();
+        ResultSet rs1=  new PatientController().selectPatinetEmail();
+        String email = null;
+        String item = null;
+        String[] emailArray = {};
+        ArrayList<String> emailList = new ArrayList<String>();
+        try {
+            while(rs1.next()){
+                // int i= 0 ;
+                item = rs1.getString(1);
+                emailList.add(item);
+                // i++;
+            }
+            // System.out.println(emailArray);
+            System.out.println(Arrays.toString(emailList.toArray()));
+            
+            while(rs.next()){
+               email = rs.getString(1);
+                if(!Arrays.asList(emailList.toArray()).contains(email)){
+                     emailCombo.addItem(email);
+                }
+               
+            }
+        } catch (Exception e) {
+    }
+        }
     /**
      * @param args the command line arguments
      */
@@ -451,14 +508,13 @@ public class PatientDetails extends javax.swing.JFrame {
     private javax.swing.JButton aboutBtn;
     private javax.swing.JTextField addressText;
     private javax.swing.JTextField ageText;
+    private javax.swing.JButton backBtn;
     private javax.swing.JComboBox<String> bloodCombo;
     private javax.swing.JButton contactBtn;
     private javax.swing.JButton createBtn;
-    private javax.swing.JTextField emailText;
+    private javax.swing.JComboBox<String> emailCombo;
     private javax.swing.JRadioButton femaleRadio;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -478,5 +534,6 @@ public class PatientDetails extends javax.swing.JFrame {
     private javax.swing.JTextField nameText;
     private javax.swing.JRadioButton othersRadio;
     private javax.swing.JButton profileBtn;
+    private javax.swing.JButton viewBtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -67,6 +67,8 @@ public class Login extends javax.swing.JFrame {
         userRadio = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
 
+        askPass.setMinimumSize(new java.awt.Dimension(450, 350));
+
         jLabel8.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel8.setText("Supervisor Login");
 
@@ -301,7 +303,7 @@ public class Login extends javax.swing.JFrame {
                     ResultSet isInserted = sc.selectLogin(s1);
                     
                     if(isInserted.next()){
-                        JOptionPane.showMessageDialog(null,"Login Successfully");
+                        JOptionPane.showMessageDialog(this,"Login Successfully");
                         int result = sc.UpdateStatus(s1);
                         int resul1 = sc.changestatus(s1);
                         dispose();

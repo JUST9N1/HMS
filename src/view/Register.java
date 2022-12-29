@@ -312,6 +312,10 @@ public class Register extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Please enter all the details");
             
         }
+        else if(!emailValid.emailVerify(email)){
+        JOptionPane.showMessageDialog(null,"Please enter correct email");
+
+    }
         else if(!pass.equals(repass)){
             JOptionPane.showMessageDialog(null,"Please enter same passwords");
         }else{

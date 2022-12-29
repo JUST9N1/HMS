@@ -43,6 +43,7 @@ public class ViewPatientRecord extends javax.swing.JFrame {
         patientTable = new javax.swing.JTable();
         updateBtn = new javax.swing.JButton();
         assginBtn = new javax.swing.JButton();
+        prescribeMed = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -85,7 +86,7 @@ public class ViewPatientRecord extends javax.swing.JFrame {
         patientTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(patientTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 660, 490));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 660, 490));
 
         updateBtn.setBackground(java.awt.Color.black);
         updateBtn.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
@@ -96,7 +97,7 @@ public class ViewPatientRecord extends javax.swing.JFrame {
                 updateBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 390, -1, 70));
+        jPanel1.add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(817, 390, 180, 70));
 
         assginBtn.setBackground(java.awt.Color.black);
         assginBtn.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
@@ -107,7 +108,19 @@ public class ViewPatientRecord extends javax.swing.JFrame {
                 assginBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(assginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 280, 160, 70));
+        jPanel1.add(assginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 170, 180, 70));
+
+        prescribeMed.setBackground(java.awt.Color.black);
+        prescribeMed.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        prescribeMed.setForeground(java.awt.Color.white);
+        prescribeMed.setText("Prescribe Medcine");
+        prescribeMed.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        prescribeMed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prescribeMedActionPerformed(evt);
+            }
+        });
+        jPanel1.add(prescribeMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 280, 180, 70));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
@@ -235,7 +248,7 @@ public class ViewPatientRecord extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+// Updating table
     private void assginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assginBtnActionPerformed
         int i = patientTable.getSelectedRow();
         TableModel model = patientTable.getModel();
@@ -272,6 +285,18 @@ public class ViewPatientRecord extends javax.swing.JFrame {
             dispose();
             new EditPatientDetails().setVisible(true);
     }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void prescribeMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prescribeMedActionPerformed
+        int i = patientTable.getSelectedRow();
+        TableModel model = patientTable.getModel();
+        int id = Integer.parseInt(model.getValueAt(i, 0).toString());
+        Patient p1 = new Patient(id, 0, 0, null, null, null, 0,0);
+            PatientController pc = new PatientController();
+            pc.resetStatus(p1);
+            pc.updatestatus(p1);
+            dispose();
+            new MedicinePrescription().setVisible(true);
+    }//GEN-LAST:event_prescribeMedActionPerformed
 public void table(){
     try {
         DefaultTableModel moddel  = (DefaultTableModel) patientTable.getModel();
@@ -347,6 +372,7 @@ public void table(){
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JTable patientTable;
+    private javax.swing.JButton prescribeMed;
     private javax.swing.JButton profileBtn;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables

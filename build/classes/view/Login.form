@@ -5,6 +5,11 @@
     <Component class="javax.swing.ButtonGroup" name="Role">
     </Component>
     <Container class="javax.swing.JFrame" name="askPass">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[450, 350]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
