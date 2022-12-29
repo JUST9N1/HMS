@@ -273,7 +273,9 @@ public class BillingSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_totalBtnActionPerformed
 
     private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
-       Bill b1 = new Bill(Integer.parseInt(billText.getText()), null,null, (med_total+test_total), med_total, test_total);
+       int respones = JOptionPane.showConfirmDialog(this, "Do you want to pay?","Confirm",JOptionPane.YES_NO_OPTION);
+       if(respones==JOptionPane.YES_OPTION){
+        Bill b1 = new Bill(Integer.parseInt(billText.getText()), null,null, (med_total+test_total), med_total, test_total);
        BillController bc=  new BillController();
        String email = null;
        int result  = bc.payment(b1);
@@ -297,6 +299,9 @@ public class BillingSystem extends javax.swing.JFrame {
         
         new UserMedController().payAdvance(new User_Med(0, email, null,null));
         func();
+       }
+       }else{
+        return;
        }
     }//GEN-LAST:event_payBtnActionPerformed
 
