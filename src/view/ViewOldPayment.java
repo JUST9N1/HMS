@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 
 import javax.swing.table.DefaultTableModel;
 
-import controller.BillController;
+import controller.*;
 
 /**
  *
@@ -35,13 +35,13 @@ public class ViewOldPayment extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         billTable = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         totalLabel = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        homeBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,13 +54,6 @@ public class ViewOldPayment extends javax.swing.JFrame {
         jLabel2.setText("VIEW OLD PAYMENTS");
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
-
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 102, 0));
-        jButton1.setText("BACK");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, -1, -1));
 
         billTable.setBackground(new java.awt.Color(0, 0, 0));
         billTable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 0), 4, true));
@@ -109,6 +102,19 @@ public class ViewOldPayment extends javax.swing.JFrame {
         jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 350, 290, 60));
 
+        homeBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        homeBtn.setForeground(new java.awt.Color(255, 153, 0));
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/home button.png"))); // NOI18N
+        homeBtn.setText("HOME");
+        homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 3, true));
+        homeBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(homeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, 140, 60));
+
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 102, 0));
@@ -133,6 +139,31 @@ public class ViewOldPayment extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        dispose();
+        String role ="null";
+        try {
+            UserController uc = new UserController();
+            ResultSet result = uc.selectRole();
+
+            while (result.next()) {
+                role = result.getString("role");
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        if(role.equals("admin")) {
+            new AdminDashboard().setVisible(true);
+        }
+        else if(role.equals("user")) {
+            new UserDashboard().setVisible(true);
+        }
+        else {
+            new Login().setVisible(true);
+        }
+    }//GEN-LAST:event_homeBtnActionPerformed
     public void table(){
         try {
             int totalPay = 0;
@@ -190,7 +221,7 @@ public class ViewOldPayment extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable billTable;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton homeBtn;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;

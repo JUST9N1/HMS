@@ -25,6 +25,7 @@ import models.User;
  */
 public class Login extends javax.swing.JFrame {
     Connection conn;
+    private String role;
     
     /**
      * Creates new form Login
@@ -274,7 +275,8 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       dispose();
+       new Register().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -298,7 +300,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"Please fill all the fields");
             }else{
                 try {
-                    User s1 = new User(null, null, null, eText.getText(), null, pText.getText(), null, null, null, null);
+                    User s1 = new User(null, null, null, eText.getText(), null, pText.getText(), null, null, null, null,role);
                     UserController sc= new UserController();
                     ResultSet isInserted = sc.selectLogin(s1);
                     
@@ -329,7 +331,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_pTextActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       new ResetPass().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void pText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pText1ActionPerformed
@@ -346,7 +348,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"Please fill all the fields");
             }else{
                 try {
-                    User s1 = new User(null, null, null, eText.getText(), null, pText.getText(), null, null, null, null);
+                    User s1 = new User(null, null, null, eText.getText(), null, pText.getText(), null, null, null, null,role);
                     UserController sc= new UserController();
                     ResultSet isInserted = sc.selectLogin(s1);
                     

@@ -60,6 +60,11 @@ public class ReportProblem extends javax.swing.JFrame {
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("Close");
         backBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 2, true));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
         jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 10, 70, 30));
 
         jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 1, 24)); // NOI18N
@@ -136,6 +141,10 @@ public class ReportProblem extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+     dispose();
+    }//GEN-LAST:event_backBtnActionPerformed
 
     /**
      * @param args the command line arguments
