@@ -5,7 +5,7 @@ package view;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-
+//importing libraries
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 // import org.netbeans.lib.awtextra.AbsoluteLayout;
-
+//IMPORTING DATABASE CONTROLLERS
 import controller.AppointmentController;
 import controller.UserController;
 import database.db;
@@ -81,12 +81,12 @@ public class addApointment extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+//panels
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(java.awt.Color.lightGray);
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
+//labels
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Please fill up the given details");
@@ -136,7 +136,7 @@ public class addApointment extends javax.swing.JFrame {
         jLabel7.setForeground(java.awt.Color.white);
         jLabel7.setText("Location");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 210, 40));
-
+//text
         locationText.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         locationText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +168,7 @@ public class addApointment extends javax.swing.JFrame {
         jLabel10.setForeground(java.awt.Color.white);
         jLabel10.setText("Specialist");
         jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 130, 40));
-
+//buttons
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -217,12 +217,6 @@ public class addApointment extends javax.swing.JFrame {
         homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/home button.png"))); // NOI18N
         homeBtn.setText("HOME");
         homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 3, true));
-        homeBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        homeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeBtnActionPerformed(evt);
-            }
-        });
 
         aboutBtn.setBackground(new java.awt.Color(0, 0, 0));
         aboutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N

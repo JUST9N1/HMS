@@ -36,7 +36,7 @@ public class AddBed extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+//labels and buttons
         jLabel1 = new javax.swing.JLabel();
         BedSize = new javax.swing.ButtonGroup();
         BedType = new javax.swing.ButtonGroup();
@@ -93,7 +93,7 @@ public class AddBed extends javax.swing.JFrame {
         jLabel5.setText("Ward number");
         jPanel2.add(jLabel5);
         jLabel5.setBounds(220, 43, 190, 40);
-
+//ward field
         wardField.setBackground(new java.awt.Color(0, 0, 0));
         wardField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         wardField.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,7 +101,7 @@ public class AddBed extends javax.swing.JFrame {
         wardField.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(wardField);
         wardField.setBounds(220, 80, 170, 30);
-
+//radio buttons for bed type
         singleRadio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         singleRadio.setText("Single");
         jPanel2.add(singleRadio);
@@ -111,7 +111,7 @@ public class AddBed extends javax.swing.JFrame {
         MultipleRadio.setText("Multiple");
         jPanel2.add(MultipleRadio);
         MultipleRadio.setBounds(220, 190, 110, 27);
-
+//Adding labels
         jLabel6.setFont(new java.awt.Font("Perpetua Titling MT", 3, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 0, 0));
         jLabel6.setText("Bed Size");
