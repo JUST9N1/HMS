@@ -5,9 +5,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class nameValid {
-    
-       private static final String regex = "^[A-Z]+([a-z]*)*[a-z]$";
+public class UsernameValid {
+    private static final String regex = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
     
        public static boolean nameVerify(String email){
         List<String> emails = new ArrayList<String>();
@@ -25,9 +24,6 @@ public class nameValid {
        }
 
        public static void main(String[] args) {
-              System.out.println(nameVerify("1"));
+              System.out.println(nameVerify("John"));
        }
-       
-    }
-
-
+}
