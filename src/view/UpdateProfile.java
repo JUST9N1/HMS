@@ -377,8 +377,13 @@ public class UpdateProfile extends javax.swing.JFrame {
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
         // TODO add your handling code here:
+        int response = JOptionPane.showConfirmDialog(this, "Are you sure you want to update?", "Confirm",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+
+
         update();
-        
+        }
             
     }//GEN-LAST:event_updatebtnActionPerformed
 
@@ -501,17 +506,38 @@ public class UpdateProfile extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(null, "No gender selected");
             }
-            User u1 = new User(fText.getText(),lText.getText(),userText.getText(),eText.getText(),cText.getText(),pText.getText(),dText.getText(),null,null,gender,null);
+            String fname = fText.getText();
+            String lname = lText.getText();
+            String username = userText.getText();
+            String email = eText.getText();
+            String contact = cText.getText();
+            String pass = pText.getText();
+            String dob = dText.getText();
+            // Validation
+            if(fname.equals("")||lname.equals("")||username.equals("")||email.equals("")||contact.equals("")||pass.equals("")||dob.equals("")||gender.equals("")){
+                JOptionPane.showMessageDialog(this, "Please fill all the fields");
+            }
+            else if(nameValid.nameVerify(username)){
+                JOptionPane.showMessageDialog(this, "Invalid username");
+            }
+            else if(phoneValid.phoneVerify(contact)){
+                JOptionPane.showMessageDialog(this, "Invalid contact number");
+            }
+            else{
+
+                
+                User u1 = new User(fText.getText(),lText.getText(),userText.getText(),eText.getText(),cText.getText(),pText.getText(),dText.getText(),null,null,gender,null);
             UserController uc = new UserController();
             int result = uc.updatedetails(u1);
             if (result > 0) {
                 JOptionPane.showMessageDialog(null, "Updated Success");
             }
+        }
         } catch (Exception e) {
             // TODO: handle exception
             JOptionPane.showMessageDialog(null, e);
-
-        }
+            
+    }
     }
         /**
      * @param args the command line arguments

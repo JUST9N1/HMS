@@ -414,9 +414,29 @@ public class AddBed extends javax.swing.JFrame {
     }//GEN-LAST:event_viewBedActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
-        
-    }//GEN-LAST:event_deleteBtnActionPerformed
+        int respnse=JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this record?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(respnse==JOptionPane.YES_OPTION){
+            try {
+                int row = bedTable.getSelectedRow();
+                String value = (bedTable.getModel().getValueAt(row, 0).toString());
+                Bed b1 = new Bed(Integer.parseInt(value), 0, null, null, null);
+                BedController bc = new BedController();
+                bc.deAssignBed(b1);
+                int result = bc.deleteBed(b1);
+                if(result>0){
+                    JOptionPane.showMessageDialog(null, "Bed Deleted Successfully");
+                    tableadd();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Bed can't be deleted");
 
+                }
+
+            } catch (Exception e) {
+
+    }//GEN-LAST:event_deleteBtnActionPerformed
+}   
+} 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         dispose();
         new AdminDashboard().setVisible(true);
@@ -483,6 +503,9 @@ public class AddBed extends javax.swing.JFrame {
             ResultSet result = sc.selectdetails(d1);
             while (result.next()) {
                 int id = Integer.parseInt(result.getString(1));
+                if(id==4){
+                    continue;
+                }
                 int ward_no = Integer.parseInt(result.getString(4));
                 String bedtype = result.getString(2);
                 String bedsize = result.getString(3);
@@ -507,6 +530,9 @@ public class AddBed extends javax.swing.JFrame {
             model.setRowCount(0);
             while (result.next()) {
                 int id = Integer.parseInt(result.getString(1));
+                if(id==4){
+                    continue;
+                }
                 int ward_no = Integer.parseInt(result.getString(4));
                 String bedtype = result.getString(2);
                 String bedsize = result.getString(3);

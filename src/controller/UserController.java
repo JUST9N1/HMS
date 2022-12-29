@@ -152,5 +152,13 @@ public class UserController {
         return result;
     }
 
+    public ResultSet selectPassword(){
+       
+        String selectQuery = "select user_pass from user_login where user_status=true";
+        dbConnection = new DbConnection();
+        ResultSet result = dbConnection.retrieve(selectQuery);
+        return result;
+    }
+
     
 }   

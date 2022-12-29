@@ -290,7 +290,27 @@ public class viewBed extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteBedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBedActionPerformed
-        // TODO add your handling code here:
+        int respnse=JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this record?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(respnse==JOptionPane.YES_OPTION){
+            try {
+                String value =BedNoText.getText();
+                Bed b1 = new Bed(Integer.parseInt(value), 0, null, null, null);
+                BedController bc = new BedController();
+                bc.deAssignBed(b1);
+                int result = bc.deleteBed(b1);
+                if(result>0){
+                    JOptionPane.showMessageDialog(null, "Bed Deleted Successfully");
+                    
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Bed can't be deleted");
+
+                }
+
+            } catch (Exception e) {
+
+    }//GEN-LAST:event_deleteBtnActionPerformed
+}  
     }//GEN-LAST:event_deleteBedActionPerformed
 
     private void updateBedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBedActionPerformed
