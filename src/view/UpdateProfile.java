@@ -76,9 +76,10 @@ public class UpdateProfile extends javax.swing.JFrame {
         jLabel2.setText("Profile details");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 730, 40));
 
-        jLabel4.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 14)); // NOI18N
         jLabel4.setText("First Name");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 130, 30));
 
         fText.setBackground(new java.awt.Color(204, 204, 204));
@@ -97,8 +98,10 @@ public class UpdateProfile extends javax.swing.JFrame {
         });
         jPanel1.add(userText, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 220, 50));
 
-        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 14)); // NOI18N
         jLabel5.setText("Username");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 130, 30));
 
         lText.setBackground(new java.awt.Color(204, 204, 204));
@@ -133,8 +136,10 @@ public class UpdateProfile extends javax.swing.JFrame {
         });
         jPanel1.add(eText, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 240, 50));
 
-        jLabel8.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 14)); // NOI18N
         jLabel8.setText("Email");
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 130, 30));
 
         pText.setBackground(new java.awt.Color(204, 204, 204));
@@ -145,8 +150,10 @@ public class UpdateProfile extends javax.swing.JFrame {
         });
         jPanel1.add(pText, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 220, 50));
 
-        jLabel9.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 14)); // NOI18N
         jLabel9.setText("Password");
+        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 130, 30));
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
@@ -180,11 +187,13 @@ public class UpdateProfile extends javax.swing.JFrame {
                 dTextActionPerformed(evt);
             }
         });
-        jPanel1.add(dText, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 220, 50));
+        jPanel1.add(dText, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, 290, 50));
 
-        jLabel11.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel11.setText("Date of birth");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 130, 30));
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 14)); // NOI18N
+        jLabel11.setText("Date of birth(YYYY-MM-DD)");
+        jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 220, 30));
 
         updatebtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         updatebtn.setText("Update Profile");
@@ -326,6 +335,7 @@ public class UpdateProfile extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         label1.setBackground(new java.awt.Color(204, 204, 204));
+        label1.setForeground(new java.awt.Color(255, 255, 255));
         label1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Update.png"))); // NOI18N
         jPanel1.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -517,11 +527,16 @@ public class UpdateProfile extends javax.swing.JFrame {
             if(fname.equals("")||lname.equals("")||username.equals("")||email.equals("")||contact.equals("")||pass.equals("")||dob.equals("")||gender.equals("")){
                 JOptionPane.showMessageDialog(this, "Please fill all the fields");
             }
-            else if(nameValid.nameVerify(username)){
+            else if(!UsernameValid.nameVerify(username)){
                 JOptionPane.showMessageDialog(this, "Invalid username");
             }
-            else if(phoneValid.phoneVerify(contact)){
+            else if(!phoneValid.phoneVerify(contact)){
                 JOptionPane.showMessageDialog(this, "Invalid contact number");
+            }else if(!nameValid.nameVerify(fname)){
+                JOptionPane.showMessageDialog(this, "Invalid first name");
+
+            }else if(!nameValid.nameVerify(lname)){
+                JOptionPane.showMessageDialog(this, "Invalid last name");
             }
             else{
 
