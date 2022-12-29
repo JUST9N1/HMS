@@ -93,6 +93,11 @@ public class ViewOldPayment extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(255, 102, 0));
         jButton2.setText("GO TO BILLING SYSTEM");
         jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 320, 60));
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
@@ -164,6 +169,11 @@ public class ViewOldPayment extends javax.swing.JFrame {
             new Login().setVisible(true);
         }
     }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      dispose();
+      new BillingSystem().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
     public void table(){
         try {
             int totalPay = 0;
