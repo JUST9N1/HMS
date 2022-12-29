@@ -264,7 +264,8 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       dispose();
+       new Login().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void emailTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextActionPerformed
@@ -312,12 +313,16 @@ public class Register extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Please enter all the details");
             
         }
+        else if(!emailValid.emailVerify(email)){
+        JOptionPane.showMessageDialog(null,"Please enter correct email");
+
+    }
         else if(!pass.equals(repass)){
             JOptionPane.showMessageDialog(null,"Please enter same passwords");
         }else{
 
             try {
-                User u1 = new User(null, null, username, email, pass, repass, dob, sq, null, gender);
+                User u1 = new User(null, null, username, email, pass, repass, dob, sq, null, gender,null);
                 UserController sc = new UserController();
                 int result = sc.insertdetails(u1);
                 if(result>0){
