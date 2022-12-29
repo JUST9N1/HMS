@@ -13,6 +13,7 @@ public class User {
     private String user_sq1;
     private String user_status;
     private String user_gender;
+    private String user_role;
 
     public User(String user_fname,
     String user_lname,
@@ -23,7 +24,8 @@ public class User {
     String user_dob,
     String user_sq1,
     String user_status,
-    String user_gender){
+    String user_gender,
+    String user_role){
         this.user_fname = user_fname;
         this.user_lname = user_lname;
         this.user_username = user_username;
@@ -34,8 +36,10 @@ public class User {
         this.user_sq1 = user_sq1;
         this.user_status = user_status;
         this.user_gender = user_gender;
+        this.user_role = user_role;
     }
 
+    
     public void setUserfName(String newUserfName){
         this.user_fname=newUserfName;
     }
@@ -114,6 +118,14 @@ public class User {
 
     public String getUserGender(){
         return this.user_gender;
+    }
+
+    public void setUserRole(String newUserRole){
+        this.user_role = newUserRole;
+    }
+
+    public String getUserRole(){
+        return this.user_role;
     }
 }
 

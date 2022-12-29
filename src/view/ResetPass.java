@@ -122,13 +122,13 @@ public class ResetPass extends javax.swing.JFrame {
         }
         else{
 
-            User u1 = new User(null, null, null, email, null, pass, null, sq, null, null);
+            User u1 = new User(null, null, null, email, null, pass, null, sq, null, null,null);
                 UserController uc = new UserController();
                 int result = uc.reset(u1);
                 if(result>0){
                     JOptionPane.showMessageDialog(this, "Reset password Success");
                     dispose();
-                    new Login().setVisible(true);
+                   
                 }else{
                     JOptionPane.showMessageDialog(this, "Please enter correct security question answer");
                     

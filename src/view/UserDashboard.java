@@ -86,6 +86,11 @@ public class UserDashboard extends javax.swing.JFrame {
         reminderBtn.setForeground(new java.awt.Color(255, 255, 255));
         reminderBtn.setText("PRESCRIBED MEDICINE");
         reminderBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
+        reminderBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reminderBtnActionPerformed(evt);
+            }
+        });
         jPanel1.add(reminderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 400, 80));
 
         payBtn.setBackground(new java.awt.Color(0, 0, 0));
@@ -105,6 +110,11 @@ public class UserDashboard extends javax.swing.JFrame {
         accountBtn.setForeground(new java.awt.Color(255, 255, 255));
         accountBtn.setText("MY ACCOUNT STATUS");
         accountBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 4, true));
+        accountBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountBtnActionPerformed(evt);
+            }
+        });
         jPanel1.add(accountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 400, 80));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/doctoricon.png"))); // NOI18N
@@ -130,7 +140,6 @@ public class UserDashboard extends javax.swing.JFrame {
         homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/home button.png"))); // NOI18N
         homeBtn.setText("HOME");
         homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 3, true));
-        homeBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         homeBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         homeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,17 +152,19 @@ public class UserDashboard extends javax.swing.JFrame {
         aboutBtn.setForeground(new java.awt.Color(255, 153, 0));
         aboutBtn.setText("About Us");
         aboutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 3, true));
+        aboutBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         aboutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboutBtnActionPerformed(evt);
             }
         });
 
-        contactBtn.setBackground(new java.awt.Color(0, 0, 0));
         contactBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
         contactBtn.setForeground(new java.awt.Color(255, 153, 0));
+        contactBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Report Button.png"))); // NOI18N
         contactBtn.setText("Report");
         contactBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
+        contactBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         contactBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contactBtnActionPerformed(evt);
@@ -171,11 +182,12 @@ public class UserDashboard extends javax.swing.JFrame {
             }
         });
 
-        logoutBtn.setBackground(new java.awt.Color(0, 0, 0));
         logoutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         logoutBtn.setForeground(new java.awt.Color(255, 153, 0));
+        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/log out.png"))); // NOI18N
         logoutBtn.setText("Log Out");
         logoutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
+        logoutBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutBtnActionPerformed(evt);
@@ -305,6 +317,7 @@ public class UserDashboard extends javax.swing.JFrame {
         int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
 
         if(result == JOptionPane.YES_OPTION){
+            dispose();
             logout();
         }else{
             return;
@@ -313,6 +326,28 @@ public class UserDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        dispose();
+        String role ="null";
+        try {
+            UserController uc = new UserController();
+            ResultSet result = uc.selectRole();
+
+            while (result.next()) {
+                role = result.getString("role");
+            }
+            
+        } catch (Exception e) {
+           System.out.println(e);
+        }
+        if(role.equals("admin")) {
+        new AdminDashboard().setVisible(true);
+    }
+    else if(role.equals("user")) {
+        new UserDashboard().setVisible(true);
+    }
+    else {
+        new Login().setVisible(true);
+    }
         
     }//GEN-LAST:event_homeBtnActionPerformed
 
@@ -336,10 +371,20 @@ public class UserDashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
+    private void accountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountBtnActionPerformed
+       dispose();
+        new viewProfile().setVisible(true);
+    }//GEN-LAST:event_accountBtnActionPerformed
+
+    private void reminderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reminderBtnActionPerformed
+        dispose();
+        new Reminder().setVisible(true);
+    }//GEN-LAST:event_reminderBtnActionPerformed
+
 
     public void logout(){
         new UserController().logout();
-        dispose();
+        
         new Login().setVisible(true);
     }
     /**
