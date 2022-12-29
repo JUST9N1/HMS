@@ -3,18 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-// Writing a comment
+
+import java.sql.ResultSet;
+
+import javax.swing.JOptionPane;
+
+import controller.PatientController;
+import controller.UserController;
+import models.Patient;
+
 /**
  *
  * @author razee
  */
 public class EditPatientDetails extends javax.swing.JFrame {
 
-    /**
+    /** 
      * Creates new form EditPatientDetails
      */
     public EditPatientDetails() {
         initComponents();
+        display();
     }
 
     /**
@@ -27,163 +36,41 @@ public class EditPatientDetails extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        emailText = new javax.swing.JTextField();
+        idText = new javax.swing.JTextField();
+        ageText = new javax.swing.JTextField();
+        updateBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
+        bgCombo = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        historyTxt = new javax.swing.JTextArea();
+        backBtn = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        homeBtn = new javax.swing.JButton();
+        aboutBtn = new javax.swing.JButton();
+        contactBtn = new javax.swing.JButton();
+        profileBtn = new javax.swing.JButton();
+        logoutBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 600));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/iccon.png"))); // NOI18N
-
-        jLabel4.setFont(new java.awt.Font("Script MT Bold", 1, 48)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel4.setText("HMS");
-
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 153, 0));
-        jButton1.setText("HOME");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 3, true));
-
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 153, 0));
-        jButton2.setText("About Us");
-        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 3, true));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 153, 0));
-        jButton3.setText("Contact Us");
-        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
-
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 153, 0));
-        jButton4.setText("My Profile");
-        jButton4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 3, true));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setBackground(new java.awt.Color(0, 0, 0));
-        jButton5.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 153, 0));
-        jButton5.setText("Log Out");
-        jButton5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 600));
-
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("EDIT PATIENT DETAILS");
         jLabel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
-
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
-        jButton6.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(153, 0, 51));
-        jButton6.setText("BACK");
-        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 100, 40));
 
         jLabel6.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,58 +97,206 @@ public class EditPatientDetails extends javax.swing.JFrame {
         jLabel10.setText("DESCRIPTIVE PATIENT'S MEDICAL HISTORY");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, -1, -1));
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 255, 255));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 320, 40));
+        emailText.setEditable(false);
+        emailText.setBackground(new java.awt.Color(0, 0, 0));
+        emailText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        emailText.setForeground(new java.awt.Color(0, 255, 255));
+        jPanel1.add(emailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 320, 40));
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 255, 255));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 320, 40));
+        idText.setEditable(false);
+        idText.setBackground(new java.awt.Color(0, 0, 0));
+        idText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        idText.setForeground(new java.awt.Color(0, 255, 255));
+        idText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(idText, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 320, 40));
 
-        jTextField3.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField3.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(0, 255, 255));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 310, 40));
+        ageText.setBackground(new java.awt.Color(0, 0, 0));
+        ageText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        ageText.setForeground(new java.awt.Color(0, 255, 255));
+        ageText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ageTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ageText, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 310, 40));
 
-        jTextField4.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField4.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 12)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(0, 255, 255));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 610, 110));
+        updateBtn.setBackground(new java.awt.Color(0, 0, 0));
+        updateBtn.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
+        updateBtn.setForeground(new java.awt.Color(255, 255, 255));
+        updateBtn.setText("UPDATE Patient");
+        updateBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, 270, 50));
 
-        jButton7.setBackground(new java.awt.Color(0, 0, 0));
-        jButton7.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("UPDATE YOUR PROFILE");
-        jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 530, -1, 50));
+        deleteBtn.setBackground(new java.awt.Color(0, 0, 0));
+        deleteBtn.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
+        deleteBtn.setForeground(new java.awt.Color(255, 255, 255));
+        deleteBtn.setText("DELETE PATIENT DETAILS");
+        deleteBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 530, -1, 50));
 
-        jButton8.setBackground(new java.awt.Color(0, 0, 0));
-        jButton8.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("DELETE PATIENT DETAILS");
-        jButton8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 4, true));
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 530, -1, 50));
+        bgCombo.setBackground(new java.awt.Color(0, 0, 0));
+        bgCombo.setEditable(true);
+        bgCombo.setFont(new java.awt.Font("Perpetua Titling MT", 1, 24)); // NOI18N
+        bgCombo.setForeground(new java.awt.Color(255, 0, 0));
+        bgCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+" }));
+        bgCombo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
+        jPanel1.add(bgCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 90, 40));
 
-        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setEditable(true);
-        jComboBox1.setFont(new java.awt.Font("Perpetua Titling MT", 1, 24)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(255, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+" }));
-        jComboBox1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 4, true));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 90, 40));
+        historyTxt.setColumns(20);
+        historyTxt.setRows(5);
+        jScrollPane1.setViewportView(historyTxt);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 410, 490, -1));
+
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 0, 130, 50));
+
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/iccon.png"))); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Script MT Bold", 1, 48)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel11.setText("HMS");
+
+        homeBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        homeBtn.setForeground(new java.awt.Color(255, 153, 0));
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/home button.png"))); // NOI18N
+        homeBtn.setText("HOME");
+        homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 204), 3, true));
+        homeBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBtnActionPerformed(evt);
+            }
+        });
+
+        aboutBtn.setBackground(new java.awt.Color(0, 0, 0));
+        aboutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        aboutBtn.setForeground(new java.awt.Color(255, 153, 0));
+        aboutBtn.setText("About Us");
+        aboutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 3, true));
+        aboutBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        aboutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutBtnActionPerformed(evt);
+            }
+        });
+
+        contactBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        contactBtn.setForeground(new java.awt.Color(255, 153, 0));
+        contactBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Report Button.png"))); // NOI18N
+        contactBtn.setText("Report");
+        contactBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
+        contactBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        contactBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contactBtnActionPerformed(evt);
+            }
+        });
+
+        profileBtn.setBackground(new java.awt.Color(0, 0, 0));
+        profileBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        profileBtn.setForeground(new java.awt.Color(255, 153, 0));
+        profileBtn.setText("My Profile");
+        profileBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 3, true));
+        profileBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileBtnActionPerformed(evt);
+            }
+        });
+
+        logoutBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        logoutBtn.setForeground(new java.awt.Color(255, 153, 0));
+        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/log out.png"))); // NOI18N
+        logoutBtn.setText("Log Out");
+        logoutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 255), 3, true));
+        logoutBtn.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(20, 20, 20))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(profileBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                            .addComponent(logoutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(aboutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel11))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(homeBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(contactBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))))
+                .addGap(0, 20, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(contactBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(profileBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Edit Patitent details.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/User Dashboard.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -280,23 +315,127 @@ public class EditPatientDetails extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    //editing
+    private void idTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_idTextActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void ageTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_ageTextActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        try {
+            // String email = emailText.getText();
+            String age = ageText.getText();
+            String medical = historyTxt.getText();
+            String bg = null;
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+            Object item = bgCombo.getSelectedItem();
+            if(item!=null){
+                bg = item.toString();
+            }
+            Patient p1 = new Patient(0,0,0,null,medical,bg,Integer.parseInt(age),0);
+            PatientController pc = new PatientController();
+            int resutl = pc.updatePatient(p1);
+            if(resutl>0){
+                JOptionPane.showMessageDialog(this, "Updated Successfully");
+            }
 
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        int id = Integer.parseInt(idText.getText());
+        Patient p1 = new Patient(id,0,0,null,null,null,0,0);
+            PatientController pc = new PatientController();
+            int result = pc.deletePatient(p1);
+            if(result>0){
+                JOptionPane.showMessageDialog(this, "Deleted ");
+                dispose();
+                new ViewPatientRecord().setVisible(true);
+            }
+
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        dispose();
+        new ViewPatientRecord().setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        dispose();
+        String role ="null";
+        try {
+            UserController uc = new UserController();
+            ResultSet result = uc.selectRole();
+
+            while (result.next()) {
+                role = result.getString("role");
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        if(role.equals("admin")) {
+            new AdminDashboard().setVisible(true);
+        }
+        else if(role.equals("user")) {
+            new UserDashboard().setVisible(true);
+        }
+        else {
+            new Login().setVisible(true);
+        }
+    }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void aboutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutBtnActionPerformed
+
+        new AboutUs().setVisible(true);
+    }//GEN-LAST:event_aboutBtnActionPerformed
+
+    private void contactBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactBtnActionPerformed
+        dispose();
+        new ReportProblem().setVisible(true);
+    }//GEN-LAST:event_contactBtnActionPerformed
+
+    private void profileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileBtnActionPerformed
+        dispose();
+        new viewProfile().setVisible(true);
+    }//GEN-LAST:event_profileBtnActionPerformed
+
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+
+        if(result == JOptionPane.YES_OPTION){
+            dispose();
+            new UserDashboard().logout();
+        }else{
+            return;
+        }
+    }//GEN-LAST:event_logoutBtnActionPerformed
+    public void display(){
+        try {
+            ResultSet rs = new PatientController().fetch();
+            while(rs.next()){
+                String email = rs.getString(1);
+                String id = rs.getString(2);
+                String age = rs.getString(3);
+                String bg = rs.getString(4);
+                String histroy = rs.getString(5);
+
+                emailText.setText(email);
+                idText.setText(id);
+                ageText.setText(age);
+                bgCombo.setSelectedItem(bg);
+                historyTxt.setText(histroy);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -333,30 +472,30 @@ public class EditPatientDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton aboutBtn;
+    private javax.swing.JTextField ageText;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JComboBox<String> bgCombo;
+    private javax.swing.JButton contactBtn;
+    private javax.swing.JButton deleteBtn;
+    private javax.swing.JTextField emailText;
+    private javax.swing.JTextArea historyTxt;
+    private javax.swing.JButton homeBtn;
+    private javax.swing.JTextField idText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton logoutBtn;
+    private javax.swing.JButton profileBtn;
+    private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }

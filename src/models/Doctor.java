@@ -7,65 +7,82 @@ public class Doctor {
     private String doctor_age;
     private String doctor_department;
     private String doctor_special;
+    private int rate_no;
+    private float rating;
 
-    public Doctor(int doctor_id,
-    String doctor_fname,
-    String doctor_lname,
-    String doctor_age,
-    String doctor_department,
-    String doctor_special){
+    public Doctor(int doctor_id, String doctor_fname, String doctor_lname, String doctor_age, String doctor_department, String doctor_special, int rate_no, float rating) {
         this.doctor_id = doctor_id;
         this.doctor_fname = doctor_fname;
         this.doctor_lname = doctor_lname;
         this.doctor_age = doctor_age;
         this.doctor_department = doctor_department;
         this.doctor_special = doctor_special;
+        this.rate_no = rate_no;
+        this.rating = rating;
     }
 
-    public void setDoctorid(int newDoctorId){
-        this.doctor_id = newDoctorId;
-    }
-
-    public int getDoctorId(){
+    public int getDoctor_id() {
         return this.doctor_id;
     }
-    public void setdoctorfName(String newdoctorfName){
-        this.doctor_fname = newdoctorfName;
+
+    public void setDoctor_id(int doctor_id) {
+        this.doctor_id = doctor_id;
     }
 
-    public String getdoctorfName(){
+    public String getDoctor_fname() {
         return this.doctor_fname;
     }
-    public void setAppointlName(String newdoctorlName){
-        this.doctor_lname = newdoctorlName;
+
+    public void setDoctor_fname(String doctor_fname) {
+        this.doctor_fname = doctor_fname;
     }
 
-    public String getdoctorlName(){
+    public String getDoctor_lname() {
         return this.doctor_lname;
-
     }
 
-    public void setdoctorAge(String newdoctorAge){
-        this.doctor_age = newdoctorAge;
+    public void setDoctor_lname(String doctor_lname) {
+        this.doctor_lname = doctor_lname;
     }
 
-    public String getdoctorAge(){
+    public String getDoctor_age() {
         return this.doctor_age;
     }
 
-    public void setDoctorDepartment(String newDoctorDepartment){
-        this.doctor_department = newDoctorDepartment;
+    public void setDoctor_age(String doctor_age) {
+        this.doctor_age = doctor_age;
     }
 
-    public String getDoctorDepartment(){
+    public String getDoctor_department() {
         return this.doctor_department;
     }
 
-    public void setdoctorSpecial(String newdoctorSpecial){
-        this.doctor_special = newdoctorSpecial;
+    public void setDoctor_department(String doctor_department) {
+        this.doctor_department = doctor_department;
     }
 
-    public String getdoctorSpecial(){
+    public String getDoctor_special() {
         return this.doctor_special;
     }
+
+    public void setDoctor_special(String doctor_special) {
+        this.doctor_special = doctor_special;
+    }
+
+    public int getRate_no() {
+        return this.rate_no;
+    }
+
+    public void setRate_no(int rate_no) {
+        this.rate_no = rate_no;
+    }
+
+    public float getRating() {
+        return this.rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
 }

@@ -114,7 +114,10 @@ public class ResetPass extends javax.swing.JFrame {
     }//GEN-LAST:event_sqTextActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
-        String sq = sqText.getText();
+        int response = JOptionPane.showConfirmDialog(this, "Are you sure you want to reset pass?", "Logout", JOptionPane.YES_NO_OPTION);
+
+        if(response == JOptionPane.YES_OPTION){
+            String sq = sqText.getText();
         String email = emailText.getText();
         String pass = passText.getText();
         if(sq.equals("")||email.equals("")||pass.equals("")){
@@ -122,18 +125,22 @@ public class ResetPass extends javax.swing.JFrame {
         }
         else{
 
-            User u1 = new User(null, null, null, email, null, pass, null, sq, null, null);
+            User u1 = new User(null, null, null, email, null, pass, null, sq, null, null,null);
                 UserController uc = new UserController();
                 int result = uc.reset(u1);
                 if(result>0){
                     JOptionPane.showMessageDialog(this, "Reset password Success");
                     dispose();
-                    new Login().setVisible(true);
+                   
                 }else{
                     JOptionPane.showMessageDialog(this, "Please enter correct security question answer");
                     
                 }
         }
+        }else{
+            return;
+        }
+        
     }//GEN-LAST:event_submitBtnActionPerformed
 
     /**
