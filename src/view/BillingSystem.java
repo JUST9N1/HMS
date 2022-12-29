@@ -67,6 +67,7 @@ public class BillingSystem extends javax.swing.JFrame {
         payBtn = new javax.swing.JButton();
         totalLabel = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
+        Total = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -190,11 +191,10 @@ public class BillingSystem extends javax.swing.JFrame {
         patientText.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(patientText, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 280, 35));
 
-        totalBtn.setBackground(new java.awt.Color(0, 0, 0));
+        totalBtn.setBackground(new java.awt.Color(51, 255, 255));
         totalBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
-        totalBtn.setForeground(new java.awt.Color(0, 255, 255));
         totalBtn.setText("SHOW  TOTAL AMOUNT");
-        totalBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 4, true));
+        totalBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 51), 4, true));
         totalBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalBtnActionPerformed(evt);
@@ -202,18 +202,16 @@ public class BillingSystem extends javax.swing.JFrame {
         });
         jPanel1.add(totalBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 250, 280, 50));
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
+        jButton3.setBackground(new java.awt.Color(51, 255, 255));
         jButton3.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 255, 255));
         jButton3.setText("PAYMENT STATEMENT");
-        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 4, true));
+        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 51), 4, true));
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 330, 260, 50));
 
-        payBtn.setBackground(new java.awt.Color(0, 0, 0));
+        payBtn.setBackground(new java.awt.Color(51, 255, 255));
         payBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
-        payBtn.setForeground(new java.awt.Color(0, 255, 255));
         payBtn.setText("PROCEED TO PAY");
-        payBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 153), 4, true));
+        payBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 51), 4, true));
         payBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 payBtnActionPerformed(evt);
@@ -224,7 +222,7 @@ public class BillingSystem extends javax.swing.JFrame {
         totalLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
         totalLabel.setForeground(new java.awt.Color(0, 255, 255));
         totalLabel.setText("Rs. 0");
-        jPanel1.add(totalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 220, 140, 30));
+        jPanel1.add(totalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 220, 140, 30));
 
         backBtn.setBackground(new java.awt.Color(51, 255, 255));
         backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
@@ -237,6 +235,11 @@ public class BillingSystem extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 0, 130, 50));
+
+        Total.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
+        Total.setForeground(new java.awt.Color(0, 255, 255));
+        Total.setText("Total");
+        jPanel1.add(Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 220, 140, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/Billing System.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -273,7 +276,9 @@ public class BillingSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_totalBtnActionPerformed
 
     private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
-       Bill b1 = new Bill(Integer.parseInt(billText.getText()), null,null, (med_total+test_total), med_total, test_total);
+       int respones = JOptionPane.showConfirmDialog(this, "Do you want to pay?","Confirm",JOptionPane.YES_NO_OPTION);
+       if(respones==JOptionPane.YES_OPTION){
+        Bill b1 = new Bill(Integer.parseInt(billText.getText()), null,null, (med_total+test_total), med_total, test_total);
        BillController bc=  new BillController();
        String email = null;
        int result  = bc.payment(b1);
@@ -298,10 +303,14 @@ public class BillingSystem extends javax.swing.JFrame {
         new UserMedController().payAdvance(new User_Med(0, email, null,null));
         func();
        }
+       }else{
+        return;
+       }
     }//GEN-LAST:event_payBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
+       dispose();
+       new UserDashboard().setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
     public void func(){
         //try
@@ -421,6 +430,7 @@ public class BillingSystem extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable MedicineDetails;
     private javax.swing.JTable TestDetails;
+    private javax.swing.JLabel Total;
     private javax.swing.JButton backBtn;
     private javax.swing.JTextField billText;
     private javax.swing.JTextField dateText;
