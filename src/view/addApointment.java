@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 //IMPORTING DATABASE CONTROLLERS
 import controller.AppointmentController;
 import controller.UserController;
-import database.db;
+
 import models.Appointment;
 import models.User;
 
