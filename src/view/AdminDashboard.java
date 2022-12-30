@@ -298,7 +298,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void accountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountBtnActionPerformed
         dispose();
-       new viewAdminProfile().setVisible(true);
+       new viewProfile().setVisible(true);
     }//GEN-LAST:event_accountBtnActionPerformed
 
     private void bedBTnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bedBTnActionPerformed

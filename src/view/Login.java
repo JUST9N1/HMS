@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 
 import controller.UserController;
-import database.db;
+
 import models.User;
 
 /**
