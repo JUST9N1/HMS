@@ -21,6 +21,6 @@ public static boolean dateVerify(String input) {
 }
    public static void main(String[] args) {
     
-    System.out.println(dateVerify("2000-12-12"));
+    System.out.println(dateVerify("abvss"));
    }
 }

@@ -348,6 +348,7 @@ public class MedicinePrescription extends javax.swing.JFrame {
             if(result>0){
                 JOptionPane.showMessageDialog(this, "Prescirbed Success");
                 dispose();
+                new ViewPatientRecord().setVisible(true);
             }
 
         } catch (Exception e) {

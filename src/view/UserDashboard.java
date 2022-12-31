@@ -352,7 +352,6 @@ public class UserDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void contactBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactBtnActionPerformed
-       dispose();
        new ReportProblem().setVisible(true);
     }//GEN-LAST:event_contactBtnActionPerformed
 

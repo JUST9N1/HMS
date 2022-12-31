@@ -24,7 +24,7 @@ import models.User_Med;
  */
 public class BillingSystem extends javax.swing.JFrame {
 
-    private String total_display;
+    private String total_display = "0";
     private int med_total;
     private int test_total;
     /**
@@ -165,7 +165,7 @@ public class BillingSystem extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 710, 460));
-//bill text
+
         billText.setBackground(new java.awt.Color(0, 0, 0));
         billText.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         billText.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,6 +206,11 @@ public class BillingSystem extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         jButton3.setText("PAYMENT STATEMENT");
         jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 51), 4, true));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 330, 260, 50));
 
         payBtn.setBackground(new java.awt.Color(51, 255, 255));
@@ -276,8 +281,13 @@ public class BillingSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_totalBtnActionPerformed
 
     private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
-       int respones = JOptionPane.showConfirmDialog(this, "Do you want to pay?","Confirm",JOptionPane.YES_NO_OPTION);
-       if(respones==JOptionPane.YES_OPTION){
+       if(total_display.equals("0")){
+        JOptionPane.showMessageDialog(this, "No amount to pay");
+       }
+       else{
+
+           int respones = JOptionPane.showConfirmDialog(this, "Do you want to pay?","Confirm",JOptionPane.YES_NO_OPTION);
+           if(respones==JOptionPane.YES_OPTION){
         Bill b1 = new Bill(Integer.parseInt(billText.getText()), null,null, (med_total+test_total), med_total, test_total);
        BillController bc=  new BillController();
        String email = null;
@@ -306,12 +316,19 @@ public class BillingSystem extends javax.swing.JFrame {
        }else{
         return;
        }
+    }
     }//GEN-LAST:event_payBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
        dispose();
        new UserDashboard().setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new ViewOldPayment().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
     public void func(){
         //try
         try {
