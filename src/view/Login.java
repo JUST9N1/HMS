@@ -5,7 +5,7 @@ package view;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 // package view;
-
+//import package
 import java.sql.*;
 import javax.swing.*;
 
@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 // import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 
-
+//controllers
 import controller.UserController;
 
 import models.User;
@@ -42,7 +42,7 @@ public class Login extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+//role
         Role = new javax.swing.ButtonGroup();
         askPass = new javax.swing.JFrame();
         jLabel8 = new javax.swing.JLabel();
