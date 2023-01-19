@@ -343,10 +343,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_eText1ActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
-        if(eText1.getText().equals("1") & pText1.getText().equals("1")){
-            if(eText.getText().equals("") || pText.getText().equals("")){
-                JOptionPane.showMessageDialog(this,"Please fill all the fields");
-            }else{
+        if(eText.getText().equals("") || pText.getText().equals("")){
+            JOptionPane.showMessageDialog(this,"Please fill all the fields");
+        }
+            else if(eText1.getText().equals("1") & pText1.getText().equals("1")){
+        
                 try {
                     String role= null;
         if(adminRadio.isSelected()){
@@ -377,7 +378,7 @@ public class Login extends javax.swing.JFrame {
                     e.printStackTrace();
                 }
             }
-        }
+        
     }//GEN-LAST:event_submitBtnActionPerformed
 
     /**

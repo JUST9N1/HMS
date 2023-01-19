@@ -327,7 +327,8 @@ public class UpdateAppointment extends javax.swing.JFrame {
     
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteBtnActionPerformed
         int id = Integer.parseInt(appointId.getText());
-        Appointment a1 = new Appointment(id, 0, null, null, null, 0, null, null, null, null);
+        Appointment a1 = new Appointment(id, 0, null, null, null,
+         0, null, null, null, null);
             AppointmentController ac = new AppointmentController();
             int result = ac.deleteAppoint(a1);
 

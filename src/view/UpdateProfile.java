@@ -399,7 +399,8 @@ public class UpdateProfile extends javax.swing.JFrame {
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         UserController uc = new UserController();
-        User s1 = new User(null, null, null, eText.getText(), null, null, null, null, null, null,null);
+        User s1 = new User(null, null, null, eText.getText(), 
+        null, null, null, null, null, null,null);
            uc.deleteAppointEmail(s1);
            uc.deleteBillEmail(s1);
            uc.deleteMedicineEmail(s1);

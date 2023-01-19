@@ -409,7 +409,8 @@ public class ViewOldAppointment extends javax.swing.JFrame {
                 System.out.println(newrate_no);
                  avgRating = (ratingA+newRating)/newrate_no;
                 System.out.println(avgRating);
-                Doctor d2 = new Doctor(id, null, null, null, null, null,newrate_no,avgRating);
+                Doctor d2 = new Doctor(id, null, null, null,
+                 null, null,newrate_no,avgRating);
             // sc = new DoctorController();
             sc.giveRating(d2);
 
