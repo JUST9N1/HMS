@@ -57,6 +57,7 @@ public class updateDoctor extends javax.swing.JFrame {
         contactBtn = new javax.swing.JButton();
         profileBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -256,6 +257,18 @@ public class updateDoctor extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        backBtn.setBackground(new java.awt.Color(51, 255, 255));
+        backBtn.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/back button.png"))); // NOI18N
+        backBtn.setText("BACK");
+        backBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51), 5));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 0, 130, 50));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/View Doctor.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1040, 630));
 
@@ -376,6 +389,12 @@ public class updateDoctor extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new ViewDoctor().setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
     public void view(){
         try {
             Doctor d1 = new Doctor(0, null, null, null, null, null,0,0);
@@ -447,6 +466,7 @@ public class updateDoctor extends javax.swing.JFrame {
     private javax.swing.JButton UpdateBtn;
     private javax.swing.JButton aboutBtn;
     private javax.swing.JTextField ageText;
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton contactBtn;
     private javax.swing.JTextField departText;
     private javax.swing.JButton homeBtn;

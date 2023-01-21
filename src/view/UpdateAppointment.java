@@ -122,6 +122,11 @@ public class UpdateAppointment extends javax.swing.JFrame {
         backBtn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         backBtn.setForeground(new java.awt.Color(204, 0, 51));
         backBtn.setText("BACK");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
         jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 0, 130, 60));
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
@@ -324,6 +329,12 @@ public class UpdateAppointment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logoutBtnActionPerformed
 
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new ViewAppointment().setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
+
     
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteBtnActionPerformed
         int id = Integer.parseInt(appointId.getText());
@@ -334,7 +345,8 @@ public class UpdateAppointment extends javax.swing.JFrame {
 
             if(result>0){
                 JOptionPane.showMessageDialog(this, "deleted");
-                display();
+                dispose();
+                new ViewAppointment().setVisible(true);
             }
     }// GEN-LAST:event_deleteBtnActionPerformed
 

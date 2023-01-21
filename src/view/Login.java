@@ -281,6 +281,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        new AboutUs().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtnActionPerformed
@@ -312,7 +313,7 @@ public class Login extends javax.swing.JFrame {
                         new UserDashboard().setVisible(true);
                     }
                     else{
-                        System.out.println("Failed to login ");
+                        JOptionPane.showMessageDialog(this,"Invalid Email or Password");
                         
                     }
                 } catch (SQLException e) {
@@ -370,13 +371,16 @@ public class Login extends javax.swing.JFrame {
         
                     }
                     else{
-                        System.out.println("Failed to login ");
+                        JOptionPane.showMessageDialog(this,"Invalid Email or Password");
                         
                     }
                 } catch (SQLException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
+            }
+            else{
+                JOptionPane.showMessageDialog(this,"Invalid id and pass");
             }
         
     }//GEN-LAST:event_submitBtnActionPerformed

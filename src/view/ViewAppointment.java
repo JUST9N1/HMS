@@ -62,6 +62,11 @@ public class ViewAppointment extends javax.swing.JFrame {
         jButton6.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 102, 0));
         jButton6.setText("BACK");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(925, 10, 120, 40));
 
         jLabel4.setFont(new java.awt.Font("Stencil", 1, 48)); // NOI18N
@@ -356,6 +361,12 @@ public class ViewAppointment extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new AdminDashboard().setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     public void display(){
